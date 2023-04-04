@@ -40,4 +40,3 @@ Symbiota has been generously funded by the National Science Foundation (DBI-0743
 
 Please read the [INSTALL.md](docs/INSTALL.md) file for installation instructions.
 
-
