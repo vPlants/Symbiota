@@ -10,5 +10,5 @@
 <!-- Responsive viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
+<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css?ver=1" type="text/css" rel="stylesheet" />
+<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css?ver=1" type="text/css" rel="stylesheet" />
