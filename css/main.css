@@ -10,7 +10,7 @@ body{
 	margin-top: 0px;
 	padding: 0;
 	color: #333;
-	background: #E9E975;
+	background: #ffb;
 	font-family: Verdana, Lucida, Helvetica, Arial, sans-serif;
 }
 
@@ -202,14 +202,12 @@ div.indexdescription p {
 /*Central div in the middle center table div */
 #innertext{
 	min-height:400px;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom: 0px;
-	margin-top: 0px;
+	margin: 0px;
 	padding-top: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
+	background: #ffb;
 }
 
 #innervplantstext{
@@ -221,11 +219,13 @@ div.indexdescription p {
 	margin-right:0px;
 }
 
-#innertext a{
-
+#innertable{
+	border-spacing: 0px;
+	width: 100%;
 }
-#innertext a:hover{
 
+#innertable td{
+	vertical-align: top;
 }
 
 div.navpath {
@@ -438,7 +438,7 @@ ul.sitemenu a:active {
 }
 
 ul.sitemenu ul {
-	display: none;
+	display: block;
 	list-style-type:none;
 }
 ul.sitemenu li:hover { position:relative; }
@@ -1253,7 +1253,6 @@ body.fungi .box h3 {
 	}
 
 /* #wrapper1 */
-body {color: #333; background: #ffb;}
 #sitehead {
 	min-height: 60px;
 	color: #361; 

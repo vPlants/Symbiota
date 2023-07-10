@@ -15,9 +15,9 @@ header("Content-Type: text/html; charset=".$CHARSET);
 </head>
 <body>
 	<?php
-	$displayLeftMenu = "true";
+	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -35,8 +35,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<p>
 						Nearly 2,700 different species of <a href="<?php echo $CLIENT_ROOT; ?>/plants/guide/index.php" title="Guide to plants.">vascular plants</a> are recorded in the
 						 <a href="<?php echo $CLIENT_ROOT; ?>/about/map_county.php" title="See County Map for Chicago Region.">24 counties</a>
-						of the 
-						 <a href="<?php echo $CLIENT_ROOT; ?>/about/chicago.php" title="Why the Chicago Region?">Chicago Region</a>. There are an additional 300 subspecies, varieties, or forms.  Within these 
+						of the
+						 <a href="<?php echo $CLIENT_ROOT; ?>/about/chicago.php" title="Why the Chicago Region?">Chicago Region</a>. There are an additional 300 subspecies, varieties, or forms.  Within these
 						 <a href="<?php echo $CLIENT_ROOT; ?>/plants/diversity.php" title="How many plants.">3,000 taxa</a>, approximately 1650 taxa (55% of flora) are native.  Considering the relatively small physical area of the Region, this is a surprisingly large number of species of vascular plants.
 						</p>
 
@@ -59,10 +59,10 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-		
+
 					<div id="content2"><!-- start of side content -->
 					<!-- any image width should be 250 pixels -->
-			 
+
 						<div class="box">
 							<h3>Directory and Guides</h3>
 							<ul>
@@ -73,21 +73,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							</ul>
 						</div>
 
-						<div id="simpleform">
-							<fieldset>
-								<legend title="Enter name of plant or fungus in one or more of the search fields.">Name Search</legend>
-								<?php
-								$buttonText = 'Go';
-								include_once($SERVER_ROOT.'/classes/PluginsManager.php');
-								$pluginManager = new PluginsManager();
-								$quicksearch = $pluginManager->createQuickSearch($buttonText);
-								echo $quicksearch;
-								?>
-							</fieldset>
-						</div>
-
 						<p class="large">
-							  <a href="<?php echo $CLIENT_ROOT; ?>/collections/index.php" 
+							  <a href="<?php echo $CLIENT_ROOT; ?>/collections/index.php"
 							   title="Search by Location, Collector, and more.">Go to Advanced Search</a>
 						</p>
 
@@ -100,7 +87,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

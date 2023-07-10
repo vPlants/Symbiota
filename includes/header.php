@@ -105,3 +105,16 @@
 		</div>
 	</header>
 </div>
+<?php
+if(isset($displayLeftMenu) && $displayLeftMenu){
+	?>
+	<table id="innertable">
+		<tr>
+			<td style="background: #360;">
+				<?php include($SERVER_ROOT . '/includes/leftmenu.php'); ?>
+			</td>
+			<td>
+	<?php
+}
+?>
+

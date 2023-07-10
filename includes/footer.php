@@ -1,3 +1,12 @@
+<?php
+if(isset($displayLeftMenu) && $displayLeftMenu){
+	?>
+			</td>
+		</tr>
+	</table>
+	<?php
+}
+?>
 <footer>
 	<div id="sitefoot"><a id="menu4" name="menu4"></a>
 		<h5 class="access">Footer Menu</h5>
@@ -6,7 +15,7 @@
 			<!-- <li><a href="<?php echo $CLIENT_ROOT; ?>/help/" accesskey="6" title="Help and user guide.">Help Guide</a></li> -->
 			<li><a href="<?php echo $CLIENT_ROOT; ?>/sitemap.php" accesskey="7" title="Table of contents.">Site Map</a></li>
 			<li><a href="<?php echo $CLIENT_ROOT; ?>/about/contact.php" accesskey="8" title="Contact information.">Contact Us</a></li>
-			<li><a href="<?php echo $CLIENT_ROOT; ?>/about/feedback.php" accesskey="9" title="Please provide feedback!">Feedback</a></li>
+			<!-- <li><a href="<?php echo $CLIENT_ROOT; ?>/about/feedback.php" accesskey="9" title="Please provide feedback!">Feedback</a></li> -->
 			<!-- <li><a href="access.php" accesskey="0" title="Accessibility features of this site.">Accessibility Statement</a></li> -->
 		</ul>
 		<p id="funds">Funded by <a href="http://www.imls.gov" target="_blank" title="Go to IMLS web site.">Institute of Museum and Library Services (IMLS)</a></p>

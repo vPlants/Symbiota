@@ -7,7 +7,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Help with Prototype Pages</title>
 	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="css/main.css" type="text/css" rel="stylesheet" />
+	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
 		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
@@ -15,7 +15,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 </head>
 <body>
 	<?php
-	$displayLeftMenu = "true";
+	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
