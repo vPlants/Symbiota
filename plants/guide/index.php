@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Guide to Plants</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Plants</title>
 	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
@@ -32,9 +32,9 @@ header("Content-Type: text/html; charset=".$charset);
 					<h1>Guide to Plants of the Chicago Region</h1>
 
 					<div style="margin:20px;">
-						<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
+						<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
 						
-						<p>Use the <a href="../../checklists/checklist.php?cl=3503&pid=93" title="Index of genera">Species Index</a> to see an alphabetical lists of included plants. At the top of the page you can Search for plants by name. For a complete list of the plant species, subspecies, and varieties represented in the Chicago Region, see the <a href="<?php echo $clientRoot; ?>/resources/plant_checklist.php" title="vPlants document.">Scientific Name Checklist</a>.</p>
+						<p>Use the <a href="../../checklists/checklist.php?cl=3503&pid=93" title="Index of genera">Species Index</a> to see an alphabetical lists of included plants. At the top of the page you can Search for plants by name. For a complete list of the plant species, subspecies, and varieties represented in the Chicago Region, see the <a href="<?php echo $CLIENT_ROOT; ?>/resources/plant_checklist.php" title="vPlants document.">Scientific Name Checklist</a>.</p>
 
 						<table class="key" cellpadding="3" cellspacing="0" border="0">
 						<caption>Groups included in vPlants</caption>
@@ -125,16 +125,16 @@ header("Content-Type: text/html; charset=".$charset);
 						<h3>Related Pages</h3>
 						 <ul>
 							 <li>
-							  <a href="<?php echo $clientRoot; ?>/plants/diversity.php" title="How many plants.">Chicago plant diversity</a>
+							  <a href="<?php echo $CLIENT_ROOT; ?>/plants/diversity.php" title="How many plants.">Chicago plant diversity</a>
 							 </li>
 							 <li>
-								<a href="<?php echo $clientRoot; ?>/plants/index.php">More information on plants</a>
+								<a href="<?php echo $CLIENT_ROOT; ?>/plants/index.php">More information on plants</a>
 							 </li>
 							 <li>
-							  <a href="<?php echo $clientRoot; ?>/resources/plant_checklist.php" title="vPlants document.">Scientific Name Checklist</a>
+							  <a href="<?php echo $CLIENT_ROOT; ?>/resources/plant_checklist.php" title="vPlants document.">Scientific Name Checklist</a>
 							 </li>
 							 <li>
-							  <a href="<?php echo $clientRoot; ?>/resources/links.php" title="Links to related web sites">Links for Plants</a>
+							  <a href="<?php echo $CLIENT_ROOT; ?>/resources/links.php" title="Links to related web sites">Links for Plants</a>
 							 </li>
 							 <li>
 							  <a href="growthforms.php">Growth Forms</a>
@@ -143,13 +143,13 @@ header("Content-Type: text/html; charset=".$charset);
 						</div>
 						 
 						<p>Non-flowering vascular plants</p>
-						<img src="<?php echo $clientRoot; ?>/images/vplants/feature/nonflowering.jpg" width="250" height="342" alt="Non-flowering plant examples: fern frond, a pteridophyte; and spruce branch, a gymnosperm.">
+						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/nonflowering.jpg" width="250" height="342" alt="Non-flowering plant examples: fern frond, a pteridophyte; and spruce branch, a gymnosperm.">
 						<hr>
 						<p>Flowering plants </p>
-						<img src="<?php echo $clientRoot; ?>/images/vplants/feature/angios.jpg" width="250" height="322" alt="Flowering plant examples: flowers of cactus and wild rice, both angiosperms.">
+						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/angios.jpg" width="250" height="322" alt="Flowering plant examples: flowers of cactus and wild rice, both angiosperms.">
 						 
 						 
-						<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
+						<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 
 					</div><!-- end of #content2 -->
 				</div><!-- end of #wrapper1 -->
@@ -157,7 +157,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #innervplantstext -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

@@ -4,9 +4,9 @@ header('Cache-control: private'); // IE 6 FIX
 date_default_timezone_set('America/Phoenix');
 $CODE_VERSION = '1.2.1.202206';
 
-if(!isset($CLIENT_ROOT) && isset($clientRoot)) $CLIENT_ROOT = $clientRoot;
+if(!isset($CLIENT_ROOT) && isset($CLIENT_ROOT)) $CLIENT_ROOT = $CLIENT_ROOT;
 if(substr($CLIENT_ROOT,-1) == '/') $CLIENT_ROOT = substr($CLIENT_ROOT,0,strlen($CLIENT_ROOT)-1);
-if(!isset($SERVER_ROOT) && isset($serverRoot)) $SERVER_ROOT = $serverRoot;
+if(!isset($SERVER_ROOT) && isset($SERVER_ROOT)) $SERVER_ROOT = $SERVER_ROOT;
 if(substr($SERVER_ROOT,-1) == '/') $SERVER_ROOT = substr($SERVER_ROOT,0,strlen($SERVER_ROOT)-1);
 set_include_path(get_include_path() . PATH_SEPARATOR . $SERVER_ROOT . PATH_SEPARATOR . $SERVER_ROOT.'/config/' . PATH_SEPARATOR . $SERVER_ROOT.'/classes/');
 
@@ -53,9 +53,9 @@ $IS_ADMIN = (array_key_exists('SuperAdmin',$USER_RIGHTS)?1:0);
 //Temporarly needed so that old configuration will still work
 if(!isset($DEFAULT_LANG) && isset($defaultLang)) $DEFAULT_LANG = $defaultLang;
 if(!isset($DEFAULT_PROJ_ID) && isset($defaultProjId)) $DEFAULT_PROJ_ID = $defaultProjId;
-if(!isset($DEFAULT_TITLE) && isset($defaultTitle)) $DEFAULT_TITLE = $defaultTitle;
+if(!isset($DEFAULT_TITLE) && isset($DEFAULT_TITLE)) $DEFAULT_TITLE = $DEFAULT_TITLE;
 if(!isset($ADMIN_EMAIL) && isset($adminEmail)) $ADMIN_EMAIL = $adminEmail;
-if(!isset($CHARSET) && isset($charset)) $CHARSET = $charset;
+if(!isset($CHARSET) && isset($CHARSET)) $CHARSET = $CHARSET;
 if(!isset($TEMP_DIR_ROOT) && isset($tempDirRoot)) $TEMP_DIR_ROOT = $tempDirRoot;
 if(!isset($LOG_PATH) && isset($logPath)) $LOG_PATH = $logPath;
 if(!isset($IMAGE_DOMAIN) && isset($imageDomain)) $IMAGE_DOMAIN = $imageDomain;
@@ -85,7 +85,7 @@ if(!isset($GLOSSARY_EXPORT_BANNER) && isset($glossaryExportBanner)) $GLOSSARY_EX
 if(!isset($defaultLang) && isset($DEFAULT_LANG)) $defaultLang = $DEFAULT_LANG;
 if(!isset($defaultProjId) && isset($DEFAULT_PROJ_ID)) $defaultProjId = $DEFAULT_PROJ_ID;
 if(!isset($adminEmail) && isset($ADMIN_EMAIL)) $adminEmail = $ADMIN_EMAIL;
-if(!isset($charset) && isset($CHARSET)) $charset = $CHARSET;
+if(!isset($CHARSET) && isset($CHARSET)) $CHARSET = $CHARSET;
 if(!isset($tempDirRoot) && isset($TEMP_DIR_ROOT)) $tempDirRoot = $TEMP_DIR_ROOT;
 if(!isset($logPath) && isset($LOG_PATH)) $logPath = $LOG_PATH;
 if(!isset($imageDomain) && isset($IMAGE_DOMAIN)) $imageDomain = $IMAGE_DOMAIN;

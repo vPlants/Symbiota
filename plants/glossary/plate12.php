@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Plate 12 - Sedges, Grasses, and Composites</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Plate 12 - Sedges, Grasses, and Composites</title>
 	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
@@ -33,7 +33,7 @@ header("Content-Type: text/html; charset=".$charset);
 
 						<div style="margin:20px;">
 							<div class="plate">
-							<img src="<?php echo $clientRoot; ?>/images/vplants/plants/glossary/plate12.jpg" width="703" height="1055" 
+							<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/plants/glossary/plate12.jpg" width="703" height="1055" 
 							alt="Line drawings of plant features." 
 							title="Plate 12: Sedges, Grasses, and Composites.">
 							<h2>Plate 12: Sedges, Grasses, and Composites</h2>
@@ -130,7 +130,7 @@ header("Content-Type: text/html; charset=".$charset);
         
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

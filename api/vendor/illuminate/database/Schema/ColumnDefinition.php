@@ -9,7 +9,7 @@ use Illuminate\Support\Fluent;
  * @method $this always() Used as a modifier for generatedAs() (PostgreSQL)
  * @method $this autoIncrement() Set INTEGER columns as auto-increment (primary key)
  * @method $this change() Change the column
- * @method $this charset(string $charset) Specify a character set for the column (MySQL)
+ * @method $this charset(string $CHARSET) Specify a character set for the column (MySQL)
  * @method $this collation(string $collation) Specify a collation for the column (MySQL/PostgreSQL/SQL Server)
  * @method $this comment(string $comment) Add a comment to the column (MySQL/PostgreSQL)
  * @method $this default(mixed $value) Specify a "default" value for the column

@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("../config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?> vPlants - Help with Searching</title>
+	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Help with Searching</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -28,7 +28,7 @@ header("Content-Type: text/html; charset=".$charset);
 
 				<h2>Using Advanced Search</h2>
 
-				<p>Use the <a href="<?php echo $clientRoot; ?>/collections/index.php">Advanced Search</a> to find specimens by particular collectors, dates, or locations.
+				<p>Use the <a href="<?php echo $CLIENT_ROOT; ?>/collections/index.php">Advanced Search</a> to find specimens by particular collectors, dates, or locations.
 				Many records, especially older ones, do not have complete collection data. For example, old records may only have the year indicated, or very little locality information, such as only the state.</p>
 
 				<p>When searching collector names, the suffixes (Sr., Jr., III, etc.) are best left off.</p>
@@ -39,7 +39,7 @@ header("Content-Type: text/html; charset=".$charset);
         </div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

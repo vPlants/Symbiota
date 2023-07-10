@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?> vPlants - Plant Diversity</title>
+	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Plant Diversity</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -98,13 +98,13 @@ header("Content-Type: text/html; charset=".$charset);
 					<div id="content2"><!-- start of side content -->
 					<!-- any image width should be 250 pixels -->
 
-					<img src="<?php echo $clientRoot; ?>/images/vplants/feature/panne.jpg" width="250" height="177" alt="">
+					<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/panne.jpg" width="250" height="177" alt="">
 					<div class="box imgtext">
 					<p>A panne is a wet depression between dunes. It is one of many habitats that contribute to the diversity of life in the Chicago Region.</p>
 					</div>
 
 					<a href="../map.php" title="See State Map for Chicago Region."><img class="border"
-					 src="<?php echo $clientRoot; ?>/images/vplants/img/map_grtlakes_250.jpg" width="250" height="212"
+					 src="<?php echo $CLIENT_ROOT; ?>/images/vplants/img/map_grtlakes_250.jpg" width="250" height="212"
 					alt="The vPlants Region is located within four states at the south end of Lake Michigan." /></a>
 
 					<div class="box">
@@ -124,7 +124,7 @@ header("Content-Type: text/html; charset=".$charset);
 					</p>
 					</div>
 
-					<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
+					<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 
 					</div><!-- end of #content2 -->
 				</div><!-- end of #wrapper1 -->
@@ -132,7 +132,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

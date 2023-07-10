@@ -1,12 +1,12 @@
 <?php
 //error_reporting(E_ALL);
 include_once("config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?> Home</title>
-	<link href="css/base.css" type="text/css" rel="stylesheet" />
+	<title><?php echo $DEFAULT_TITLE; ?> Home</title>
+	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
 	<link href="css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
@@ -16,7 +16,7 @@ header("Content-Type: text/html; charset=".$charset);
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -63,7 +63,7 @@ header("Content-Type: text/html; charset=".$charset);
 							<legend title="Enter name of plant in one or more of the search fields.">Name Search</legend>
 							<?php
 							$buttonText = 'Go';
-							include_once($serverRoot.'/classes/PluginsManager.php');
+							include_once($SERVER_ROOT.'/classes/PluginsManager.php');
 							$pluginManager = new PluginsManager();
 							$quicksearch = $pluginManager->createQuickSearch($buttonText);
 							echo $quicksearch;
@@ -71,7 +71,7 @@ header("Content-Type: text/html; charset=".$charset);
 						</fieldset>
 					</div>
 
-					<p class="large"><a href="<?php echo $clientRoot; ?>/collections/index.php" title="Search by Location, Collector, and more.">Go to Advanced Search</a></p>
+					<p class="large"><a href="<?php echo $CLIENT_ROOT; ?>/collections/index.php" title="Search by Location, Collector, and more.">Go to Advanced Search</a></p>
 
 					<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p>
 					<p class="small noprint"><a href="disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
@@ -82,7 +82,7 @@ header("Content-Type: text/html; charset=".$charset);
 			</div><!-- End of #bodywrap -->
 		</div>
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

@@ -38,7 +38,7 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
     private $clonesCount = 0;
     private $clonesIndex = 0;
     private $rootRefs;
-    private $charset;
+    private $CHARSET;
     private $requestStack;
     private $dumper;
     private $sourceContextProvider;
@@ -47,12 +47,12 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
      * @param string|FileLinkFormatter|null       $fileLinkFormat
      * @param DataDumperInterface|Connection|null $dumper
      */
-    public function __construct(Stopwatch $stopwatch = null, $fileLinkFormat = null, string $charset = null, RequestStack $requestStack = null, $dumper = null)
+    public function __construct(Stopwatch $stopwatch = null, $fileLinkFormat = null, string $CHARSET = null, RequestStack $requestStack = null, $dumper = null)
     {
         $fileLinkFormat = $fileLinkFormat ?: \ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format');
         $this->stopwatch = $stopwatch;
         $this->fileLinkFormat = $fileLinkFormat instanceof FileLinkFormatter && false === $fileLinkFormat->format('', 0) ? false : $fileLinkFormat;
-        $this->charset = $charset ?: \ini_get('php.output_encoding') ?: \ini_get('default_charset') ?: 'UTF-8';
+        $this->charset = $CHARSET ?: \ini_get('php.output_encoding') ?: \ini_get('default_charset') ?: 'UTF-8';
         $this->requestStack = $requestStack;
         $this->dumper = $dumper;
 
@@ -176,7 +176,7 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
     {
         parent::__wakeup();
 
-        $charset = array_pop($this->data);
+        $CHARSET = array_pop($this->data);
         $fileLinkFormat = array_pop($this->data);
         $this->dataCount = \count($this->data);
         foreach ($this->data as $dump) {
@@ -185,7 +185,7 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
             }
         }
 
-        self::__construct($this->stopwatch, \is_string($fileLinkFormat) || $fileLinkFormat instanceof FileLinkFormatter ? $fileLinkFormat : null, \is_string($charset) ? $charset : null);
+        self::__construct($this->stopwatch, \is_string($fileLinkFormat) || $fileLinkFormat instanceof FileLinkFormatter ? $fileLinkFormat : null, \is_string($CHARSET) ? $CHARSET : null);
     }
 
     public function getDumpsCount(): int

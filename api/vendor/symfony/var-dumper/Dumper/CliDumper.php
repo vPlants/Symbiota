@@ -64,9 +64,9 @@ class CliDumper extends AbstractDumper
     /**
      * {@inheritdoc}
      */
-    public function __construct($output = null, string $charset = null, int $flags = 0)
+    public function __construct($output = null, string $CHARSET = null, int $flags = 0)
     {
-        parent::__construct($output, $charset, $flags);
+        parent::__construct($output, $CHARSET, $flags);
 
         if ('\\' === \DIRECTORY_SEPARATOR && !$this->isWindowsTrueColor()) {
             // Use only the base 16 xterm colors when using ANSICON or standard Windows 10 CLI

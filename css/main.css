@@ -20,6 +20,7 @@ p, td, ul, ol, li, dl, dt, dd {
 
 td, th { 
 	font-size: 0.9em;
+	padding: 0px .3em;
 }
 
 h1 { 
@@ -101,29 +102,9 @@ td.header{
 	height:75px;
 }
 
-td.header a{
-
-}
-
-td.header a:hover{
-
-}
-
-td.middleleft{
-}
-
-td.middleleftnomenu{
-}
-
 td.middlecenter{
 	padding-top: 0px;
 	background: #ffb;
-}
-
-td.middleright{
-}
-
-td.footer{
 }
 
 /*Left menu components*/
@@ -269,7 +250,7 @@ div.navpath {
 	color:#000000;
 	margin-top:9px;
 }
-ul#hor_dropdown{
+#hor_dropdown{
 	list-style:none;
 	float:left;
 	position:relative;
@@ -284,13 +265,13 @@ ul#hor_dropdown{
 	background-position:top;
 	background-color:#c2c2c2;
 }
-ul#hor_dropdown li{		
+#hor_dropdown li{		
 	float:left;
 	position:relative;
 	padding:0;
 	margin:0;
 }
-ul#hor_dropdown a{
+#hor_dropdown a{
 	display:block;
 	color:#000000;
 	text-decoration:none;
@@ -302,7 +283,7 @@ ul#hor_dropdown a{
     background-repeat: no-repeat;
     background-position: right bottom;
 }
-ul#hor_dropdown a:hover{
+#hor_dropdown a:hover{
 	background-color:#999999;
 	color:#FFFFFF;
 	padding-top:8px;
@@ -312,7 +293,7 @@ ul#hor_dropdown a:hover{
 	background-image:none;
 }
 /* Submenu */
-ul#hor_dropdown ul {
+#hor_dropdown ul {
 	list-style:none;
 	position:absolute;
 	left:-9999px;
@@ -320,19 +301,19 @@ ul#hor_dropdown ul {
 	background-color:#dcdcdc;
 	z-index:1000;
 }
-ul#hor_dropdown ul li{
+#hor_dropdown ul li{
 	float:none;
 }
-ul#hor_dropdown ul a{
+#hor_dropdown ul a{
 	white-space:nowrap;
 }
-ul#hor_dropdown li:hover ul {
+#hor_dropdown li:hover ul {
 	left:0;
 	top:33px;
 	padding:0px;
 	z-index:1000;
 }
-ul#hor_dropdown li:hover ul a {
+#hor_dropdown li:hover ul a {
 	padding:5px;
 	text-decoration:none;
 	text-indent:8px;
@@ -341,7 +322,7 @@ ul#hor_dropdown li:hover ul a {
 	background-color:#dcdcdc;
 	z-index:1000;
 }
-ul#hor_dropdown li:hover ul li a:hover { 
+#hor_dropdown li:hover ul li a:hover { 
 	background:#999999; 
 }
 
@@ -938,13 +919,11 @@ dt.namecode, dd.namecode {
 
 body.prototypes td {
 	font-size: .8em;
-	}
-
-td, th { padding: .3em;}
+}
 
 tr.odd {
 	background: #eee;
-	} 
+} 
 tr.highlight {
 	background: #fefec6;
 	} 
@@ -996,7 +975,7 @@ table#speclist {
 	margin: 0;
 	}
 	
-ul#searchvars {
+#searchvars {
 	display: block;
 	list-style: none;
 	font-size: .8em;

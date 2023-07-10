@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle?>vPlants - Topics - Invasive Plants</title>
+	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Invasive Plants</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innertext">
@@ -31,7 +31,7 @@ header("Content-Type: text/html; charset=".$charset);
 		
 		<div id="content2">
 
-			<img src="<?php echo $clientRoot; ?>/images/vplants/feature/LYSA2.jpg" width="250" height="366" alt="purple flowered plant in wetland" title="Lythrum salicaria">
+			<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/LYSA2.jpg" width="250" height="366" alt="purple flowered plant in wetland" title="Lythrum salicaria">
 						<div class="box imgtext">
 						<p>Purple loosestrife, <a href="../taxa/index.php?taxon=Lythrum%20salicaria"><i>Lythrum salicaria</i></a>, is an incredibly harmful invasive plant that was introduced to North America from Eurasia and has spread into wetlands across the continent.</p>
 						</div>
@@ -48,7 +48,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #content2 -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle?>vPlants - Topics - Native Plants</title>
+	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Native Plants</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innertext">
@@ -40,7 +40,7 @@ header("Content-Type: text/html; charset=".$charset);
 		
 		<div id="content2">
 
-			<img src="<?php echo $clientRoot; ?>/images/vplants/feature/CAAM6.jpg" width="250" height="321" alt="Blue flowers" title="Campanula americana">
+			<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/CAAM6.jpg" width="250" height="321" alt="Blue flowers" title="Campanula americana">
 			<div class="box imgtext">
 			<p>The tall bellflower, <i>Campanula americana</i> is one of the 1650 native plants in the region.
 			</p>
@@ -51,7 +51,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #content2 -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

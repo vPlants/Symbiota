@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?> About Us - The vPlants Project</title>
+	<title><?php echo $DEFAULT_TITLE; ?> About Us - The vPlants Project</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
 		<div  id="innervplantstext">
@@ -50,21 +50,21 @@ header("Content-Type: text/html; charset=".$charset);
 					<div id="content2">
 						<!-- any image width should be 250 pixels -->
 
-						<img src="<?php echo $clientRoot; ?>/images/vplants/feature/herb_south.jpg" width="250" height="225" alt="Older gray metal herbarium cabinets, placed end to end in rows.">
+						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/herb_south.jpg" width="250" height="225" alt="Older gray metal herbarium cabinets, placed end to end in rows.">
 						<p>Cabinets in the old south herbarium of the Field Museum.</p>
 
 						<div class="box">
 						 <h3>Features in production</h3>
 						 <p>
 						  <a href="/news/" 
-						   title="See description pages and more."><img src="<?php echo $clientRoot; ?>/images/vplants/feature/prototype_210.jpg" width="210" height="291" alt="Thumbnail image of prototype description page."></a>
+						   title="See description pages and more."><img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/prototype_210.jpg" width="210" height="291" alt="Thumbnail image of prototype description page."></a>
 						 </p>
 						<ul><li>
 
 						</li></ul>
 						</div>
 
-						<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
+						<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 
 					</div><!-- end of #content2 -->
 				</div>
@@ -72,7 +72,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

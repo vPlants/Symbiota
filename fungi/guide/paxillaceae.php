@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("../../config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Guide to Paxillaceae</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Paxillaceae</title>
 	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -25,7 +25,7 @@ header("Content-Type: text/html; charset=".$charset);
             <div style="margin:20px;">
             	<div class="floatimg"></div>
 
-				<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
+				<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
 
 
 				<p>This family is related to the boletes and contains members with various spore producing surfaces including pores, gills, and ridges</p>
@@ -54,7 +54,7 @@ header("Content-Type: text/html; charset=".$charset);
 				<tr class="keychoice">
 				<td id="k2">2a. Cap large, veil large, thick, connecting cap edge to lower stem.</td>
 				<td ><!-- image --></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/PARA1/PARA1SPHA_whole.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/PARA1/PARA1SPHA_whole.jpg" width="125" height="100" alt=""></td>
 				<td ><a href="paragyrodon.html"><i class="genus">Paragyrodon</i></a></td>
 				</tr><tr >
 				<td>2b. Cap brown, stem off-center or lateral and short to stubby, pores radially elongated and/or irregular with cross-veins. Growing near ash tree (<i>Fraxinus</i>).</td>
@@ -69,7 +69,7 @@ header("Content-Type: text/html; charset=".$charset);
         </div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

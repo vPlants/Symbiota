@@ -110,7 +110,7 @@
 		?> 
 		<td style="width: 7.4em;"> 
 			<div style="height:100%;background:#360;">
-				<?php include($serverRoot."/leftmenu.php"); ?>
+				<?php include($SERVER_ROOT."/leftmenu.php"); ?>
 			</div>
 		</td>
 		<?php 

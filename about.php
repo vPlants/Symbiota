@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - About Us</title>
-	<link href="css/base.css" type="text/css" rel="stylesheet" />
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - About Us</title>
+	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
 	<link href="css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -46,7 +46,7 @@ header("Content-Type: text/html; charset=".$charset);
 
 			<!-- image width is 250 pixels -->
 
-			<img src="<?php echo $clientRoot; ?>/images.vplants/feature/south_herb.jpg" width="250" height="225" alt="Older gray metal herbarium cabinets, placed end to end in rows." />
+			<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/south_herb.jpg" width="250" height="225" alt="Older gray metal herbarium cabinets, placed end to end in rows." />
 			<div class="box">
 			<p>
 			Cabinets in the old south herbarium of the Field Museum.
@@ -67,7 +67,7 @@ header("Content-Type: text/html; charset=".$charset);
 
 			<p>
 			<a href="/pr/species/" 
-			 title="See prototype description pages and more."><img src="<?php echo $clientRoot; ?>/images.vplants/feature/prototype_210.jpg" width="210" height="291" alt="Thumbnail image of prototype description page." /></a>
+			 title="See prototype description pages and more."><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/prototype_210.jpg" width="210" height="291" alt="Thumbnail image of prototype description page." /></a>
 			</p>
 			</div>
 
@@ -88,7 +88,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #content2 -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - About Us</title>
-	<link href="css/base.css" type="text/css" rel="stylesheet" />
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - About Us</title>
+	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
 	<link href="css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -87,14 +87,14 @@ header("Content-Type: text/html; charset=".$charset);
 
 			<!-- image width is 250 pixels -->
 
-			<img src="<?php echo $clientRoot; ?>/images.vplants/feature/compactors.jpg" width="250" height="249" alt="Compactor cabinets that are in rows on tracks and moved manually." />
+			<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/compactors.jpg" width="250" height="249" alt="Compactor cabinets that are in rows on tracks and moved manually." />
 			<div class="box">
 			<p>
 			Movable rows (compactors) of herbarium cabinets at the Field Museum, which store a portion of the over 2.7 million specimens at that herbarium.
 			</p>
 			</div>
 
-			<img src="<?php echo $clientRoot; ?>/images.vplants/feature/V0030596F.jpg" width="250" height="362" alt="Specimen of Hibiscus moscheutos ssp. moscheutos collected in Chicago in 1891." />
+			<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/V0030596F.jpg" width="250" height="362" alt="Specimen of Hibiscus moscheutos ssp. moscheutos collected in Chicago in 1891." />
 			<div class="box">
 			<p>
 			Herbarium specimen of <i>Hibiscus moscheutos</i> L. ssp. <i>moscheutos</i> that was collected in the Hegewisch neighborhood of Chicago in 1891.
@@ -117,7 +117,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #content2 -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

@@ -37,7 +37,7 @@ class HTMLPurifier_URIScheme_data extends HTMLPurifier_URIScheme
     {
         $result = explode(',', $uri->path, 2);
         $is_base64 = false;
-        $charset = null;
+        $CHARSET = null;
         $content_type = null;
         if (count($result) == 2) {
             list($metadata, $data) = $result;
@@ -52,10 +52,10 @@ class HTMLPurifier_URIScheme_data extends HTMLPurifier_URIScheme
                 if (substr($cur, 0, 8) == 'charset=') {
                     // doesn't match if there are arbitrary spaces, but
                     // whatever dude
-                    if ($charset !== null) {
+                    if ($CHARSET !== null) {
                         continue;
                     } // garbage
-                    $charset = substr($cur, 8); // not used
+                    $CHARSET = substr($cur, 8); // not used
                 } else {
                     if ($content_type !== null) {
                         continue;
@@ -69,9 +69,9 @@ class HTMLPurifier_URIScheme_data extends HTMLPurifier_URIScheme
         if ($content_type !== null && empty($this->allowed_types[$content_type])) {
             return false;
         }
-        if ($charset !== null) {
+        if ($CHARSET !== null) {
             // error; we don't allow plaintext stuff
-            $charset = null;
+            $CHARSET = null;
         }
         $data = rawurldecode($data);
         if ($is_base64) {

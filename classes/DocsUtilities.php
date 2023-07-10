@@ -7,16 +7,16 @@ class DocsUtilities
      * Methods depend on external documentation API.
      */
 
-    public function getFilePath($magicFilePath, $serverRootPath)
+    public function getFilePath($magicFilePath, $SERVER_ROOTPath)
     {
         /**
          * $magicFilePath String __FILE__ (in file where it's being called, or full file url)
-         * $serverRootPath String equivalent to server root url ($SERVER_ROOT in most pages)
+         * $SERVER_ROOTPath String equivalent to server root url ($SERVER_ROOT in most pages)
          */
 
         $filePath = str_replace("\\", "/", $magicFilePath);
-        $filePathStart = strpos($filePath, $serverRootPath);
-        $filePathEnd = strlen($serverRootPath);
+        $filePathStart = strpos($filePath, $SERVER_ROOTPath);
+        $filePathEnd = strlen($SERVER_ROOTPath);
         $relFilePath = substr($filePath, $filePathEnd);
         return $relFilePath;
     }

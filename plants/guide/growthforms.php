@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Guide to Plants, Growth Form</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Plants, Growth Form</title>
 	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
@@ -42,17 +42,17 @@ header("Content-Type: text/html; charset=".$charset);
 							<p>
 							Trees and shrubs.
 							</p>
-							<img src="<?php echo $clientRoot; ?>/images.vplants/plants/guide/temp/tree.jpg" width="190" height="258" alt="">
+							<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/plants/guide/temp/tree.jpg" width="190" height="258" alt="">
 							</td><td>
 							<p>
 							Herbs and wildflowers.
 							</p>
-							<img src="<?php echo $clientRoot; ?>/images.vplants/plants/guide/temp/herb.jpg" width="190" height="258" alt="">
+							<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/plants/guide/temp/herb.jpg" width="190" height="258" alt="">
 							</td><td>
 							<p>
 							Grass-like plants.
 							</p>
-							<img src="<?php echo $clientRoot; ?>/images.vplants/plants/guide/temp/grass.jpg" width="190" height="258" alt="">
+							<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/plants/guide/temp/grass.jpg" width="190" height="258" alt="">
 							</td>
 							</tr>
 
@@ -61,17 +61,17 @@ header("Content-Type: text/html; charset=".$charset);
 							<p>
 							Ferns and horsetails.
 							</p>
-							<img src="<?php echo $clientRoot; ?>/images.vplants/plants/guide/temp/fern.jpg" width="190" height="258" alt="">
+							<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/plants/guide/temp/fern.jpg" width="190" height="258" alt="">
 							</td><td>
 							<p>
 							Aquatic plants.
 							</p>
-							<img src="<?php echo $clientRoot; ?>/images.vplants/plants/guide/temp/aquatic.jpg" width="190" height="258" alt="">
+							<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/plants/guide/temp/aquatic.jpg" width="190" height="258" alt="">
 							</td><td>
 							<p>
 							Vines and climbing plants.
 							</p>
-							<img src="<?php echo $clientRoot; ?>/images.vplants/plants/guide/temp/vine.jpg" width="190" height="258" alt="">
+							<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/plants/guide/temp/vine.jpg" width="190" height="258" alt="">
 							</td>
 							</tr>
 
@@ -99,7 +99,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #innervplantstext -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

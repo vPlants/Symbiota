@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("../config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Fungal Diversity</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Fungal Diversity</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -89,20 +89,20 @@ header("Content-Type: text/html; charset=".$charset);
 		<div id="content2">
 
 			<a href="/map.html" title="See State Map for Chicago Region."><img class="border"
-			 src="<?php echo $clientRoot; ?>/images.vplants/img/map_grtlakes_250.jpg" width="250" height="212"
+			 src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/map_grtlakes_250.jpg" width="250" height="212"
 			alt="The vPlants Region is located within four states at the south end of Lake Michigan." /></a>
 
-			<img src="<?php echo $clientRoot; ?>/images.vplants/feature/johndenk_250.jpg" width="250" height="376" alt="photos of different colorful mushrooms" title="mushrooms come in all colors" />
+			<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/johndenk_250.jpg" width="250" height="376" alt="photos of different colorful mushrooms" title="mushrooms come in all colors" />
 			<div class="box imgtext">
 			<p>Fungi can be found in all shapes, sizes, and colors.</p>
 			</div>
 
-			<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
+			<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 
 		</div><!-- end of #content2 -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

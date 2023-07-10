@@ -1,38 +1,38 @@
 <?php
 //error_reporting(E_ALL);
 include_once("../../config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Guide to Inocybe</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Inocybe</title>
 	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Guide to Inocybe</h1>
 
             <div style="margin:20px;">
-            	 <div class="floatimg"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2RIMO1.po.jpg" width="250" height="228" alt=""></div>
+            	 <div class="floatimg"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2RIMO1.po.jpg" width="250" height="228" alt=""></div>
 
-				<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
+				<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
 
 
 				<p>The genus <i>Inocybe</i> is a group of typically little brown mushrooms (or LBMs) in the family Cortinariaceae.  This large group is found throughout the world and is relatively common in the temperate regions of North America.  Members of <i>Inocybe</i> are primarily terrestrial and are present in many habitats and forest types.  All species in this genus are believed to form symbiotic relationships with plants, known as mycorrhizae.</i>
 
 				<p>To most mushroom collectors, this genus may not seem to have much to offer.  No species are considered edible and macroscopic identification is often difficult.  Members of <i>Inocybe</i> are typically dull-colored mushrooms, with a dry, conical or umbonate cap, that is covered with conspicuous minute hairs (hence the genus name, which means &quot;fiber head&quot;).  The spore print color is brown, with variation in shade between species.  Many species do have a distinctive odor, which can be helpful in differentiating between very similar looking species.  Other important macroscopic characters for identification include the presence or absence of a bulbous or rimmed base on the stem, texture of the cap and stem surface, arrangement of the cap hairs, appearance of gill margins, and discoloration from bruising.</p>
 
-				<img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/micro.jpg" width="437" height="167" border="0" alt="microscopic images." title="Spores and cystidia of Inocybe.">
+				<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/micro.jpg" width="437" height="167" border="0" alt="microscopic images." title="Spores and cystidia of Inocybe.">
 
 				<p>Under the microscope, the genus <i>Inocybe</i> stands out as one of the more interesting of the gilled mushrooms.  The spores range from smooth and bean shaped to spherical and very nodulose -- reminiscent of sea urchins.  The cystidia of most members of <i>Inocybe</i> are also quite notable, with some being thin-walled and clavate and others being langeniform, metuloid (thick-walled), and encrusted with small crystals at the apex.  The cystidia are often quite abundant and are present both on the gills as well as the stem of many species.  These microscopic features and their size (length and width) will help in identifying different species.</p>
 
@@ -61,24 +61,24 @@ header("Content-Type: text/html; charset=".$charset);
 
 				<tr class="keychoice">
 				<td id="k2">2a. Cap lilac, typically with umbo, surface smooth-silky, margin typically entire, 1-4 cm in diameter; gills white to gray-brown, margins often white fimbriate; stem whitish, silky.  Spores smooth, ovoid, 8-11 x 4-6 &micro;m; cystidia encrusted, metuloid, langeniform 35-70 x 14-20 &micro;m.</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2LILA.key_cap.jpg" width="125" height="100" alt=""></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2LILA.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2LILA.key_cap.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2LILA.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5509">
 				 <i class="genus">Inocybe</i> 
 				 <i class="epithet">lilacina</i></a>
 					</span></td>
 				</tr><tr >
 				<td >2b. Cap white, typically with umbo, surface smooth-silky, margin typically entire, fruitbodies not staining salmon in age, 1-4 cm in diameter; gills white to gray-brown, margins typically white fimbriate; stem white, silky.  Spores smooth, ovoid, 8-11 x 4-6 &micro;m; cystidia encrusted, metuloid (but relatively thin-walled), langeniform, 35-70 x 14-20 &micro;m.</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2GEOP.key_coll.jpg" width="125" height="100" alt=""></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2GEOP.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2GEOP.key_coll.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2GEOP.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5468">
 				 <i class="genus">Inocybe</i> 
 				 <i class="epithet">geophylla</i></a>
 					</span></td>
 				</tr><tr >
 				<td >2c. Cap cream to light tan-brown, with white umbo, surface typically smooth or finely striate, margin typically entire; gills white to gray-brown, margins not white fimbriate; stem pale pinkish-cream to grayish.  Spores nodulose, broadly ovoid, 6-8 x 4-6 &micro;m; cystidia encrusted, metuloid, langeniform, 35-70 x 11-16 &micro;m.</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2ALBO1.key_coll.jpg" width="125" height="100" alt=""></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2ALBO1.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ALBO1.key_coll.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ALBO1.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5397">
 				 <i class="genus">Inocybe</i> cf. 
 				 <i class="epithet">albodisca</i></a>
@@ -175,8 +175,8 @@ header("Content-Type: text/html; charset=".$charset);
 					</span></td>
 				</tr><tr >
 				<td >8b. Fruitbodies larger in stature than <i>I.</i> aff. <i>striata</i>; cap 3-10 cm in diameter, straw colored, but typically vinaceous in color because of abundant vinaceous radially striate almost scaly hairs (i.e. tending to clump into larger patches); gills medium brown, margins white fimbriate.  Spores smooth, bean shaped to oval, 9-13 x 5-7 &micro;m; cystidia thin-walled, clavate, 30-48 x 10-15 &micro;m.</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2ADAE.key_coll.jpg" width="125" height="100" alt=""></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2ADAE.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ADAE.key_coll.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ADAE.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5393">
 				 <i class="genus">Inocybe</i> 
 				 <i class="epithet">adaequata</i></a>
@@ -198,7 +198,7 @@ header("Content-Type: text/html; charset=".$charset);
 				<tr class="keychoice">
 				<td id="k10">10a. Cap medium to dark brown, umbo with patchy brown erect clumps of hairs (like raised shingles), becoming striate towards margin; stem medium brown (may have pinkish tint), often sinuous and texture more rubbery than fibrous, base sometimes with small whitish bulb; gills pale to medium brown.  Spores spherical, with distinctly long spines (like a sea urchin), 8-13 x 7-10 &micro;m; cystidia encrusted (but with few crystals), metuloid, langeniform, 30-55 x 10-13 &micro;m.</td>
 				<td ><!-- image --></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2CALO.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2CALO.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5419">
 				 <i class="genus">Inocybe</i> 
 				 <i class="epithet">calospora</i></a>
@@ -216,7 +216,7 @@ header("Content-Type: text/html; charset=".$charset);
 				<tr class="keychoice">
 				<td id="k11">11a. Cap diameter 2-7 cm, yellow-ochre to orange-brown, covered with minute ochre brown scales, sometimes darker at center, broadly convex to plane, occasionally with umbo, margin entire; stem with patchy ochre brown scales; gills pallid ochre brown to dark brown, margins typically white fimbriate.  Spores smooth, ovoid, 8-12 x 4-6 &micro;m; cystidia thin-walled, clavate, 37-55 x 8-13 &micro;m.</td>
 				<td ><!-- image --></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2CAES.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2CAES.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5417">
 				 <i class="genus">Inocybe</i> 
 				 <i class="epithet">caesariata</i></a>
@@ -242,8 +242,8 @@ header("Content-Type: text/html; charset=".$charset);
 
 				<tr class="keychoice">
 				<td id="k13">13a. Cap diameter 3-5 cm, yellow brown to grayish tan, cap hairs scaly, close radially striate hairs present towards margin but can also appear patchy, center covered with light brown hairs that are sometimes patchy; gills grayish becoming medium brown; stem whitish.  Spores smooth, ovoid to almond shaped, 8-11 x 5-6 &micro;m; cystidia encrusted (but relatively few crystals), metuloid, langeniform, with very long and narrow necks, 48-75 x 13-19 &micro;m.</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2FLOCFLOC.key_coll.jpg" width="125" height="100" alt=""></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2FLOCFLOC.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2FLOCFLOC.key_coll.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2FLOCFLOC.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon">
 				 <i class="genus">Inocybe</i> cf. 
 				 <i class="epithet">flocculosa</i> var. <i class="epithet">flocculosa</i>
@@ -251,7 +251,7 @@ header("Content-Type: text/html; charset=".$charset);
 				</tr><tr >
 				<td >13b. Cap diameter 1-3 cm, grayish to brown, typically with patches of grey appressed hairs, not umbonate; gills medium to dark brown, not marginate; stem pruinose.  Spores nodulose, ovoid, 7-12 x 5-7 &micro;m; cystidia encrusted, metuloid, broadly clavate, 40-55 &micro;m in length x 15-23 &micro;m.</td>
 				<td ><!-- image --></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2CICA.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2CICA.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5426">
 				 <i class="genus">Inocybe</i> cf. 
 				 <i class="epithet">cicatricata</i></a>
@@ -261,7 +261,7 @@ header("Content-Type: text/html; charset=".$charset);
 				<tr class="keychoice">
 				<td id="k14">14a. Cap diameter 2-5 cm, rusty to cocoa brown, finely radially striate, typically with dark brown umbo; gills variably pale to brown; stem pale white to cream colored, pruinose at least at apex.  Spores smooth, ovoid, 8-11 x 4-6 &micro;m; cystidia unencrusted to lightly encrusted, metuloid, langeniform but variable in shape, 35-70 x 16-20 &micro;m.</td>
 				<td ><!-- image --></td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/INOC2/INOC2FUSCFUSC.key_spore.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2FUSCFUSC.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5464">
 				 <i class="genus">Inocybe</i> aff. 
 				 <i class="epithet">fuscidula</i> var. <i class="epithet">fuscidula</i></a>
@@ -282,7 +282,7 @@ header("Content-Type: text/html; charset=".$charset);
         </div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

@@ -123,19 +123,19 @@ if (!$done) {
  * Return the requested agent as RDF in a turtle serialization.
  */
 function deliverTurtle() {
-   global $agent, $agentview, $charset;
+   global $agent, $agentview, $CHARSET;
    Header("Content-Type: text/turtle; charset=".$CHARSET);
    echo $agentview->getAsTurtle();
 }
 
 function deliverRdfXml() {
-   global $agent, $agentview, $charset;
+   global $agent, $agentview, $CHARSET;
    Header("Content-Type: application/rdf+xml; charset=".$CHARSET);
    echo $agentview->getAsRdfXml();
 }
 
 function pageheader($agent) {
-   global $SERVER_ROOT, $DEFAULT_TITLE, $spDisplay, $CLIENT_ROOT, $agent_indexCrumbs, $charset;
+   global $SERVER_ROOT, $DEFAULT_TITLE, $spDisplay, $CLIENT_ROOT, $agent_indexCrumbs, $CHARSET;
 echo '<!DOCTYPE HTML>
 <html>
 <head>

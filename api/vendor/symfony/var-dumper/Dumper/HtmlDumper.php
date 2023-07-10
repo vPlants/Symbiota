@@ -77,9 +77,9 @@ class HtmlDumper extends CliDumper
     /**
      * {@inheritdoc}
      */
-    public function __construct($output = null, string $charset = null, int $flags = 0)
+    public function __construct($output = null, string $CHARSET = null, int $flags = 0)
     {
-        AbstractDumper::__construct($output, $charset, $flags);
+        AbstractDumper::__construct($output, $CHARSET, $flags);
         $this->dumpId = 'sf-dump-'.mt_rand();
         $this->displayOptions['fileLinkFormat'] = \ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format');
         $this->styles = static::$themes['dark'] ?? self::$themes['dark'];

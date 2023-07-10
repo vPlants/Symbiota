@@ -1,31 +1,31 @@
 <?php
 //error_reporting(E_ALL);
 include_once("../../config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Guide to Agarics Gills Free</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Agarics Gills Free</title>
 	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Guide to Agarics with Gills Free</h1>
 
             <div style="margin:20px;">
-            	 <div class="floatimg"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/AGAR/AGARCAMP2_250_freegills.jpg" width="250" height="352" alt=""></div>
+            	 <div class="floatimg"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/AGAR/AGARCAMP2_250_freegills.jpg" width="250" height="352" alt=""></div>
 
-				<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
+				<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
 
 
 				<p>Three different guides to choose from.</p>
@@ -46,11 +46,11 @@ header("Content-Type: text/html; charset=".$charset);
 				This family, based on DNA evidence, is closely related to the Pluteaceae and also the Pleurotaceae (oyster mushrooms).
 				</p>
 				</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/g_amanitaceae.gif" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/g_amanitaceae.gif" width="125" height="100" alt=""></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/AMAN/AMAN_125_whole.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/AMAN/AMAN_125_whole.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus"><a href="amanita.html">Amanita</a></i></h3>
 				<p>
@@ -60,11 +60,11 @@ header("Content-Type: text/html; charset=".$charset);
 				Grows on ground, most species mycorrhizal with trees.
 				</p>
 				</td>
-				<td><div style="background: #f9f9f9;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #f9f9f9;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/LIMA/LIMA_125_cap.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/LIMA/LIMA_125_cap.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus"><a href="limacella.html">Limacella</a></i></h3>
 				<p>
@@ -74,7 +74,7 @@ header("Content-Type: text/html; charset=".$charset);
 				Grows on ground, unclear whether decomposers or mycorrhizal.
 				</p>
 				</td>
-				<td><div style="background: #f9f9f9;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #f9f9f9;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keydivision">
@@ -85,11 +85,11 @@ header("Content-Type: text/html; charset=".$charset);
 				This family, based on DNA evidence, is closely related to the Amanitaceae and also the Pleurotaceae (oyster mushrooms).
 				</p>
 				</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/g_amanitaceae.gif" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/g_amanitaceae.gif" width="125" height="100" alt=""></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/VOLV/VOLV_125_whole.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/VOLV/VOLV_125_whole.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus"><a href="volvariella.html">Volvariella</a></i></h3>
 				<p>
@@ -98,11 +98,11 @@ header("Content-Type: text/html; charset=".$charset);
 				Partial veil absent.  Grows on trees, woody debris, soil, or on other mushrooms.
 				</p>
 				</td>
-				<td><div style="background: #e48c61;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #e48c61;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/PLUT/PLUT_125_gills.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/PLUT/PLUT_125_gills.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus"><a href="pluteus.html">Pluteus</a></i></h3>
 				<p>
@@ -111,7 +111,7 @@ header("Content-Type: text/html; charset=".$charset);
 				Grows on wood, occasionally on ground from buried wood.
 				</p>
 				</td>
-				<td><div style="background: #e48c61;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #e48c61;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keydivision">
@@ -122,95 +122,95 @@ header("Content-Type: text/html; charset=".$charset);
 				This family has been expanded, based on DNA evidence, to include the parasol mushrooms (Lepiotaceae), shaggy mane (<i>Coprinus comatus</i>), and certain gastroid fungi, such as the puffballs (Lycoperdaceae).
 				</p>
 				</td>
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/g_agaricaceae.gif" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/g_agaricaceae.gif" width="125" height="100" alt=""></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/AGAR/AGARBITO_125_whole.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/AGAR/AGARBITO_125_whole.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Agaricus</i></h3>
 				<p>
 				<b>Spore print dark brown to chocolate brown.</b> Partial veil present, often leaving a ring on stem.
 				</p>
 				</td>
-				<td><div style="background: #604030;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #604030;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/temp/melanophyllum_125.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/temp/melanophyllum_125.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Melanophyllum</i></h3>
 				<p>
 				<b>Spore print reddish or greenish when fresh, drying darker brown.</b> Partial veil present, often leaving fragments on cap edge.
 				</p>
 				</td>
-				<td><div style="background: #a0413e;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #a0413e;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/COPR3/COPR3COMA_125_whole.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/COPR3/COPR3COMA_125_whole.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Coprinus</i> (in the strict sense)</h3>
 				<p>
 				<b>Spore print black.</b> Partial veil present, often leaving small loose ring on lower stem. Large elongated cap with extremely crowded gills which turn salmon then black and inky.
 				</p>
 				</td>
-				<td><div style="background: #000000;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" alt=""></div></td>
+				<td><div style="background: #000000;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/LEPI2/LEPI2_125_whole.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/LEPI2/LEPI2_125_whole.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Lepiota</i></h3>
 				<p>
 				<b>Spore print white.</b> Partial veil present, either leaving delicate ring on stem or cottony patches.
 				</p>
 				</td>
-				<td><div style="background: #f9f9f9;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #f9f9f9;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/LEUC2/LEUC2CEPA_125_cap.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/LEUC2/LEUC2CEPA_125_cap.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Leucocoprinus</i></h3>
 				<p>
 				<b>Spore print white.</b> Partial veil present, often leaving ring. Cap more egg-shaped before opening. Cap surface powdery or minutely scaly. Growing in compost or in greenhouses and potted plants.
 				</p>
 				</td>
-				<td><div style="background: #f9f9f9;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #f9f9f9;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/LEUC1/LEUC1AMER_125_cap.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/LEUC1/LEUC1AMER_125_cap.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Leucoagaricus</i></h3>
 				<p>
 				<b>Spore print white.</b> Partial veil present, leaving ring on stem. Cap smooth or scaly. Some species staining yellowish or reddish to brown.
 				</p>
 				</td>
-				<td><div style="background: #f9f9f9;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #f9f9f9;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/temp/MACRPROC_125_kuo.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/temp/MACRPROC_125_kuo.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Macrolepiota</i></h3>
 				<p>
 				<b>Spore print white.</b> Partial veil present, often leaving ring. Cap large and scaly. Stem covered in plush-like material which forms bands when the stem elongates.
 				</p>
 				</td>
-				<td><div style="background: #f9f9f9;"><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
+				<td><div style="background: #f9f9f9;"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/spore125.gif" width="125" height="100" alt=""></div></td>
 				</tr>
 
 				<tr class="keychoice">
-				<td ><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/CHLO2/CHLO2RACH_125_stain.jpg" width="125" height="100" alt=""></td>
+				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/CHLO2/CHLO2RACH_125_stain.jpg" width="125" height="100" alt=""></td>
 				<td >
 				<h3><i class="genus">Chlorophyllum</i></h3>
 				<p>
 				<b>Spore print greenish or white.</b> Partial veil present, leaving fringed ring. Cap large with tan to pale brown scales. Stem smooth, not with banding (though may crack in age). Stem staining reddish to orangish where scratched. Prefers growing in more disturbed and nutrient rich soils, thus common in urban areas.  The secotioid (closed) species, <i>C. agaricoides</i>, has a cap that remains closed; the spores are greenish to yellowish brown under the microscope.
 				</p>
 				</td>
-				<td><div><img src="<?php echo $clientRoot; ?>/images.vplants/fungi/guide/spore/print_green_white.jpg" width="125" height="100" alt=""></div></td>
+				<td><div><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/spore/print_green_white.jpg" width="125" height="100" alt=""></div></td>
 				</tr>
 
 
@@ -224,7 +224,7 @@ header("Content-Type: text/html; charset=".$charset);
         </div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

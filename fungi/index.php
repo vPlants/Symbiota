@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("../config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Fungi</title>
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Fungi</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -34,7 +34,7 @@ header("Content-Type: text/html; charset=".$charset);
 				 </p>
 
 				<h2>Kinds of fungi included in vPlants</h2>
-				<div id="floatimg"><img src="<?php echo $clientRoot; ?>/images.vplants/feature/fungus_170_250.jpg" width="170" height="250" alt="detail view of gills and stem." title="Tricholoma (Photo by P. R. Leacock)."></div>
+				<div id="floatimg"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/fungus_170_250.jpg" width="170" height="250" alt="detail view of gills and stem." title="Tricholoma (Photo by P. R. Leacock)."></div>
 
 				<p class="large">
 				Macrofungi are mushrooms, puffballs, brackets, and other fungi forming visible fruiting bodies. 
@@ -110,11 +110,11 @@ header("Content-Type: text/html; charset=".$charset);
 			   title="Search by Location, Collector, and more.">Go to Advanced Search</a>
 			 </p>
 
-			<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $clientRoot; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
+			<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 		</div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

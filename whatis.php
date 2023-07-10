@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants | What is an Herbarium?</title>
-	<link href="css/base.css" type="text/css" rel="stylesheet" />
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants | What is an Herbarium?</title>
+	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
 	<link href="css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -25,12 +25,12 @@ header("Content-Type: text/html; charset=".$charset);
             	<table width="750" height="350" border="0" cellpadding="0" cellspacing="0">
 					<tr> 
 					  
-					<td width="90" valign="top" class="bgdkgr"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="90" height="1" alt=""></td>
+					<td width="90" valign="top" class="bgdkgr"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="90" height="1" alt=""></td>
 					  
 					  
 					  <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr> 
-						  <td width="1%"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="20" height="20" alt=""></td>
+						  <td width="1%"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="20" height="20" alt=""></td>
 						  <td width="99%">&nbsp;</td>
 						</tr>
 						<tr> 
@@ -63,18 +63,18 @@ header("Content-Type: text/html; charset=".$charset);
 									  <td width="98%">&nbsp;</td>
 									</tr>
 									<tr> 
-									  <td colspan="3" class="bgmdgr"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
+									  <td colspan="3" class="bgmdgr"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
 									</tr>
 									<tr> 
 									  <td width="1%" class="text"><strong>Users</strong></td>
-									  <td width="1%" class="text"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="10" height="1" alt=""></td>
+									  <td width="1%" class="text"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="10" height="1" alt=""></td>
 									  <td width="98%" class="text"><strong>Usage Examples</strong></td>
 									</tr>
 									<tr> 
-									  <td colspan="3" class="bgmdgr"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
+									  <td colspan="3" class="bgmdgr"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
 									</tr>
 									<tr> 
-									  <td colspan="3"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
+									  <td colspan="3"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
 									</tr>
 									<tr> 
 									  <td width="1%" valign="top" class="text">Taxonomists</td>
@@ -102,13 +102,13 @@ header("Content-Type: text/html; charset=".$charset);
 										</table></td>
 									</tr>
 									<tr> 
-									  <td colspan="3"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
+									  <td colspan="3"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
 									</tr>
 									 <tr> 
-									  <td colspan="3" class="bgmdgr"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
+									  <td colspan="3" class="bgmdgr"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
 									</tr>
 									<tr> 
-									  <td colspan="3"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
+									  <td colspan="3"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
 									</tr>
 									<tr> 
 									  <td width="1%" valign="top" class="text">Conservation Scientists</td>
@@ -127,13 +127,13 @@ header("Content-Type: text/html; charset=".$charset);
 									  </td>
 									</tr>
 									<tr> 
-									  <td colspan="3"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
+									  <td colspan="3"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
 									</tr>
 									 <tr> 
-									  <td colspan="3" class="bgmdgr"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
+									  <td colspan="3" class="bgmdgr"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="1" alt=""></td>
 									</tr>
 									<tr> 
-									  <td colspan="3"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
+									  <td colspan="3"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
 									</tr>
 									<tr>
 									  <td valign="top" class="text">Conservation Stewards, Students, and Educators</td>
@@ -157,13 +157,13 @@ header("Content-Type: text/html; charset=".$charset);
 										</table></td>
 									</tr>
 								  </table></td>
-								<td width="2%"><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="30" height="1" alt=""></td>
+								<td width="2%"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="30" height="1" alt=""></td>
 								<td width="49%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr> 
-									  <td><img src="<?php echo $clientRoot; ?>/images.vplants/img/figure1.jpg" width="300" height="450" alt=""></td>
+									  <td><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/figure1.jpg" width="300" height="450" alt=""></td>
 									</tr>
 									<tr> 
-									  <td><img src="<?php echo $clientRoot; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
+									  <td><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/img/spacer.gif" width="1" height="4" alt=""></td>
 									</tr>
 									<tr> 
 									  <td class="text"><strong>Figure 1: </strong>Herbarium Sheet 
@@ -194,7 +194,7 @@ header("Content-Type: text/html; charset=".$charset);
         </div>
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

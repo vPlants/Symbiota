@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once('../config/symbini.php');
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle?>vPlants - Topics - Synonyms</title>
+	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Synonyms</title>
 	<link href="../css/base.css" type="text/css" rel="stylesheet" />
 	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innertext">
@@ -43,7 +43,7 @@ header("Content-Type: text/html; charset=".$charset);
 				In order to be completely clear about the scientific name of a species or lower level taxon, the author &#151; the name(s) or standard abbreviation(s) of the person(s) who first published that name combination &#151; should also be added after the end of the epithet, for example <i>Rhus copalina</i> L., or <i>R. copalina</i> var. <i>latifolia</i> Engl. 
 				</p>
 
-				<img src="<?php echo $clientRoot; ?>/images/vplants/feature/sciname.gif" width="400" height="97" alt="diagram of the parts of a scientific name.">
+				<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/sciname.gif" width="400" height="97" alt="diagram of the parts of a scientific name.">
 
 				<p>When a taxon name is moved to a different genus, the specific epithet is transferred to that new genus. The original taxon author(s) is placed in parentheses and the author(s) making the new combination is placed after that. For example, in 1849 Berkeley and Curtis described a small tan mushroom with a spongy stem base. The name history for this species is as follows. The first three names are synonyms of the fourth name <i>Gymnopus spongiosus</i>, which is the currently accepted name. 
 				<ol>
@@ -104,7 +104,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #content2 -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>

@@ -1,22 +1,22 @@
 <?php
 //error_reporting(E_ALL);
 include_once("config/symbini.php");
-header("Content-Type: text/html; charset=".$charset);
+header("Content-Type: text/html; charset=".$CHARSET);
 ?>
 <html>
 <head>
-	<title><?php echo $defaultTitle; ?>vPlants - Help with Searching</title>
-	<link href="css/base.css" type="text/css" rel="stylesheet" />
+	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Help with Searching</title>
+	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
 	<link href="css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
 	<script type="text/javascript">
-		<?php include_once($serverRoot.'/config/googleanalytics.php'); ?>
+		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
 	</script>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = "true";
-	include($serverRoot."/header.php");
+	include($SERVER_ROOT . '/includes/header.php');
 	?> 
         <!-- This is inner text! -->
         <div  id="innervplantstext">
@@ -53,7 +53,7 @@ header("Content-Type: text/html; charset=".$charset);
 			<h3>Related Pages</h3>
 
 			<p>
-			<a href="<?php echo $clientRoot; ?>/collections/index.php" 
+			<a href="<?php echo $CLIENT_ROOT; ?>/collections/index.php" 
 			 title="Search by Location, Collector, and more.">Go to Advanced Search</a>
 			</p>
 			</div>
@@ -63,7 +63,7 @@ header("Content-Type: text/html; charset=".$charset);
 					<legend title="Enter name of plant or fungus in one or more of the search fields.">Name Search</legend>
 					<?php
 					$buttonText = 'Go';
-					include_once($serverRoot.'/classes/PluginsManager.php');
+					include_once($SERVER_ROOT.'/classes/PluginsManager.php');
 					$pluginManager = new PluginsManager();
 					$quicksearch = $pluginManager->createQuickSearch($buttonText);
 					echo $quicksearch;
@@ -88,7 +88,7 @@ header("Content-Type: text/html; charset=".$charset);
 		</div><!-- end of #content2 -->
 
 	<?php
-	include($serverRoot."/footer.php");
+	include($SERVER_ROOT . '/includes/footer.php');
 	?> 
 
 </body>
