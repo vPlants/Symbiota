@@ -207,15 +207,6 @@ body {
     font-size: 95%;
   }
   
-  #cloptiondiv {
-    margin: 5px;
-    width: 250px;
-    text-align: left;
-    float: right;
-    max-width: 20% !important;
-    min-height: 325px;
-  }
-  
   #taxonfilterdiv {
     padding: 5px;
     background-color: #ffffcc;
