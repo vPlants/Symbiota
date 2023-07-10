@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Help with Specimen Pages</title>
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Help with Specimen Pages</h1>
@@ -31,8 +30,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<p>&nbsp;</p>
 
 				<h3>How are herbarium specimen data useful?</h3>
-				<p>Please see the information 
-				<a href="/about_herbarium.html" 
+				<p>Please see the information
+				<a href="/about_herbarium.html"
 				 title="About herbaria and specimens.">About herbaria and specimens</a>.
 				</p>
 
@@ -47,7 +46,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<p>&nbsp;</p>
             </div>
         </div>
-		
+
 		<div id="content2"><!-- start of side content -->
 			<p class="hide">
 			<a id="secondary" name="secondary"></a>
@@ -59,7 +58,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<h3>Related Pages</h3>
 
 			<p>
-			<a href="/about.html" 
+			<a href="/about.html"
 			 title="About vPlants and its partners.">About Us</a> has more information on specimens and descriptions.
 			</p>
 
@@ -68,12 +67,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<p class="small">
 			Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p>
 			<p class="small">
-			<a class="popup" href="/disclaimer.html" 
-			title="Read Disclaimer [opens new window]." 
-			onclick="window.open(this.href, 'disclaimer', 
+			<a class="popup" href="/disclaimer.html"
+			title="Read Disclaimer [opens new window]."
+			onclick="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
-			return false;" 
-			onkeypress="window.open(this.href, 'disclaimer', 
+			return false;"
+			onkeypress="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
 			return false;">Disclaimer</a>
 			</p>
@@ -82,7 +81,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

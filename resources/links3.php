@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Resources - Fungus Links</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Fungus Links</h1>
@@ -33,7 +32,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</li>
 				</ul>
 
-				<h2>Fungal Web Sites for Upper Midwest:</h2> 
+				<h2>Fungal Web Sites for Upper Midwest:</h2>
 
 				<ul>
 				<li><a href="http://www.tomvolkfungi.net">Tom Volk's Fungi, University of Wisconsin - La Crosse</a></li>
@@ -43,7 +42,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</ul>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/CLIT1GIBB.po.jpg" width="250" height="300" alt="Clitocybe gibba" title="Clitocybe gibba" />
@@ -64,7 +63,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

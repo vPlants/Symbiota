@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Fungus References</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Fungus References</h1>
@@ -26,7 +25,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
             	<p>
 				For information on the identification of fungi, refer to mushroom guides or better yet, attend meetings of a local mushroom club.  Always keep in mind that there are many species of fungi that are not found in the popular field guides.  This is one reason for utilizing more than one reference book.  Some species can only be accurately determined by means of microscopic characters.  There are, however, many common fungi that can be readily identified by careful comparison with BOTH the descriptions and illustrations of a good mushroom book.
 				</p>
-				
+
 
 				<h2>Recommended mushroom books for the Upper Midwest</h2>
 
@@ -44,17 +43,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<dd><i>Morels.</i> University of Michigan Press.</dd>
 
 				<dt>McFarland, Joe, and Gregory M. Mueller. 2009.</dt>
-				<dd><i>Edible Wild Mushrooms of Illinois and Surrounding States: A Field-to-Kitchen Guide</i> 
+				<dd><i>Edible Wild Mushrooms of Illinois and Surrounding States: A Field-to-Kitchen Guide</i>
 				1st Edition, University of Illinois Press.</dd>
 				</dl>
-				 
+
 				<h3>Upper Midwest</h3>
 				<dl>
 
 				<dt>Huffman, Donald M., Lois H. Tiffany, George Knaphaus, Rosanne A. Healy. 2008.</dt>
 				<dd><i>Mushrooms and Other Fungi of the Midcontinental United States (Bur Oak Guide).</i>
 				2nd edition. University Of Iowa Press.</dd>
-				 
+
 				<dt>Huffman, Donald M., and Lois H. Tiffany. 2004.</dt>
 				<dd><i>Mushrooms in Your Pocket: A Guide to the Mushrooms of Iowa (Bur Oak Guide).</i> University Of Iowa Press. [43 species, folded map]</dd>
 
@@ -90,7 +89,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</dl>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/ARMITABE.po.jpg" width="250" height="336" alt="Ringless Honey Mushroom" title="Armillaria tabescens">
@@ -107,7 +106,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

@@ -6,24 +6,24 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Fungus Glossary</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<meta name='keywords' content='' />
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
-		
+
 			<p>
-			<a href="#a">A</a> | 
-			<a href="#b">B</a> | 
+			<a href="#a">A</a> |
+			<a href="#b">B</a> |
 			<a href="#c">C</a> |
 			<a href="#d">D</a> |
 			<a href="#e">E</a> |
@@ -49,12 +49,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<a href="#y">Y</a> |
 			<a href="#z">Z</a> |
 			</p>
-			
+
             <h1>Fungus Glossary</h1>
 
             <div style="margin:20px;">
             	 <p>
-				This online glossary is ...UNDER CONSTRUCTION 
+				This online glossary is ...UNDER CONSTRUCTION
 				</p>
 				<p>Terms which were deemed necessary to concisely provide clear descriptions have been used and are defined in this glossary for our users. Some of the terms listed here are not used in the vPlants written description pages.  Words that users are unfamiliar with that are not listed in this glossary are readily defined in a dictionary, such as the online version of the <a href="http://www.m-w.com/dictionary.htm">Merriam-Webster Dictionary</a>.
 				</p>
@@ -226,7 +226,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

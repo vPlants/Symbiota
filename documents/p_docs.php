@@ -6,43 +6,42 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants Documents for Plants</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>vPlants Documents for Plants</h1>
 			<div style="margin:20px;">
             	<p>Links to web pages and documents.</p>
 
-				<h3>1. <a href="p_checklist.html" 
+				<h3>1. <a href="p_checklist.html"
 				title="Scientific Name Checklist.">Taxon Checklist</a></h3>
 				<p>
 				Web page with download: vPlants Scientific Name Checklist of all plant species, subspecies and varieties included in vPlants.
 				</p>
 
-				<h3>2. <a href="p_concern.html" 
+				<h3>2. <a href="p_concern.html"
 				title="Chicago Region Plants of Concern.">Plants of Concern</a></h3>
 				<p>
 				Web page with download: All Chicago Region vascular plants currently listed as endangered, threatened, rare, etc.
 				</p>
 
-				<h3>3. <a href="p_invasive.html" 
+				<h3>3. <a href="p_invasive.html"
 				title="Chicago Region Invasive Plants.">Invasive Plants</a></h3>
 				<p>
 				Web page with download: All non-native (alien) vascular plants that are considered invasive in the Chicago Region.
 				</p>
 
-				<h3>4. <a href="p_terms.html" 
+				<h3>4. <a href="p_terms.html"
 				title="vPlants Accepted Plant Terms.">Accepted Plant Terms</a></h3>
 				<p>
 				Web page with download: A list of the plant terms that are acceptable for use in the vPlants species descriptions.
@@ -52,7 +51,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 				<p>Links to external web pages and documents.</p>
 
-				<h3><a href="http://www.nwi.fws.gov/bha/list96.html" 
+				<h3><a href="http://www.nwi.fws.gov/bha/list96.html"
 				title="External link.">USFWS Wetland Taxa</a></h3>
 				<p>
 				External web page: United States Fish and Wildlife Service information on wetland plants.
@@ -62,7 +61,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

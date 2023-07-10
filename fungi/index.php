@@ -6,30 +6,29 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Fungi</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Fungi of the Chicago Region</h1>
 
             <div style="margin:20px;">
-            	<p>The 
-				<a href="/map_county.html" title="See County Map for Chicago Region.">24 counties</a> 
-				  of the 
+            	<p>The
+				<a href="/map_county.html" title="See County Map for Chicago Region.">24 counties</a>
+				  of the
 				  <a href="/chicago.html" title="Why the Chicago Region?">Chicago Region</a>
-				  support approximately 
+				  support approximately
 				  <a href="/fungi/diversity.html" title="How many fungi.">1,000 kinds</a>
-				  of 
+				  of
 				  <a href="/fungi/guide/index.html" title="Guide to fungi.">larger fungi</a>.
 				 </p>
 
@@ -37,7 +36,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<div id="floatimg"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/fungus_170_250.jpg" width="170" height="250" alt="detail view of gills and stem." title="Tricholoma (Photo by P. R. Leacock)."></div>
 
 				<p class="large">
-				Macrofungi are mushrooms, puffballs, brackets, and other fungi forming visible fruiting bodies. 
+				Macrofungi are mushrooms, puffballs, brackets, and other fungi forming visible fruiting bodies.
 				Fruiting bodies are reproductive structures, often short-lived, produced by the longer-lived mycelium living in the soil, wood, or other substrate (food source). Unlike plants, the identification of species and the source of specimen data and photos are primarily based on fruiting bodies rather than the entire organism.
 				</p>
 
@@ -45,7 +44,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				Many macrofungi treated here, particularly mushrooms, are members of the <a
 				 href="http://tolweb.org/tree?group=Basidiomycota&amp;contgroup=Fungi">Phylum Basidiomycota
 				 [external link]</a>  (Class Hymenomycetes).  Other fungi found in vPlants, such as morels and cup fungi, are of the  <a href="http://tolweb.org/tree?group=Ascomycota&amp;contgroup=Fungi">Phylum Ascomycota [external link]</a>
-				(Class Euascomycetes). 
+				(Class Euascomycetes).
 				</p>
 
 				<h3>Fungi not included in vPlants at the present time</h3>
@@ -58,7 +57,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</p>
             </div>
         </div>
-		
+
 		<div id="content2"><!-- start of side content -->
 			<!-- any image width should be 250 pixels -->
 
@@ -66,47 +65,47 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<h3>Directory and Guides</h3>
 				<ul><li><a href="guide/"
 			 title="Identification guide">Guide to Fungi</a></li>
-			<li><a href="/xsql/fungi/famlist.xsql" 
+			<li><a href="/xsql/fungi/famlist.xsql"
 			 title="Index of families">Family Index</a></li>
-			<li><a href="/xsql/fungi/genlist.xsql" 
+			<li><a href="/xsql/fungi/genlist.xsql"
 			 title="Index of genera">Genus Index</a></li>
-			<li><a href="/resources/biblio3.html" 
+			<li><a href="/resources/biblio3.html"
 			 title="Guides for Chicago Region">Recommended Books</a></li>
-			<li><a href="/resources/links3.html" 
+			<li><a href="/resources/links3.html"
 			 title="Links to websites">Fungus Links</a></li></ul>
 			</div>
 
 			 <div id="simpleform">
 			  <form name="simple" method="post" action="/xsql/fungi/findtaxa.xsql">
 			   <fieldset><legend title="Enter name of fungus in one or more of the search fields.">Fungus Search</legend>
-				<p><label for="family" accesskey="4" 
+				<p><label for="family" accesskey="4"
 				 title="Example: Agaricaceae.">Family:</label>
-				 <input class="texts" id="family" name="family" type="text" maxlength="30" 
-				  title="Enter name of a family [one word, can use first several letters]." 
+				 <input class="texts" id="family" name="family" type="text" maxlength="30"
+				  title="Enter name of a family [one word, can use first several letters]."
 				  value=""></p>
-				<p><label for="genus"  
-				 title="Example: Agaricus.">Genus:</label> 
-				 <input class="texts" id="genus" name="genus" type="text" maxlength="30" 
-				  title="Enter name of a genus [one word, can use first several letters]." 
+				<p><label for="genus"
+				 title="Example: Agaricus.">Genus:</label>
+				 <input class="texts" id="genus" name="genus" type="text" maxlength="30"
+				  title="Enter name of a genus [one word, can use first several letters]."
 				  value=""></p>
-				<p><label for="species" 
-				 title="Example: campestris.">Species Epithet:</label> 
-				 <input class="texts" id="species" name="species" type="text" maxlength="30" 
+				<p><label for="species"
+				 title="Example: campestris.">Species Epithet:</label>
+				 <input class="texts" id="species" name="species" type="text" maxlength="30"
 				  title="Enter the species epithet, or subspecies, or variety [one word]."
 				  value=""></p>
-				<p><label for="common" 
-				 title="Example: field mushroom.">Common Name:</label> 
-				 <input class="texts" id="common" name="common" type="text" maxlength="50" 
-				  title="Enter a common name [can use more than one word]." 
+				<p><label for="common"
+				 title="Example: field mushroom.">Common Name:</label>
+				 <input class="texts" id="common" name="common" type="text" maxlength="50"
+				  title="Enter a common name [can use more than one word]."
 				  value=""></p>
-				<p><input class="actions" id="submit" name="submit" type="submit" 
+				<p><input class="actions" id="submit" name="submit" type="submit"
 				 value="Go" title="Perform Search."></p>
 			   </fieldset>
 			  </form>
 			 </div>
-			  
+
 			 <p class="large">
-			  <a href="/search.html" 
+			  <a href="/search.html"
 			   title="Search by Location, Collector, and more.">Go to Advanced Search</a>
 			 </p>
 
@@ -115,7 +114,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

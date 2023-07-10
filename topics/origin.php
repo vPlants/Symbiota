@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Native Plants</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Origin</h1>
@@ -37,7 +36,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<p>There is very little known about the pre-settlement distribution of fungi for the Chicago Region and much of North America. Whether a particular fungus species is native or not to a region is speculation and most are assumed to be native. In some cases, particularly with plant diseases, such as Dutch Elm Disease, and other microfungi, we know that these fungi are introduced from other parts of the world. Currently, vPlants is only including macrofungi (mushrooms, brackets, and other large fungi); none of these are listed as invasive species. Recent observations in Illinois suggest that at least one mushroom species (<i>Amanita thiersii</i>) may be extending its range northward or becoming more common with climate change.</p>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/CAAM6.jpg" width="250" height="321" alt="Blue flowers" title="Campanula americana">
@@ -52,7 +51,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

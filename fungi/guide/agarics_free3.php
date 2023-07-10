@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Agarics Gills Free Key 3</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1></h1>
@@ -40,7 +39,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</td>
 				<td><div style=""><a href="agarics_free4.html" title="Go to Key Step 4."><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/lepiotaceae_300_triple.jpg" width="300" height="222" alt=""></a></div>
 				<p>
-				<b>Universal veil absent</b>. Stem base may be enlarged but there is no cup or other material at base. Cap smooth or with scales, or powdery. Partial veil present, usually forming a ring. Growing on ground, wood chips, or mulch, in grassy areas or woodlands; decomposers. 
+				<b>Universal veil absent</b>. Stem base may be enlarged but there is no cup or other material at base. Cap smooth or with scales, or powdery. Partial veil present, usually forming a ring. Growing on ground, wood chips, or mulch, in grassy areas or woodlands; decomposers.
 				<br> Go to <a href="agarics_free4.html">Parasol Mushrooms (<i>Lepiota</i> group)</a>
 				</p>
 				</td>
@@ -67,7 +66,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

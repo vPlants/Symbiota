@@ -6,24 +6,23 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - About Us</title>
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1></h1>
 
             <div style="margin:20px;">
-            	<!-- 
+            	<!--
 				<h2 >About Collections, Specimens, and Herbaria</h2>
 
 				<p>
@@ -78,7 +77,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</p>
             </div>
         </div>
-		
+
 		<div id="content2"><!-- start of side content -->
 			<p class="hide">
 			<a id="secondary" name="secondary"></a>
@@ -104,12 +103,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<p class="small">
 			Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p>
 			<p class="small">
-			<a class="popup" href="/disclaimer.html" 
-			title="Read Disclaimer [opens new window]." 
-			onclick="window.open(this.href, 'disclaimer', 
+			<a class="popup" href="/disclaimer.html"
+			title="Read Disclaimer [opens new window]."
+			onclick="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
-			return false;" 
-			onkeypress="window.open(this.href, 'disclaimer', 
+			return false;"
+			onkeypress="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
 			return false;">Disclaimer</a>
 			</p>
@@ -118,7 +117,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

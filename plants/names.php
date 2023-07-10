@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>About Plants - Names</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -33,26 +32,26 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 						<div style="margin:20px;">
 							<h1>Names</h1>
-							
+
 							<p>What's in a name? It is human nature to name things. We use names to communicate information and assign an identity to people and objects. For plants, fungi, and other organisms there are several kinds of names:</p>
-							
+
 							<div class="indexheading"><a href="names5.php">Taxon</a></div>
 							<div class="indexdescription"><p>(plural: taxa) is a general term meaning a group or rank, such as a species, a variety, a genus, a family, etc.<a href="names5.php">Learn more</a></p></div>
-							
+
 							<div class="indexheading"><a href="names2.php">Scientific names</a></div>
 							<div class="indexdescription"><p>are official names that follow rules of taxonomy to uniquely identify a taxon, such as a species or family. Example: <i>Ulmus americana</i> and <i>Ulmaceae</i>.<a href="names2.php">Learn more</a></p></div>
-							
+
 							<div class="indexheading"><a href="names3.php">Synonyms</a></div>
 							<div class="indexdescription"><p>are different names for the same taxon. Example: <i>Ulmus floridana</i> is a synonym of <i>Ulmus americana</i>.<a href="names3.php">Learn more</a></p></div>
-							
+
 							<div class="indexheading"><a href="names4.php">Common names</a></div>
 							<div class="indexdescription"><p>are nicknames that vary between regions and languages. They follow no rules and often are not unique. Example: American elm.<a href="names4.php">Learn more</a></p></div>
 
 						</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-        
-		
+
+
 					<div id="content2">
 
 						<div class="box">
@@ -83,7 +82,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

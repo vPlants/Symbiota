@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Fungi</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Guide to Fungi of the Chicago Region</h1>
@@ -26,8 +25,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
             	<div class="floatimg"><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/feature/johndenk_250.jpg" width="250" height="376" alt="a variety of fungi"></div>
 
 				<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
-				
-				<p>Use the <a href="/xsql/fungi/famlist.xsql" title="Index of families">Family Index</a> and <a href="/xsql/fungi/genlist.xsql" 
+
+				<p>Use the <a href="/xsql/fungi/famlist.xsql" title="Index of families">Family Index</a> and <a href="/xsql/fungi/genlist.xsql"
 				title="Index of genera">Genus Index</a> to see alphabetical lists of included fungi. At the top of the page you can Search for fungi by name.</p>
 
 				<p>This guide is written for the known fungi of the <a href="/map.html" title="See map of states.">Chicago Region</a>, that is northeastern Illinois, northwestern Indiana, southeastern Wisconsin, and the southwest corner of Michigan. It does not cover additional mushrooms and fungi found in other parts of these states, particularly species found in more northern or more southern forests.
@@ -82,7 +81,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h3>Chanterelles and trumpets</h3>
 				<p>
-				<b>Cap undersurface has ridges or wrinkles or is smooth.</b> Ridges can have cross-veins.  Fleshy fungi with cap and stem. Stem may be short. Growing on the ground, rarely on rotted wood. If stem absent or if growing on wood, then see crust fungi below. 
+				<b>Cap undersurface has ridges or wrinkles or is smooth.</b> Ridges can have cross-veins.  Fleshy fungi with cap and stem. Stem may be short. Growing on the ground, rarely on rotted wood. If stem absent or if growing on wood, then see crust fungi below.
 				</p>
 				</td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/g_chanterelles.jpg" width="125" height="100" alt=""></td>
@@ -115,7 +114,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h3>Crusts, parchment fungi</h3>
 				<p>
-				<b>Underside smooth, wrinkled, veined, bumpy.</b> Fungi with or without cap. Most are thin brackets or crusts. One species has split gills. One species has crinkled gill like folds. If stem present then the cap does not have gills, pores, or teeth. Often growing on wood, some growing on the ground.  
+				<b>Underside smooth, wrinkled, veined, bumpy.</b> Fungi with or without cap. Most are thin brackets or crusts. One species has split gills. One species has crinkled gill like folds. If stem present then the cap does not have gills, pores, or teeth. Often growing on wood, some growing on the ground.
 				</p>
 				</td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/g_crust.jpg" width="125" height="100" alt=""></td>
@@ -160,7 +159,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h3>Rusts, smuts, bunts, and relatives</h3>
 				<p>
-				Few of these fungi are currently included in vPlants. 
+				Few of these fungi are currently included in vPlants.
 				For more information see Tree of Life Web Project: <a href="http://www.tolweb.org/Urediniomycotina/">Urediniomycotina</a> and <a href="http://www.tolweb.org/Ustilaginomycetes/">Ustilaginomycetes</a>.
 				</p>
 				</td>
@@ -273,7 +272,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h2>Division Zygomycota, the bread molds and sugar molds</h2>
 				<p>
-				Fungi that have a zygosporangium (reproductive cell). Includes black bread mold.  
+				Fungi that have a zygosporangium (reproductive cell). Includes black bread mold.
 
 				For more information see <a href="http://www.tolweb.org/Zygomycota/">Tree of Life Web Project</a>.
 				</p>
@@ -297,7 +296,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h2>Myxomycetes, the slime molds</h2>
 				<p>
-				Fungus-like protists that are related to amoebae. 
+				Fungus-like protists that are related to amoebae.
 				</p>
 				</td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/img/g_slimemolds.jpg" width="125" height="100" alt=""></td>
@@ -307,7 +306,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h2>Oomycetes, the water molds</h2>
 				<p>
-				Fungus-like protists that are related to brown algae. Includes plant pathogens such as late blight of potato.  
+				Fungus-like protists that are related to brown algae. Includes plant pathogens such as late blight of potato.
 				</p>
 				</td>
 				<td ><!-- image --></td>
@@ -322,7 +321,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

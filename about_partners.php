@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Partners</title>
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Partners of The vPlants Project</h1>
@@ -28,21 +27,21 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</p>
 
 				<h3><a id="morton" name="morton"
-				 href="http://www.mortonarb.org" 
+				 href="http://www.mortonarb.org"
 				title="Go to this partner web site">The Morton Arboretum</a></h3>
 				<p>The Morton Arboretum</p>
 
 				<p>&nbsp;</p>
 
 				<h3><a id="field" name="field"
-				 href="http://www.fieldmuseum.org" 
+				 href="http://www.fieldmuseum.org"
 				title="Go to this partner web site">The Field Museum</a></h3>
 				<p>The Field Museum</p>
 
 				<p>&nbsp;</p>
 
 				<h3><a id="botanic" name="botanic"
-				 href="http://www.chicagobotanic.org" 
+				 href="http://www.chicagobotanic.org"
 				title="Go to this partner web site">Chicago Botanic Garden</a></h3>
 				<p>Chicago Botanic Garden</p>
 
@@ -51,7 +50,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<h3><a id="additional" name="additional"></a>Additional Partners</h3>
 
 				<h4><a id="inhs" name="inhs"
-				 href="http://www.inhs.uiuc.edu" 
+				 href="http://www.inhs.uiuc.edu"
 				title="Go to this partner web site">Illinois Natural History Survey</a></h4>
 				<p>Illinois Natural History Survey</p>
 
@@ -61,7 +60,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

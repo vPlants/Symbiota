@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Special Concern</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Plants of Special Concern</h1>
@@ -29,7 +28,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</p>
 
 				<p>
-				For The vPlants Project, we have compiled a list of <a href="../resources/plant_concern.php" 
+				For The vPlants Project, we have compiled a list of <a href="../resources/plant_concern.php"
 				title="See this document">Chicago Region Plants of Concern</a> that are listed for any of the four states of the area (Illinois, Indiana, Michigan, Wisconsin), plus the federal listed species.  View further information about this list as well as visit the state and federal web sites using the links on this page.
 				</p>
 
@@ -38,13 +37,13 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<p>Yes, see links on this page. Here in the Midwest, as of 2006, Minnesota is the only state that has listed threatened and endangered fungi. The U.S. Federal listing includes 2 lichens (lichenized fungi). Many European countries have Red Lists for fungi.  As with the plants, if any fungi become listed for our region then vPlants will add the Regional Conservation Status section for those species.</p>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<div class="box document">
 			<h3>vPlants Documents</h3>
 			<ul><li>
-			<a href="../resources/plant_concern.php" 
+			<a href="../resources/plant_concern.php"
 			title="Document information">Chicago Region Plants of Concern</a>
 			</li></ul>
 			</div>
@@ -53,43 +52,43 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<h3>Related Web Sites</h3>
 			<h4>Plant Special Concern Lists</h4>
 			<ul><li>
-			<a href="http://dnr.state.il.us/ESPB/" 
+			<a href="http://dnr.state.il.us/ESPB/"
 			title="External Link">Illinois Endangered Species Protection Board</a>
 			</li><li>
-			<a href="http://www.in.gov/dnr/naturepreserve/4878.htm" 
+			<a href="http://www.in.gov/dnr/naturepreserve/4878.htm"
 			title="External Link">Indiana plants</a>
 			</li><li>
-			<a href="http://web4.msue.msu.edu/mnfi/data/specialplants.cfm" 
+			<a href="http://web4.msue.msu.edu/mnfi/data/specialplants.cfm"
 			title="External Link">Michigan plants</a>
 			</li><li>
-			<a href="http://www.dnr.wi.gov/org/land/er/wlist/" 
+			<a href="http://www.dnr.wi.gov/org/land/er/wlist/"
 			title="External Link">Wisconsin plants</a>
 			</li><li>
-			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=Q&amp;listingType=L" 
+			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=Q&amp;listingType=L"
 			title="External Link">Federal flowering plants</a>
 			</li><li>
-			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=R&amp;listingType=L" 
+			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=R&amp;listingType=L"
 			title="External Link">Federal gymnosperms</a>
 			</li><li>
-			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=S&amp;listingType=L" 
+			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=S&amp;listingType=L"
 			title="External Link">Federal ferns and fern allies</a>
 			</li></ul>
 
 			<h4>Fungus Special Concern Lists</h4>
 			<ul><li>
-			<a href="http://www.dnr.state.mn.us/ets/lichens.html" 
+			<a href="http://www.dnr.state.mn.us/ets/lichens.html"
 			title="External Link">Minnesota Lichens, mosses, fungi</a>
 			</li><li>
-			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=U&amp;listingType=L" 
+			<a href="http://ecos.fws.gov/tess_public/SpeciesReport.do?groups=U&amp;listingType=L"
 			title="External Link">Federal lichens</a>
 			</li></ul>
 
 			<h4>World and National Red Lists</h4>
 			<ul><li>
-			<a href="http://www.iucnredlist.org/" 
+			<a href="http://www.iucnredlist.org/"
 			title="External Link">World Conservation Union Red List of Threatened Species</a>
 			</li><li>
-			<a href="http://www.wsl.ch/eccf/redlists-en.ehtml" 
+			<a href="http://www.wsl.ch/eccf/redlists-en.ehtml"
 			title="External Link">European Council for the Conservation of Fungi - links to Red Lists</a>
 			</li></ul>
 			</div>
@@ -100,7 +99,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

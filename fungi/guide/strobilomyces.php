@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Strobilomyces</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Guide to Strobilomyces</h1>
@@ -45,7 +44,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/STRO1/STRO1FLOC_spore.gif" width="125" height="100" alt="reticulate spore"></td>
 				<td ><!-- image --><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/STRO1/STRO1FLOC_cap.jpg" width="125" height="100" alt="shaggy cap surface"></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=4005">
-				 <i class="genus">Strobilomyces</i> 
+				 <i class="genus">Strobilomyces</i>
 				 <i class="epithet">floccopus</i></a>
 					</span></td>
 				</tr><tr >
@@ -53,7 +52,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/STRO1/STRO1CONF_spore.gif" width="125" height="100" alt="spiny spore"></td>
 				<td ><!-- image --><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/STRO1/STRO1CONF_cap.jpg" width="125" height="100" alt="scaly cap surface"></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=11578">
-				 <i class="genus">Strobilomyces</i> 
+				 <i class="genus">Strobilomyces</i>
 				 <i class="epithet">confusus</i></a>
 					</span></td>
 
@@ -70,7 +69,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

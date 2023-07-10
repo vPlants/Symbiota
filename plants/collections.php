@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Herbarium Collections<</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
 	    <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -79,7 +78,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-				
+
 					<div id="content2">
 
 						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/herb_compactors.jpg" width="250" height="249" alt="Rows of cabinets on tracks that are moved using a crank." title="Mechanical compactor cabinets at The Field Museum.">
@@ -101,7 +100,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

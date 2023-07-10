@@ -6,40 +6,39 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants | Project Resources</title>
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Project Resources</h1>
 
             <div style="margin:20px;">
             	<table width="720" height="350" border="0" cellpadding="0" cellspacing="0">
-					<tr> 
+					<tr>
 					  <td width="90" valign="top" class="bgdkgr"><img src="img/spacer.gif" width="90" height="1" alt=""></td>
 					  <td width="20" valign="top"><img src="img/spacer.gif" width="20" height="1" alt=""></td>
 					  <td width="610" valign="top"><table width="450" border="0" cellpadding="0" cellspacing="0">
-						  <tr> 
+						  <tr>
 							<td>&nbsp;</td>
 						  </tr>
-						  <tr> 
+						  <tr>
 							<td><h1>Project Resources</h1></td>
 						  </tr>
 						</table>
 						<table width="100%" border="0">
 						<tr>
 						<td width="5%"></td>
-							<td> 
-							<b>vPlants II</b> 
+							<td>
+							<b>vPlants II</b>
 							<br><br>
 							  <H2><a href="pr/species/index.htm">Species Page Prototypes</a></h2>
 							  <font size="1">[updated: 27-May-2004]</font>
@@ -79,11 +78,11 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					  <td valign="top" class="bgdkgr">&nbsp;</td>
 					  <td valign="top">&nbsp;</td>
 					  <td align="center" class="footer">
-				<!--	  
-					  <a href="index.html" class="footlink">Home</a> | <a href="about_partners.html" class="footlink">About 
-						Us</a> | <a href="whatis.html" class="footlink">What's An Herbarium</a> | <a href="browse_genus.html" class="footlink">Browse 
+				<!--
+					  <a href="index.html" class="footlink">Home</a> | <a href="about_partners.html" class="footlink">About
+						Us</a> | <a href="whatis.html" class="footlink">What's An Herbarium</a> | <a href="browse_genus.html" class="footlink">Browse
 						Plant List</a> | <a href="search.html" class="footlink">Search</a></td>
-				-->		
+				-->
 					</tr>
 				</table>
             </div>
@@ -91,7 +90,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

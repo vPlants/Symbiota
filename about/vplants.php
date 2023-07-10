@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> About Us - The vPlants Project</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<div  id="innervplantstext">
 			<div id="bodywrap">
@@ -45,7 +44,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</div>
 					</div>
 					</div>
-		
+
 					<!-- start of side content -->
 					<div id="content2">
 						<!-- any image width should be 250 pixels -->
@@ -56,7 +55,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<div class="box">
 						 <h3>Features in production</h3>
 						 <p>
-						  <a href="/news/" 
+						  <a href="/news/"
 						   title="See description pages and more."><img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/prototype_210.jpg" width="210" height="291" alt="Thumbnail image of prototype description page."></a>
 						 </p>
 						<ul><li>
@@ -73,7 +72,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

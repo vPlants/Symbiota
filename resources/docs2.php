@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Plant Documents</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Plant Documents</h1>
@@ -29,25 +28,25 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 				<ol>
 				<li>
-				<h3><a href="plant_checklist.php" 
+				<h3><a href="plant_checklist.php"
 				title="Scientific Name Checklist.">Taxon Checklist</a></h3>
 				<p>
 				 vPlants Scientific Name Checklist of all plant species, subspecies and varieties included in vPlants.
 				</p>
 				</li><li>
-				<h3><a href="plant_concern.php" 
+				<h3><a href="plant_concern.php"
 				title="Chicago Region Plants of Concern.">Plants of Concern</a></h3>
 				<p>
 				 All Chicago Region vascular plants currently listed as endangered, threatened, rare, etc.
 				</p>
 				</li><li>
-				<h3><a href="plant_invasive.php" 
+				<h3><a href="plant_invasive.php"
 				title="Chicago Region Invasive Plants.">Invasive Plants</a></h3>
 				<p>
 				 All non-native (alien) vascular plants that are considered invasive in the Chicago Region.
 				</p>
 				</li><li>
-				<h3><a href="plant_terms.php" 
+				<h3><a href="plant_terms.php"
 				title="vPlants Accepted Plant Terms.">Accepted Plant Terms</a></h3>
 				<p>
 				 A list of the plant terms that are acceptable for use in the vPlants species descriptions.
@@ -55,19 +54,19 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</li>
 				</ol>
 
-				<!-- 
+				<!--
 				<h2>Other Documents for Plants</h2>
 
 				<p>...</p>
 				-->
             </div>
         </div>
-	
+
 	<div id="content2">
 
 		<div class="box external">
 		<h3>Related Web Sites</h3>
-		<ul><li><a href="http://geo.usace.army.mil/wetland_plants/index.html" 
+		<ul><li><a href="http://geo.usace.army.mil/wetland_plants/index.html"
 		title="External link.">Entry page for the National Wetland Plant List</a></li>
 		</ul>
 		</div>
@@ -79,7 +78,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

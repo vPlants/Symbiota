@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> Feedback1</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Species Pages Feedback Form</h1>
@@ -25,8 +24,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<p class="small"><a href="/news/">See Species Pages</a>. Help us with development of this site by answering any of the following questions.
 				Thanks!</p>
 
-				<form name="Species Page Feedback Form" 
-					method="post" 
+				<form name="Species Page Feedback Form"
+					method="post"
 					action="/cgi-bin/FormMail.pl">
 
 				 <input type="hidden" name="recipient" value="ahipp@mortonarb.org">
@@ -39,7 +38,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					<textarea name="navigation_ease" cols="60" rows="4"></textarea>
 
 				<hr>
-				Is the description information presented in a logical order and easy to read? 
+				Is the description information presented in a logical order and easy to read?
 				<br>
 					<textarea name="descrip_logical" cols="60" rows="4"></textarea>
 
@@ -50,24 +49,24 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 				<hr>
 				Do you have any problems understanding the text or terms used?<br>
-				If yes, what specific information is confusing? 
+				If yes, what specific information is confusing?
 				<br>
 					<textarea name="understanding_text" cols="60" rows="4"></textarea>
 
 				<hr>
-				Do the images effectively reinforce the text and vice versa? 
+				Do the images effectively reinforce the text and vice versa?
 				<br>
 					<textarea name="images_value" cols="60" rows="4"></textarea>
 
 				<hr>
 				Do the species pages provide enough information?<br>
-				If no, what else would you like to see on the species pages? 
+				If no, what else would you like to see on the species pages?
 				<br>
 					<textarea name="adequate_info" cols="60" rows="4"></textarea>
 
 				<hr>
 				Do the species pages provide too much information?<br>
-				If yes, what would you eliminate? 
+				If yes, what would you eliminate?
 				<br>
 					<textarea name="too_much_info" cols="60" rows="4"></textarea>
 
@@ -84,15 +83,15 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					<textarea name="future_usage" cols="60" rows="4"></textarea>
 
 				<hr>
-				How would you describe your botanical background or interests? i.e. 
-				beginner, amateur, avid gardener, mushroom hunter, 
+				How would you describe your botanical background or interests? i.e.
+				beginner, amateur, avid gardener, mushroom hunter,
 				student (please include grade), teacher (please include level),
 				conservation scientist, preserve steward, etc.
 				<br>
 					<textarea name="who_are_you" cols="60" rows="4"></textarea>
 
 				<hr>
-				Any other comments or questions? 
+				Any other comments or questions?
 				<br>
 					<textarea name="comments" cols="60" rows="4"></textarea>
 						<br>
@@ -120,7 +119,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

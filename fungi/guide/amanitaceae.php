@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Amanitaceae</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Guide to Amanitaceae</h1>
@@ -32,7 +31,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				This family, based on DNA evidence, is closely related to the Pluteaceae and also the Pleurotaceae (oyster mushrooms).
 				</p>
 
-				
+
 
 				<table class="key" cellpadding="0" cellspacing="0" border="0">
 				<caption>Guide to Genera</caption>
@@ -46,7 +45,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h3><i class="genus"><a href="amanita.html">Amanita</a></i></h3>
 				<p>
-				Spore print white. 
+				Spore print white.
 				<b>Universal veil present as a layer of tissue</b> which is membrane-like, usually leaving a volva (cup at base), or which breaks up into warts (loose material on cap and lower stem), or which is a powdery layer.
 				Partial veil present or absent.
 				Grows on ground, most species mycorrhizal with trees.
@@ -60,7 +59,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td >
 				<h3><i class="genus"><a href="limacella.html">Limacella</a></i></h3>
 				<p>
-				Spore print white. 
+				Spore print white.
 				<b>Universal veil present as a layer of slime</b> covering cap and most of stem.
 				Partial veil present sometimes leaving a ring.
 				Grows on ground, unclear whether decomposers or mycorrhizal.
@@ -77,7 +76,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

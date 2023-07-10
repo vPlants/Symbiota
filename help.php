@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Help FAQ</title>
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Help and Frequently Asked Questions</h1>
@@ -30,7 +29,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<h3>What is vPlants?</h3>
 
 				<p>
-				Please see the information <a href="/about.html" 
+				Please see the information <a href="/about.html"
 				 title="About vPlants and its partners">About Us</a>.
 				</p>
 
@@ -39,22 +38,22 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<p>
 				Please see the information <a href="chicago.html" title="Why the Chicago Region?">Why focus on the Chicago Region?</a>
 				</p>
-				 
+
 
 				<h3>What plants are included?</h3>
 				<p>
-				Please see the information  <a href="/plants/diversity.html" 
+				Please see the information  <a href="/plants/diversity.html"
 				 title="Plant Directory.">Plant Directory</a>.
 				</p>
 
 				<h3>What fungi are included?</h3>
 				<p>
-				Please see the information  <a href="/fungi/diversity.html" 
+				Please see the information  <a href="/fungi/diversity.html"
 				 title="Fungus Directory.">Fungus Directory</a>.
 				</p>
             </div>
         </div>
-		
+
 		<div id="content2"><!-- start of side content -->
 			<p class="hide">
 			<a id="secondary" name="secondary"></a>
@@ -65,8 +64,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 			<div class="box">
 			<h3>Where is vPlants?</h3>
-			<p><a href="/map.html" title="See State Map for Chicago Region"><img 
-			src="img/map_dual_200.gif" width="200" height="297" 
+			<p><a href="/map.html" title="See State Map for Chicago Region"><img
+			src="img/map_dual_200.gif" width="200" height="297"
 			alt="Maps of North America and the western Great Lakes showing the Chicago Region"></a>
 			</p>
 			<p>
@@ -79,12 +78,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<p class="small">
 			Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p>
 			<p class="small">
-			<a class="popup" href="/disclaimer.html" 
-			title="Read Disclaimer [opens new window]." 
-			onclick="window.open(this.href, 'disclaimer', 
+			<a class="popup" href="/disclaimer.html"
+			title="Read Disclaimer [opens new window]."
+			onclick="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
-			return false;" 
-			onkeypress="window.open(this.href, 'disclaimer', 
+			return false;"
+			onkeypress="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
 			return false;">Disclaimer</a>
 			</p>
@@ -93,7 +92,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

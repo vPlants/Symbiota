@@ -6,31 +6,30 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Fungal Diversity</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Fungal Diversity in the Chicago Region</h1>
 
             <div style="margin:20px;">
             	<p>
-				The landscape surrounding the Chicago metropolis is a melting pot of woodlands, savannas, wetlands, and prairie, where the eastern deciduous forest meets the farmlands of the plains. And all is wrapped around the south end of Lake Michigan and overlaid on a diverse foundation of old dune ridges, moraines, and other glacial features. <strong>The variety of plant communities supports a very diverse composition of fungi</strong> (mycota or mycobiota). 
+				The landscape surrounding the Chicago metropolis is a melting pot of woodlands, savannas, wetlands, and prairie, where the eastern deciduous forest meets the farmlands of the plains. And all is wrapped around the south end of Lake Michigan and overlaid on a diverse foundation of old dune ridges, moraines, and other glacial features. <strong>The variety of plant communities supports a very diverse composition of fungi</strong> (mycota or mycobiota).
 
-				<a href="#table1" title="Table 1: Facts about Chicago Region Fungi.">See Table below.</a> 
+				<a href="#table1" title="Table 1: Facts about Chicago Region Fungi.">See Table below.</a>
 
-				There are more than <strong>1,300 individual species of fungi</strong> found within this area of 30,557 square kilometers (11,798 square miles).  
+				There are more than <strong>1,300 individual species of fungi</strong> found within this area of 30,557 square kilometers (11,798 square miles).
 
-				The primary reason for the level of fungal diversity is the wide range of <a href="/topics/habitats.html" title="Plant communities.">habitats</a> found here which in turn is based on the <a href="/plants/diversity.html" title="Plant Diversity.">diversity of plants</a> and the <a href="/chicago.html" title="Why the Chicago Region?">geographic and geologic features</a> of the area.  
+				The primary reason for the level of fungal diversity is the wide range of <a href="/topics/habitats.html" title="Plant communities.">habitats</a> found here which in turn is based on the <a href="/plants/diversity.html" title="Plant Diversity.">diversity of plants</a> and the <a href="/chicago.html" title="Why the Chicago Region?">geographic and geologic features</a> of the area.
 				</p>
 
 				<p>
@@ -69,12 +68,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<tr><td>Invasive taxa</td>
 					<td align="center">some plant diseases, such as Dutch Elm Disease</td></tr>
 				<tr ><td colspan="2" >
-				Also read about 
-				<a href="/topics/habitats.html" 
-				title="Plant communities.">habitats</a>, or 
-				 <a href="/fungi/biology.html" 
+				Also read about
+				<a href="/topics/habitats.html"
+				title="Plant communities.">habitats</a>, or
+				 <a href="/fungi/biology.html"
 				title="How fungi grow.">biology</a>, or
-				<a href="/resources/biblio3.html" 
+				<a href="/resources/biblio3.html"
 				title="Fungus references.">see recommended books</a>.
 				</td></tr>
 				</tbody>
@@ -85,7 +84,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<a href="/map.html" title="See State Map for Chicago Region."><img class="border"
@@ -103,7 +102,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

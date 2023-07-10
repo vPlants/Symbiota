@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Help with Prototype Pages</title>
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Help with Prototype Pages</h1>
@@ -28,29 +27,29 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				We are redesigning the menu system and content for the website.
 				New features will be species description pages and photo galleries.
 
-				Also we are adding specimen data, descriptions, and photos for 
+				Also we are adding specimen data, descriptions, and photos for
 				mushrooms and other fungi of the Chicago region.
 				</p>
 
 				<p>
-				<h3>Why do some of the links to other pages or photos not work?</h3> 
+				<h3>Why do some of the links to other pages or photos not work?</h3>
 				</p>
 
 				<p>
-				Some links are disabled (links end with #) if they point to pages not yet built, such as menu items, photo galleries, description pages for similar species, and glossary. 
+				Some links are disabled (links end with #) if they point to pages not yet built, such as menu items, photo galleries, description pages for similar species, and glossary.
 				We are making changes and improvements to the site.  Links on the prototype pages are provided to show the features that the user can access from the page.  These links will be active when site design is complete and the vPlants data engine begins serving descriptions and photo galleries.
 				</p>
 
 				<p>
-				<h3>Why is there no search option for fungi?</h3> 
+				<h3>Why is there no search option for fungi?</h3>
 				</p>
 
 				<p>
-				The specimen data for fungi are not yet available. 
+				The specimen data for fungi are not yet available.
 				</p>
             </div>
         </div>
-		
+
 		<div id="content2"><!-- start of side content -->
 			<p class="hide">
 			<a id="secondary" name="secondary"></a>
@@ -62,7 +61,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<h3>Related Pages</h3>
 
 			<p>
-			<a href="/pr/species/" 
+			<a href="/pr/species/"
 			 title="See prototype description pages and more.">Features in production</a>
 			</p>
 
@@ -71,7 +70,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			</p>
 
 			<p>
-			<a href="/pr/species/" 
+			<a href="/pr/species/"
 			 title="See prototype description pages and more."><img src="feature/prototype_210.jpg" width="210" height="291" alt="Thumbnail image of prototype description page." /></a>
 			</p>
 			</div>
@@ -79,12 +78,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<p class="small">
 			Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p>
 			<p class="small">
-			<a class="popup" href="/disclaimer.html" 
-			title="Read Disclaimer [opens new window]." 
-			onclick="window.open(this.href, 'disclaimer', 
+			<a class="popup" href="/disclaimer.html"
+			title="Read Disclaimer [opens new window]."
+			onclick="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
-			return false;" 
-			onkeypress="window.open(this.href, 'disclaimer', 
+			return false;"
+			onkeypress="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
 			return false;">Disclaimer</a>
 			</p>
@@ -93,7 +92,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

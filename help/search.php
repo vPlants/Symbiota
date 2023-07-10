@@ -6,24 +6,23 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Help with Searching</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Help with Searching</h1>
 
             <div style="margin:20px;">
-            	<p>Choose whether you are looking for plants or fungi. The plant and fungus data are treated separately on this website.</p> 
+            	<p>Choose whether you are looking for plants or fungi. The plant and fungus data are treated separately on this website.</p>
 				<p>Search words can be entered in lowercase or uppercase. Search terms will match the beginnings of words, and is useful for shorthand or uncertain spelling. Fungus Family: <kbd>hygro</kbd> will find <i>Hygrophoraceae</i>, but Fungus Genus: <kbd>hygro</kbd> will find <i>Hygrocybe</i>, <i>Hygrophorus</i>, and <i>Hygrophoropsis</i>. This is also helpful with Latin endings; use Epithet: <kbd>tomentos</kbd> to match <i>tomentosa</i>, <i>tomentosum</i>, and <i>tomentosus</i>.</p>
 
 				<h2>Using Advanced Search</h2>
@@ -40,7 +39,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

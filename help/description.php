@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Help with Descriptions</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>vPlants - Help with Descriptions</h1>
@@ -25,14 +24,14 @@ header("Content-Type: text/html; charset=".$CHARSET);
             <div style="margin:20px;">
             	<h2>What information do the species descriptions provide?</h2>
 				<p>
-				The species description pages provide thorough descriptions of the physical appearance of a species, subspecies, or variety along with a photograph and information about similar species.  There are also data about typical habitat conditions, whether the species is native, and other important or interesting facts. 
+				The species description pages provide thorough descriptions of the physical appearance of a species, subspecies, or variety along with a photograph and information about similar species.  There are also data about typical habitat conditions, whether the species is native, and other important or interesting facts.
 				</p>
 
 				<h2>How do I find the description pages?</h2>
 				<p>
-				Use the search form found on the <a href="/">home page</a> or other pages. Choose plants or fungi.  Enter a particular name (common or scientific) and click the Search or Go button.  On the list of returned names click the "Description" link for that description page.  
-				See some of the completed pages here: <a href="/news/">Features in Production</a>. 
-				We are uploading the description pages as they are completed by the <a href="/about/">partner institutions</a>. 
+				Use the search form found on the <a href="/">home page</a> or other pages. Choose plants or fungi.  Enter a particular name (common or scientific) and click the Search or Go button.  On the list of returned names click the "Description" link for that description page.
+				See some of the completed pages here: <a href="/news/">Features in Production</a>.
+				We are uploading the description pages as they are completed by the <a href="/about/">partner institutions</a>.
 				</p>
 				<p>
 				In the future we hope to provide the technology that will allow users to search the database of species based on particular visual character states (e.g. flower color, leaf arrangement or shape, etc.) with the aid of photographs.
@@ -50,7 +49,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

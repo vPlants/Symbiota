@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Inocybe</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Guide to Inocybe</h1>
@@ -64,7 +63,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2LILA.key_cap.jpg" width="125" height="100" alt=""></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2LILA.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5509">
-				 <i class="genus">Inocybe</i> 
+				 <i class="genus">Inocybe</i>
 				 <i class="epithet">lilacina</i></a>
 					</span></td>
 				</tr><tr >
@@ -72,7 +71,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2GEOP.key_coll.jpg" width="125" height="100" alt=""></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2GEOP.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5468">
-				 <i class="genus">Inocybe</i> 
+				 <i class="genus">Inocybe</i>
 				 <i class="epithet">geophylla</i></a>
 					</span></td>
 				</tr><tr >
@@ -80,7 +79,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ALBO1.key_coll.jpg" width="125" height="100" alt=""></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ALBO1.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5397">
-				 <i class="genus">Inocybe</i> cf. 
+				 <i class="genus">Inocybe</i> cf.
 				 <i class="epithet">albodisca</i></a>
 					</span></td>
 				</tr>
@@ -114,7 +113,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5564">
-				 <i class="genus">Inocybe</i> 
+				 <i class="genus">Inocybe</i>
 				 <i class="epithet">rimosa</i></a>
 					</span></td>
 				</tr><tr >
@@ -122,7 +121,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5578">
-				 <i class="genus">Inocybe</i> cf. 
+				 <i class="genus">Inocybe</i> cf.
 				 <i class="epithet">sororia</i></a>
 					</span></td>
 				</tr><tr >
@@ -130,7 +129,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon">
-				 <i class="genus">Inocybe</i> aff. 
+				 <i class="genus">Inocybe</i> aff.
 				 <i class="epithet">pseudoumbrina</i>
 					</span></td>
 				</tr>
@@ -152,7 +151,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5553">
-				 <i class="genus">Inocybe</i> 
+				 <i class="genus">Inocybe</i>
 				 <i class="epithet">praetervisa</i></a>
 					</span></td>
 				</tr><tr >
@@ -160,7 +159,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5522">
-				 <i class="genus">Inocybe</i> aff. 
+				 <i class="genus">Inocybe</i> aff.
 				 <i class="epithet">mixtilis</i></a>
 					</span></td>
 				</tr>
@@ -170,7 +169,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon">
-				 <i class="genus">Inocybe</i> aff. 
+				 <i class="genus">Inocybe</i> aff.
 				 <i class="epithet">striata</i>
 					</span></td>
 				</tr><tr >
@@ -178,7 +177,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ADAE.key_coll.jpg" width="125" height="100" alt=""></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2ADAE.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5393">
-				 <i class="genus">Inocybe</i> 
+				 <i class="genus">Inocybe</i>
 				 <i class="epithet">adaequata</i></a>
 					</span></td>
 				</tr>
@@ -200,7 +199,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2CALO.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5419">
-				 <i class="genus">Inocybe</i> 
+				 <i class="genus">Inocybe</i>
 				 <i class="epithet">calospora</i></a>
 					</span></td>
 				</tr><tr >
@@ -208,7 +207,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5499">
-				 <i class="genus">Inocybe</i> aff. 
+				 <i class="genus">Inocybe</i> aff.
 				 <i class="epithet">lacera</i></a>
 					</span></td>
 				</tr>
@@ -218,7 +217,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2CAES.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5417">
-				 <i class="genus">Inocybe</i> 
+				 <i class="genus">Inocybe</i>
 				 <i class="epithet">caesariata</i></a>
 					</span></td>
 				</tr><tr >
@@ -245,7 +244,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2FLOCFLOC.key_coll.jpg" width="125" height="100" alt=""></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2FLOCFLOC.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon">
-				 <i class="genus">Inocybe</i> cf. 
+				 <i class="genus">Inocybe</i> cf.
 				 <i class="epithet">flocculosa</i> var. <i class="epithet">flocculosa</i>
 					</span></td>
 				</tr><tr >
@@ -253,7 +252,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2CICA.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5426">
-				 <i class="genus">Inocybe</i> cf. 
+				 <i class="genus">Inocybe</i> cf.
 				 <i class="epithet">cicatricata</i></a>
 					</span></td>
 				</tr>
@@ -263,7 +262,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/fungi/guide/INOC2/INOC2FUSCFUSC.key_spore.jpg" width="125" height="100" alt=""></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5464">
-				 <i class="genus">Inocybe</i> aff. 
+				 <i class="genus">Inocybe</i> aff.
 				 <i class="epithet">fuscidula</i> var. <i class="epithet">fuscidula</i></a>
 					</span></td>
 				</tr><tr >
@@ -271,7 +270,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
 				<td ><span class="taxon"><a href="/fungi/species/species.jsp?gid=5529">
-				 <i class="genus">Inocybe</i> aff. 
+				 <i class="genus">Inocybe</i> aff.
 				 <i class="epithet">nitidiuscula</i></a>
 					</span></td>
 				</tr>
@@ -283,7 +282,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

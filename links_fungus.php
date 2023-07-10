@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Fungus Links</title>
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/base.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo $CLIENT_ROOT; ?>/css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Links to Fungus Web Sites</h1>
@@ -39,7 +38,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<a href="http://www.tc.umn.edu/~wetmore/Herbarium/HERBHOME.htm">http://www.tc.umn.edu/~wetmore/Herbarium/HERBHOME.htm</a>
 				</p>
 
-				<h3>Fungal Web Sites for Upper Midwest:</h3> 
+				<h3>Fungal Web Sites for Upper Midwest:</h3>
 
 				<p>
 				Tom Volk's Fungi, University of Wisconsin - La Crosse:<br />
@@ -60,7 +59,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<!-- End of links -->
             </div>
         </div>
-		
+
 		<div id="content2"><!-- start of side content -->
 			<p class="hide">
 			<a id="secondary" name="secondary"></a>
@@ -68,7 +67,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			</p>
 
 			<!-- image width is 250 pixels -->
-			<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/CLIT1GIBB.po.jpg" width="250" height="300" 
+			<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/CLIT1GIBB.po.jpg" width="250" height="300"
 			 alt="Clitocybe gibba" title="Clitocybe gibba" />
 
 			<div class="box">
@@ -80,12 +79,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<p class="small">
 			Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p>
 			<p class="small">
-			<a class="popup" href="/disclaimer.html" 
-			title="Read Disclaimer [opens new window]." 
-			onclick="window.open(this.href, 'disclaimer', 
+			<a class="popup" href="/disclaimer.html"
+			title="Read Disclaimer [opens new window]."
+			onclick="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
-			return false;" 
-			onkeypress="window.open(this.href, 'disclaimer', 
+			return false;"
+			onkeypress="window.open(this.href, 'disclaimer',
 			'width=500,height=350,resizable,top=100,left=100');
 			return false;">Disclaimer</a>
 			</p>
@@ -94,7 +93,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

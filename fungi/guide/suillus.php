@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Suillus</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Guide to Suillus</h1>
@@ -153,7 +152,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<td id="k10">10a. Resinous dots on stem conspicuous, brownish.</td>
 				<td ><!-- image --></td>
 				<td ><!-- image --></td>
-				<td ><a href="/fungi/species/species.jsp?gid=11469"><i class="genus">Suillus</i> <i class="epithet">granulatus</i> subsp. 
+				<td ><a href="/fungi/species/species.jsp?gid=11469"><i class="genus">Suillus</i> <i class="epithet">granulatus</i> subsp.
 				<i class="epithet">snellii</i></a></td>
 				</tr><tr >
 				<td >10b. Resinous dots faint.</td>
@@ -169,7 +168,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

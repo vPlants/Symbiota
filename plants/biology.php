@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Plant Biology</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -45,10 +44,10 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-		
+
 					<div id="content2"><!-- start of side content -->
 					<!-- any image width should be 250 pixels -->
-					 
+
 						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/home_250_170.jpg" width="250" height="170" alt="Meadow with flowers and trees in background." title="Habitat near Chicago." />
 						<div class="box imgtext">
 						<p>
@@ -73,7 +72,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

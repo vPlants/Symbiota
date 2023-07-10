@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Wetlands</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Wetlands of the Chicago Region</h1>
@@ -47,8 +46,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				View the wetland indicator status for species in the area (found in the North Central Region) and other information at the United States Fish and Wildlife Service:
 				<a href="http://www.nwi.fws.gov/bha/list96.html">National Wetland Inventory page [external link]</a>.
 				</p>
-				
-				
+
+
 
 				<h3>An Exemplar Wetland in the Chicago Region</h3>
 
@@ -94,7 +93,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/cowles.jpg" width="250" height="195" alt="Cowles Bog" />
@@ -121,7 +120,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 			<a href="http://www.epa.gov/glnpo/fund/2000/guidreview/106.pdf">PDF document of original restoration proposal</a>
 			</li>
 			<li>
-			<a href="http://memory.loc.gov/ammem/award97/icuhtml/aepsp4.html">Library of Congress page on Henry C. Cowles</a> 
+			<a href="http://memory.loc.gov/ammem/award97/icuhtml/aepsp4.html">Library of Congress page on Henry C. Cowles</a>
 			</li>
 			</ul>
 			</div>
@@ -133,7 +132,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>About Plants - Names - Scientific Names</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -37,24 +36,24 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 							<h2>The Binomial</h2>
 							<p>
-							Names for species are always a combination of two Latinized words, called a binomial (meaning two names).  The first part of a binomial is the genus name, and it is always capitalized.  The second part of the species binomial is called the specific epithet or species epithet, and it is never capitalized (e.g. the scientific name for the American elm is <i>Ulmus americana</i>). Epithets based on proper names were previously capitalized but that practice ended.  
-							It is customary to shorten the genus name of the binomial to the first letter (still capitalized) followed by a period when the genus can be clearly presumed based on the appearance of the full genus name earlier in the sentence or paragraph. For example, <i>Ulmus americana</i>, <i>U. rubra</i>, and <i>U. thomasi</i> are all in the genus <i>Ulmus</i>. 
+							Names for species are always a combination of two Latinized words, called a binomial (meaning two names).  The first part of a binomial is the genus name, and it is always capitalized.  The second part of the species binomial is called the specific epithet or species epithet, and it is never capitalized (e.g. the scientific name for the American elm is <i>Ulmus americana</i>). Epithets based on proper names were previously capitalized but that practice ended.
+							It is customary to shorten the genus name of the binomial to the first letter (still capitalized) followed by a period when the genus can be clearly presumed based on the appearance of the full genus name earlier in the sentence or paragraph. For example, <i>Ulmus americana</i>, <i>U. rubra</i>, and <i>U. thomasi</i> are all in the genus <i>Ulmus</i>.
 							</p>
 
 							<h2>Subspecific epithets</h2>
 							<p>
-							Taxonomic levels (or ranks) below species are, in descending order, subspecies (subsp. or ssp.), variety (var.), and forma (f.). When used, these are always added after the species name, but with the level specified, for example, <i>Campanula aparinoides</i> ssp. <i>uliginosa</i>. 
+							Taxonomic levels (or ranks) below species are, in descending order, subspecies (subsp. or ssp.), variety (var.), and forma (f.). When used, these are always added after the species name, but with the level specified, for example, <i>Campanula aparinoides</i> ssp. <i>uliginosa</i>.
 							Note that subsp., var., and f. are not put in italics (or underlined).
 							</p>
 
 							<h2>Authors</h2>
 							<p>
-							In order to be completely clear about the scientific name of a species or lower level taxon, the author &#151; the name(s) or standard abbreviation(s) of the person(s) who first published that name combination &#151; should also be added after the end of the epithet, for example <i>Rhus copalina</i> L., or <i>R. copalina</i> var. <i>latifolia</i> Engl. 
+							In order to be completely clear about the scientific name of a species or lower level taxon, the author &#151; the name(s) or standard abbreviation(s) of the person(s) who first published that name combination &#151; should also be added after the end of the epithet, for example <i>Rhus copalina</i> L., or <i>R. copalina</i> var. <i>latifolia</i> Engl.
 							</p>
 
 							<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/sciname.gif" width="400" height="97" alt="diagram of the parts of a scientific name.">
 
-							<p>When a taxon name is moved to a different genus, the specific epithet is transferred to that new genus. The original taxon author(s) is placed in parentheses and the author(s) making the new combination is placed after that. For example, in 1849 Berkeley and Curtis described a small tan mushroom with a spongy stem base. The name history for this species is as follows. The first three names are synonyms of the fourth name <i>Gymnopus spongiosus</i>, which is the currently accepted name. 
+							<p>When a taxon name is moved to a different genus, the specific epithet is transferred to that new genus. The original taxon author(s) is placed in parentheses and the author(s) making the new combination is placed after that. For example, in 1849 Berkeley and Curtis described a small tan mushroom with a spongy stem base. The name history for this species is as follows. The first three names are synonyms of the fourth name <i>Gymnopus spongiosus</i>, which is the currently accepted name.
 							<ol>
 							<li><span class="taxon">
 							 <i class="genus">Marasmius</i>
@@ -65,21 +64,21 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 
 							<li><span class="taxon">
-							 <i class="genus">Marasmius</i> 
+							 <i class="genus">Marasmius</i>
 							 <i class="epithet">semisquarrosus</i>
 							 <span class="author">Berkeley &amp; Cooke</span>
 								</span>
 							 &#151; 1878, a new species is published, but later it is decided that this represents the same species as <i>M. spongiosus</i>. The name that was published first (in this case 1849 for <i>M. spongiosus</i>) takes precedence over any names described later.</li>
 
 							<li><span class="taxon">
-							 <i class="genus">Collybia</i> 
+							 <i class="genus">Collybia</i>
 							 <i class="epithet">spongiosa</i>
 							 <span class="author">(Berk. &amp; Curt.) Singer</span>
 								</span>
 							 &#151; 1949, Rolf Singer moves the species to the genus <i>Collybia</i>.</li>
 
 							<li><span class="taxon">
-							 <i class="genus">Gymnopus</i> 
+							 <i class="genus">Gymnopus</i>
 							 <i class="epithet">spongiosus</i>
 							 <span class="author">(Berk. &amp; Curt.) Halling</span>
 								</span>
@@ -89,9 +88,9 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-					
+
 					<div id="content2">
-					
+
 						<div class="box">
 							<h3>Names</h3>
 							<ul>
@@ -129,7 +128,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

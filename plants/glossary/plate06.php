@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Plate 6 - Surface Features</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -33,15 +32,15 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 						<div style="margin:20px;">
 							<div class="plate">
-							<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/plants/glossary/plate06.jpg" width="706" height="1055" 
-							alt="Line drawings of plant features." 
+							<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/plants/glossary/plate06.jpg" width="706" height="1055"
+							alt="Line drawings of plant features."
 							title="Plate 6: Surface Features.">
 							<h2>Plate 6: Surface Features</h2>
 							</div>
 						</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-					
+
 					<div id="content2"><!-- start of side content -->
 
 						<div class="box">
@@ -56,43 +55,43 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<div class="box">
 							<h3>Contents of Plates</h3>
 							<dl>
-							
+
 							<dt><a href="plate01.php" title="Plate 01">Plate 1</a>:</dt>
 							<dd>Stem and Root Types.</dd>
-							
+
 							<dt><a href="plate02.php" title="Plate 02">Plate 2</a>:</dt>
 							<dd>Leaf Composition, Parts, and Types.</dd>
-							
+
 							<dt><a href="plate03.php" title="Plate 03">Plate 3</a>:</dt>
 							<dd>Leaf Shapes.</dd>
-							
+
 							<dt><a href="plate04.php" title="Plate 04">Plate 4</a>:</dt>
 							<dd>Leaf Margins.</dd>
-							
+
 							<dt><a href="plate05.php" title="Plate 05">Plate 5</a>:</dt>
 							<dd>Leaf Apices, Venation, and Bases.</dd>
-							
+
 							<dt>Plate 6:</dt>
 							<dd><b>Surface Features.</b></dd>
-							
+
 							<dt><a href="plate07.php" title="Plate 07">Plate 7</a>:</dt>
 							<dd>Stem and Leaf Parts, and Variations.</dd>
-							
+
 							<dt><a href="plate08.php" title="Plate 08">Plate 8</a>:</dt>
 							<dd>Inflorescence Types.</dd>
-							
+
 							<dt><a href="plate09.php" title="Plate 09">Plate 9</a>:</dt>
 							<dd>Floral Morphology.</dd>
-							
+
 							<dt><a href="plate10.php" title="Plate 10">Plate 10</a>:</dt>
 							<dd>Corolla Types.</dd>
-							
+
 							<dt><a href="plate11.php" title="Plate 11">Plate 11</a>:</dt>
 							<dd>Fruit Types.</dd>
-							
+
 							<dt><a href="plate12.php" title="Plate 12">Plate 12</a>:</dt>
 							<dd>Sedges, Grasses, and Composites.</dd>
-							
+
 							<dt><a href="plate_all.php" title="All Plates">Plates 1-12</a>:</dt>
 							<dd>All</dd>
 
@@ -102,10 +101,10 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<div class="box">
 						<h3>Related Pages</h3>
 						<ul><li>
-						<a href="../../resources/plant_terms.php" 
+						<a href="../../resources/plant_terms.php"
 						 title="vPlants Accepted Plant Terms.">Accepted Plant Terms</a>
 						</li><li>
-						<a href="../../resources/links2.php" 
+						<a href="../../resources/links2.php"
 						 title="Links to related web sites">Links for Plants</a>
 						</li></ul>
 						</div>
@@ -121,17 +120,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<a href="http://www.m-w.com/dictionary.htm">Merriam Webster Dictionary</a>
 						</li></ul>
 						</div>
-						 
+
 						<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="../../disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 					</div><!-- end of #content2 -->
-					
+
 				</div><!-- end of #wrapper1 -->
 			</div><!-- end of #bodywrap -->
 		</div><!-- end of #innervplantstext -->
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

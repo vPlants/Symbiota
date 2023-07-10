@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>About Plants - Distribution - Endemics</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -41,7 +40,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							<h2>Endemic plants of the Chicago Region</h2>
 
 							<p>
-							In addition to having a high diversity of vascular plant species, the Chicago Region has two endemic species of plants: 
+							In addition to having a high diversity of vascular plant species, the Chicago Region has two endemic species of plants:
 							</p>
 
 							<h3><i>Thismia americana</i> (Burmanniaceae)</h3>
@@ -60,7 +59,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-		
+
 					<div id="content2">
 
 						<div class="box">
@@ -71,7 +70,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 								<li><a href="distribution3.php">Disjuncts</a></li>
 							</ul>
 						</div>
-						
+
 						<div class="box document">
 						<h3>Chicago Region Endemics</h3>
 						<ul><li>
@@ -110,7 +109,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

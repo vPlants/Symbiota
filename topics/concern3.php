@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - The Listing of Plants</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>The Listing of Plants</h1>
@@ -26,7 +25,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
             	<p>Certain species of plants (and animals) that experience decreases in frequency, population size, or number of populations have been assigned special status by state and federal governments.  Depending on the listing agency, ranks of Endangered, Threatened, Rare, Special Concern, Watch List or Extirpated are assigned to particular taxa (species, subspecies, or variety).  Typically, the taxa at highest risk for becoming extinct are listed as endangered, with the risk decreasing down to threatened, rare, etc.  Ideally, by protecting populations of species that are ranked on these lists, the extirpation (local extinction) of species in particular areas can be avoided.  Each state usually has their own ranking system and different protection laws or methods associated with those ranks.</p>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/CIPI.jpg" width="250" height="337" alt="thistle growing in sand." title="Cirsium pitcheri" />
@@ -47,7 +46,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

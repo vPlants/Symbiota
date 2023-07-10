@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Names</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Names</h1>
@@ -36,7 +35,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<p>Taxonomy is the classification of organisms into categories based on shared characteristics. It is closely tied to nomenclature, the practice of naming things.  Scientific names for plants and fungi follow the rules of the International Code of Botanical Nomenclature. For animals, the International Code of Zoological Nomenclature is used. There is also the International Code of Nomenclature of Bacteria. When a new species or organism is discovered, it is named based upon the rules of these codes.  Because these two sets of rules are independent there are occasionally the same names used for both animals and plants or fungi. For example, <i>Lactarius</i> is a genus of milk mushrooms, but <i>Lactarius</i> is also an economically important milkfish in the Indian Ocean.</p>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<div class="box document">
@@ -60,7 +59,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

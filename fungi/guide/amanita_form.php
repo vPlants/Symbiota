@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Synoptic Key to Amanita</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Synoptic Key to Amanita</h1>
@@ -30,8 +29,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<style type="text/css">
 				body.guide table.key {
 				 width: auto;
-					border-left: 1px solid #440; 
-					border-bottom: 1px solid #440; 
+					border-left: 1px solid #440;
+					border-bottom: 1px solid #440;
 				}
 				</style>
 
@@ -40,7 +39,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<form
 				 name="advanced"
 				 method="post"
-				 onsubmit="return submitform();" 
+				 onsubmit="return submitform();"
 				action="">
 
 				<p class="actions">
@@ -237,7 +236,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

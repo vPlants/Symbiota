@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Accepted Plant Terms</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -40,7 +39,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 							<h3>Accepted Plant Terms --
 							 Last modified 2004 December 21</h3>
-							<p>Terms deemed acceptable for use on the vPlants pages (they also occur in the glossary of Swink and Wilhlem); see the <a href="../plants/glossary/index.html">online glossary</a>. 
+							<p>Terms deemed acceptable for use on the vPlants pages (they also occur in the glossary of Swink and Wilhlem); see the <a href="../plants/glossary/index.html">online glossary</a>.
 							Terms in [brackets] are to be used only if using the alternative becomes incredibly cumbersome.
 							 Other terms may certainly be "defined" on the pages and then have the term in parentheses afterwards, but cannot "stand alone."  The exception exists for the larger families with specific terminology (e.g. Poaceae, Cyperaceae, Asteraceae, Fabaceae), where we will create an <a href="../plants/glossary/index.html">online glossary</a> pages, with the general diagnostic terms illustrated and defined, that will link from each of the taxon pages in those families.</p>
 
@@ -48,12 +47,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							Use non-toothed  instead of entire;
 							hairless instead of glabrous;
 							stalkless  instead of sessile;
-							unbranched  instead of simple. 
+							unbranched  instead of simple.
 
-							Restrict usage of floret to 
+							Restrict usage of floret to
 							Asteraceae, Poaceae, Cyperaceae. </p>
 							<p>
-							<table><tr> 
+							<table><tr>
 								<td valign="top"><pre class="small">
 							Achene
 							[Adventitious]
@@ -201,8 +200,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							Nodding
 							Node
 							Non-toothed
-							Nut 
-							 - probably in 
+							Nut
+							 - probably in
 							   a wide sense
 							Oblong
 							Obsolete
@@ -306,9 +305,9 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-					
+
 					<div id="content2">
-					
+
 						<div class="box">
 							<h3>Plant Documents</h3>
 							<ul>
@@ -319,7 +318,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 								<li><strong>Accepted Plant Terms</strong></li>
 							</ul>
 						</div>
-					
+
 					</div><!-- end of #content2 -->
 				</div><!-- end of #wrapper1 -->
 			</div><!-- end of #bodywrap -->
@@ -327,7 +326,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>About Plants - Distribution</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -35,17 +34,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							<h2>Biogeography</h2>
 
 							<p>Biogeography is the study of the distribution of life on earth. There are many common patterns for the distribution of plants, fungi, and animals.</p>
-							
+
 							<div class="indexheading"><a href="<?php echo $CLIENT_ROOT; ?>/plants/distribution2.php">Endemics</a></div>
 							<div class="indexdescription"><p>The term endemic means that something is restricted to a locality or region.  In biology, endemism refers to species that have evolved to the specific conditions of their habitats in a particular area, and consequently do not exist naturally anywhere else in the world but that locality of origin. <a href="<?php echo $CLIENT_ROOT; ?>/plants/distribution2.php">Learn more</a></p></div>
-							
+
 							<div class="indexheading"><a href="<?php echo $CLIENT_ROOT; ?>/plants/distribution3.php">Disjuncts</a></div>
 							<div class="indexdescription"><p>Distributions of species are considered disjunct when a portion of the area where the species occurs is far-separated from the majority of the area the species occupies. <a href="<?php echo $CLIENT_ROOT; ?>/plants/distribution3.php">Learn more</a></p></div>
-							
+
 						</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-		
+
 					<div id="content2">
 
 						<div class="box">
@@ -56,7 +55,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 								<li><a href="distribution3.php">Disjuncts</a></li>
 							</ul>
 						</div>
-						
+
 						<div class="box external">
 						<h3>....</h3>
 						<ul><li>
@@ -73,7 +72,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

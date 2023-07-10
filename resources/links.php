@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Resources - Links</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -28,7 +27,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 					<div id="content1wrap"><!--  for content1 only -->
 
-					<div id="content1"><!-- start of primary content --><a id="pagecontent" name="pagecontent"></a>		
+					<div id="content1"><!-- start of primary content --><a id="pagecontent" name="pagecontent"></a>
 						<h1>Plant Links</h1>
 
 						<div style="margin:20px;">
@@ -77,13 +76,13 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							 <li><a href="http://www.nybg.org/plants1/more_info.html">New York Botanical Garden - Home Gardening Online</a> (requires Free Online Subscription)</li>
 							</ul>
 						</div>
-						 
+
 						<h1>Natural History Education</h1>
 
 						<div style="margin:20px;">
 
 							<h3><a href="http://www.aapcc.org/">Poison Control Center</a> 800-222-1222</h3>
-							
+
 							<h3>Illinois</h3>
 							<ul>
 							 <li><a href="http://www.mortonarb.org/main.taf?p=4,2,5,2">Naturalist Certificate Program</a></li>
@@ -99,7 +98,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-		
+
 					<div id="content2">
 						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/IMPA.po.jpg" width="250" height="244"  alt="Pendant yellow flowers with spurs" title="Impatiens" />
 						<p>Yellow jewelweed</p>
@@ -135,7 +134,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

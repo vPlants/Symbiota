@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Help Guide</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Help Guide</h1>
@@ -30,7 +29,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				<h3>What is vPlants?</h3>
 
 				<p>
-				Please see <a href="/about/" 
+				Please see <a href="/about/"
 				 title="About vPlants and its partners">About Us</a>.
 				</p>
 
@@ -41,13 +40,13 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 				<h3>What plants are included?</h3>
 				<p>
-				Please see <a href="/plants/" 
+				Please see <a href="/plants/"
 				 title="Plants start page.">Plants of the Chicago Region</a>.
 				</p>
 
 				<h3>What fungi are included?</h3>
 				<p>
-				Please see <a href="/fungi/" 
+				Please see <a href="/fungi/"
 				 title="Fungi start page.">Fungi of the Chicago Region</a>.
 				</p>
             </div>
@@ -55,7 +54,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

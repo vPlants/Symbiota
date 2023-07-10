@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Guide to Plants</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -33,7 +32,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 					<div style="margin:20px;">
 						<p class="small">This guide applies to the Chicago Region and is not complete for other regions. <span class="noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></span></p>
-						
+
 						<p>Use the <a href="../../checklists/checklist.php?cl=3503&pid=93" title="Index of genera">Species Index</a> to see an alphabetical lists of included plants. At the top of the page you can Search for plants by name. For a complete list of the plant species, subspecies, and varieties represented in the Chicago Region, see the <a href="<?php echo $CLIENT_ROOT; ?>/resources/plant_checklist.php" title="vPlants document.">Scientific Name Checklist</a>.</p>
 
 						<table class="key" cellpadding="3" cellspacing="0" border="0">
@@ -43,7 +42,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<tr class="keydivision">
 						<td>
 						<h2>Vascular Plants</h2>
-						<p>The vPlants site currently provides information on vascular plants, a group named for the special transport tissues (circulatory system of xylem and phloem) they possess. 
+						<p>The vPlants site currently provides information on vascular plants, a group named for the special transport tissues (circulatory system of xylem and phloem) they possess.
 						The vascular plants make up the great majority of the land plants living today. There are two categories of vascular plants: non-flowering and flowering.  Within these categories there are three main groups:
 						</p>
 						</td>
@@ -53,7 +52,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<td >
 						<h3>Pteridophytes (non-flowering spore plants)</h3>
 						<p>
-						The pteridophyte group includes ferns, horsetails, club mosses, and other vascular plants without seeds. 
+						The pteridophyte group includes ferns, horsetails, club mosses, and other vascular plants without seeds.
 						They reproduce by spores formed on the surface of leaves, or in cone-like structures. The spores grow into a short-lived, haploid, gametophyte stage, which produces gametes.  The male and female gametes unite to form embryos, which grow into adult, sporophyte (spore-producing) plants.
 						</p>
 						</td>
@@ -98,7 +97,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<td >
 						<h3>Bryophytes</h3>
 						<p>
-						Bryophytes include mosses, liverworts, and hornworts. These are smaller, green plants, which reproduce by spores. Their green, visible, free-living phase of the life cycle is actually the haploid generation, called the gametophyte.  This phase produces male and female gametes, which unite, and consequently develop into a very small structure pertaining to the spore-producing sporophyte phase.  The haploid spores are then released, and grow into a new gametophyte plant.  Bryophytes also often reproduce asexually. 
+						Bryophytes include mosses, liverworts, and hornworts. These are smaller, green plants, which reproduce by spores. Their green, visible, free-living phase of the life cycle is actually the haploid generation, called the gametophyte.  This phase produces male and female gametes, which unite, and consequently develop into a very small structure pertaining to the spore-producing sporophyte phase.  The haploid spores are then released, and grow into a new gametophyte plant.  Bryophytes also often reproduce asexually.
 						</p>
 						</td>
 						</tr><tr >
@@ -117,7 +116,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-				
+
 					<div id="content2"><!-- start of side content -->
 						<!-- any image width should be 250 pixels -->
 
@@ -141,14 +140,14 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							 </li>
 						 </ul>
 						</div>
-						 
+
 						<p>Non-flowering vascular plants</p>
 						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/nonflowering.jpg" width="250" height="342" alt="Non-flowering plant examples: fern frond, a pteridophyte; and spruce branch, a gymnosperm.">
 						<hr>
 						<p>Flowering plants </p>
 						<img src="<?php echo $CLIENT_ROOT; ?>/images/vplants/feature/angios.jpg" width="250" height="322" alt="Flowering plant examples: flowers of cactus and wild rice, both angiosperms.">
-						 
-						 
+
+
 						<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="<?php echo $CLIENT_ROOT; ?>/disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 
 					</div><!-- end of #content2 -->
@@ -158,7 +157,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

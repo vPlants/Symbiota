@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Plant Glossary</title>
-	<link href="../../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
 		<!-- start of inner text and right side content -->
 		<div  id="innervplantstext">
@@ -30,8 +29,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 					<div id="content1"><!-- start of primary content --><a id="pagecontent" name="pagecontent"></a>
 					<p>
-					<a href="#a">A</a> | 
-					<a href="#b">B</a> | 
+					<a href="#a">A</a> |
+					<a href="#b">B</a> |
 					<a href="#c">C</a> |
 					<a href="#d">D</a> |
 					<a href="#e">E</a> |
@@ -88,8 +87,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; Stemless, or apparently so.</dd>
 
 						<dt id="achene">Achene</dt>
-						<dd>&#151; A hard, one-seeded, <a href="#indehiscent">indehiscent</a> <a href="#nutlet">nutlet</a> with a tight <a href="#pericarp">pericarp</a>. [<a href="plate11.php" 
-						title="Plate 11">Plate 11</a> and <a href="plate12.php" 
+						<dd>&#151; A hard, one-seeded, <a href="#indehiscent">indehiscent</a> <a href="#nutlet">nutlet</a> with a tight <a href="#pericarp">pericarp</a>. [<a href="plate11.php"
+						title="Plate 11">Plate 11</a> and <a href="plate12.php"
 						title="Plate 12">Plate 12</a>]</dd>
 
 						<dt id="acicular">Acicular</dt>
@@ -268,7 +267,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd><hr /></dd>
 
 						<dt id="barbellate">Barbellate</dt>
-						<dd>&#151; Beset with fine barbs. [<a href="plate06.php" 
+						<dd>&#151; Beset with fine barbs. [<a href="plate06.php"
 						title="Plate 06">Plate 6</a>] </dd>
 
 						<dt id="barren">Barren</dt>
@@ -305,7 +304,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; Having two equal sides on either side of an <a href="#axis">axis</a>.</dd>
 
 						<dt id="bilaterallysymmetrical">Bilaterally symmetrical</dt>
-						<dd>&#151; Referring to a <a href="#calyx">calyx or <a href="#corolla">corolla</a> that is <a href="#zygomorphic">zygomorphic</a>, capable of being divided into two equal halves along one plane only. [<a href="plate09.php" 
+						<dd>&#151; Referring to a <a href="#calyx">calyx or <a href="#corolla">corolla</a> that is <a href="#zygomorphic">zygomorphic</a>, capable of being divided into two equal halves along one plane only. [<a href="plate09.php"
 						title="Plate 09">Plate 9</a>]</dd>
 
 						<dt id="bilobed">Bilobed</dt>
@@ -540,7 +539,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; Fertilized in the bud, without the opening of the flower.</dd>
 
 						<dt id="clone">Clone</dt>
-						<dd>&#151; A group of individuals, resulting from <a href="#vegetative">vegetative</a> multiplication; any 
+						<dd>&#151; A group of individuals, resulting from <a href="#vegetative">vegetative</a> multiplication; any
 						plant propagated <a href="#vegetative">vegetatively</a> and therefore, presumably a duplicate of its parent.</dd>
 
 						<dt id="coarse">Coarse</dt>
@@ -565,7 +564,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; Strongly flattened, especially <a href="#lateral">laterally</a>. </dd>
 
 						<dt id="concave">Concave</dt>
-						<dd>&#151; Hollow; in the context of the interior of a curved surface; opposite 
+						<dd>&#151; Hollow; in the context of the interior of a curved surface; opposite
 						of <a href="#convex">convex</a>.</dd>
 
 						<dt id="concentric">Concentric</dt>
@@ -599,7 +598,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; Abruptly narrowed or reduced.</dd>
 
 						<dt id="convex">Convex</dt>
-						<dd>&#151; Curved or rounded, as the exterior of a circular form viewed from 
+						<dd>&#151; Curved or rounded, as the exterior of a circular form viewed from
 						without; opposite of <a href="#concave">concave</a>.</dd>
 
 						<dt id="convolute">Convolute</dt>
@@ -654,7 +653,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; With the consistency of cotton.</dd>
 
 						<dt id="cotyledon">Cotyledon</dt>
-						<dd>&#151; A seed leaf; the first leaf (or leaves) to appear during the 
+						<dd>&#151; A seed leaf; the first leaf (or leaves) to appear during the
 						development of a seedling.</dd>
 
 						<dt id="crateriform">Crateriform</dt>
@@ -716,7 +715,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 						<dt id="deciduous">Deciduous</dt>
 						<dd>&#151; Pertaining to plants which shed their <a href="#herbaceous">herbaceous</a> tissues after one year's growth; not <a href="#evergreen">evergreen</a>; <a href="#caducous">caducous</a>.</dd>
-						 
+
 						<dt id="decompound">Decompound</dt>
 						<dd>&#151; Divided or <a href="#compound">compound</a> more than once. </dd>
 
@@ -1088,7 +1087,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; With minute barbed <a href="#bristle">bristles</a>. [<a href="plate07.php" title="Plate 07">Plate 7</a>]</dd>
 
 						<dt id="glomerate">Glomerate</dt>
-						<dd>&#151; Tightly clustered, usually in reference to compact clusters of 
+						<dd>&#151; Tightly clustered, usually in reference to compact clusters of
 						short-stalked flowers.</dd>
 
 						<dt id="glomerulate">Glomerulate</dt>
@@ -1140,7 +1139,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; More or less <a href="#hastate">hastate</a>.</dd>
 
 						<dt id="haustorium">Haustorium</dt>
-						<dd>&#151; In parasitic plants, a specialized outgrowth of a stem or root, 
+						<dd>&#151; In parasitic plants, a specialized outgrowth of a stem or root,
 						serving for the absorption of food, as in the dodders.</dd>
 
 						<dt id="head">Head</dt>
@@ -1201,7 +1200,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; Transparent or <a href="#translucent">translucent</a>.</dd>
 
 						<dt id="hybrid">Hybrid</dt>
-						<dd>&#151; The progeny of sexual reproduction between two different, recognized 
+						<dd>&#151; The progeny of sexual reproduction between two different, recognized
 						<a href="#species">species</a>.</dd>
 
 						<dt id="hydromesophytic">Hydromesophytic</dt>
@@ -1428,7 +1427,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 						<dt id="lobe">Lobe</dt>
 						<dd>&#151; Any <a href="#segment">segment</a> or division, particularly if <a href="#blunt">blunt</a>. [<a href="plate04.php" title="Plate 04">Plate 4</a>]</dd>
-						 
+
 						<dt id="lobulate">Lobulate</dt>
 						<dd>&#151; Bearing <a href="#lobe">lobes</a>.</dd>
 
@@ -1568,7 +1567,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; Hanging on a bent <a href="#peduncle">peduncle</a> or <a href="#pedicel">pedicels</a>.</dd>
 
 						<dt id="node">Node</dt>
-						<dd>&#151; The point along a stem which gives rise to leaves, branches, or 
+						<dd>&#151; The point along a stem which gives rise to leaves, branches, or
 						<a href="#inflorescence">inflorescences</a>.</dd>
 
 						<dt id="nodose">Nodose</dt>
@@ -1719,7 +1718,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						<dd>&#151; A fine crust or film.</dd>
 
 						<dt id="peat">Peat</dt>
-						<dd>&#151; Soil or substrate heavily invested with or even totally composed of 
+						<dd>&#151; Soil or substrate heavily invested with or even totally composed of
 						partially decayed organic matter.</dd>
 
 						<dt id="pectinate">Pectinate</dt>
@@ -2090,7 +2089,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 						<dt id="scaberulous">Scaberulous</dt>
 						<dd>&#151; Minutely <a href="#scabrous">scabrous</a>.</dd>
-						 
+
 						<dt id="scabrid">Scabrid</dt>
 						<dd>&#151; Slightly roughened.</dd>
 
@@ -2165,7 +2164,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 						<dt id="setaceous">Setaceous</dt>
 						<dd>&#151; <a href="#bristle">Bristle-like</a>.</dd>
-						 
+
 						<dt id="seriform">Seriform</dt>
 						<dd>&#151; Having the form of a <a href="#bristle">bristle</a>.</dd>
 
@@ -2698,20 +2697,20 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					</div>
 					</div><!-- end of #content1 -->
 					</div><!-- end of #content1wrap -->
-				
-		
+
+
 					<div id="content2"><!-- start of side content -->
 
 					<div class="box">
 					<h3>Family Glossaries</h3>
 					<ul><li>
-					<a href="asteraceae.php" 
+					<a href="asteraceae.php"
 					title="Glossary for Asteraceae">Asteraceae &#151; Composites</a>
 					</li><li>
-					<a href="cyperaceae.php" 
+					<a href="cyperaceae.php"
 					title="Glossary for Cyperaceae">Cyperaceae &#151; Sedges</a>
 					</li><li>
-					<a href="poaceae.php" 
+					<a href="poaceae.php"
 					title="Glossary for Poaceae">Poaceae &#151; Grasses</a>
 					</li></ul></div>
 
@@ -2719,62 +2718,62 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					<h3>Contents of Plates</h3>
 					<dl>
 					<dt>
-					<a href="plate01.php" 
+					<a href="plate01.php"
 					title="Plate 01">Plate 1</a>:</dt>
 					<dd>Stem and Root Types.
 					</dd>
 					<dt>
-					<a href="plate02.php" 
+					<a href="plate02.php"
 					title="Plate 02">Plate 2</a>:</dt>
 					<dd>Leaf Composition, Parts, and Types.
 					</dd>
 					<dt>
-					<a href="plate03.php" 
+					<a href="plate03.php"
 					title="Plate 03">Plate 3</a>:</dt>
 					<dd>Leaf Shapes.
 					</dd>
 					<dt>
-					<a href="plate04.php" 
+					<a href="plate04.php"
 					title="Plate 04">Plate 4</a>:</dt>
 					<dd>Leaf Margins.
 					</dd>
 					<dt>
-					<a href="plate05.php" 
+					<a href="plate05.php"
 					title="Plate 05">Plate 5</a>:</dt>
 					<dd>Leaf Apices, Venation, and Bases.
 					</dd>
 					<dt>
-					<a href="plate06.php" 
+					<a href="plate06.php"
 					title="Plate 06">Plate 6</a>:</dt>
 					<dd>Surface Features.
 					</dd>
 					<dt>
-					<a href="plate07.php" 
+					<a href="plate07.php"
 					title="Plate 07">Plate 7</a>:</dt>
 					<dd>Stem and Leaf Parts, and Variations.
 					</dd>
 					<dt>
-					<a href="plate08.php" 
+					<a href="plate08.php"
 					title="Plate 08">Plate 8</a>:</dt>
 					<dd>Inflorescence Types.
 					</dd>
 					<dt>
-					<a href="plate09.php" 
+					<a href="plate09.php"
 					title="Plate 09">Plate 9</a>:</dt>
 					<dd>Floral Morphology.
 					</dd>
 					<dt>
-					<a href="plate10.php" 
+					<a href="plate10.php"
 					title="Plate 10">Plate 10</a>:</dt>
 					<dd>Corolla Types.
 					</dd>
 					<dt>
-					<a href="plate11.php" 
+					<a href="plate11.php"
 					title="Plate 11">Plate 11</a>:</dt>
 					<dd>Fruit Types.
 					</dd>
 					<dt>
-					<a href="plate12.php" 
+					<a href="plate12.php"
 					title="Plate 12">Plate 12</a>:</dt>
 					<dd>Sedges, Grasses, and Composites.
 					</dd>
@@ -2785,10 +2784,10 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					<div class="box">
 					<h3>Related Pages</h3>
 					<ul><li>
-					<a href="../../resources/plant_terms.php" 
+					<a href="../../resources/plant_terms.php"
 					 title="vPlants Accepted Plant Terms.">Accepted Plant Terms</a>
 					</li><li>
-					<a href="../../resources/links2.php" 
+					<a href="../../resources/links2.php"
 					 title="Links to related web sites">Links for Plants</a>
 					</li></ul>
 					</div>
@@ -2804,16 +2803,16 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					<a href="http://www.m-w.com/dictionary.htm">Merriam Webster Dictionary</a>
 					</li></ul>
 					</div>
-					 
+
 					<p class="small">Information provided on this page applies to the Chicago Region and may not be relevant or complete for other regions.</p><p class="small noprint"><a href="../../disclaimer.php" title="Read Disclaimer.">Disclaimer</a></p>
 					</div>
 				</div><!-- end of #wrapper1 -->
 			</div><!-- end of #bodywrap -->
 		</div><!-- end of #innervplantstext -->
-		
+
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

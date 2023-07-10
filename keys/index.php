@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> vPlants - Keys to Nature</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Keys to Nature</h1>
@@ -30,8 +29,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 				<h2>Guides and keys at selected web sites</h2>
 
-				<p>Visit 
-				<a href="http://fm2.fieldmuseum.org/chicagoguides/rcg_intro.asp"><b>Rapid Color Guides for the Chicago Region</b></a> for guides to amphibians, dragonflies, and sedges.  For other guides see this page: 
+				<p>Visit
+				<a href="http://fm2.fieldmuseum.org/chicagoguides/rcg_intro.asp"><b>Rapid Color Guides for the Chicago Region</b></a> for guides to amphibians, dragonflies, and sedges.  For other guides see this page:
 				<a href="http://fm2.fieldmuseum.org/chicagoguides/">Chicago Region Biological Guides</a>
 				</p>
 
@@ -48,12 +47,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</p>
 
 				<p>
-				<a href="http://www.uwgb.edu/biodiversity/herbarium/pteridophytes/pteridophytes_of_wisconsin01.htm"><b>Pteridophytes of Wisconsin:  Ferns and Fern Allies</b></a> 
+				<a href="http://www.uwgb.edu/biodiversity/herbarium/pteridophytes/pteridophytes_of_wisconsin01.htm"><b>Pteridophytes of Wisconsin:  Ferns and Fern Allies</b></a>
 				-- <a href="http://www.uwgb.edu/biodiversity/herbarium/pteridophytes/pteridophyte_key00.htm">Multi-page dichotomous key</a>, some steps have images.
 				</p>
 
 				<p>
-				<a href="http://www.missouriplants.com/index.html"><b>Missouri Plants</b></a> 
+				<a href="http://www.missouriplants.com/index.html"><b>Missouri Plants</b></a>
 				-- a picture key similar to the style of the Audubon field guides.
 				</p>
 
@@ -96,7 +95,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

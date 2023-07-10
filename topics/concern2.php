@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE?>vPlants - Topics - Causes for Concern</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innertext">
             <h1>Causes for Concern</h1>
@@ -26,7 +25,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
             	<p>Over the past 200 years the Chicago Region has changed from the sprawling woodlands, wetlands, and prairie to a bustling metropolis, transportation and industrial center, and network of cities.  As the open wildlands shrink, natural plant communities have decreased in size, and overall biodiversity has declined.  Habitats become smaller and fragmented.  More plants and animals become less common and harder to find.  This causes great concern since the end result leads to extinction of species.  We should act as stewards of the natural world around us, if for no other reason than for our own benefit in terms of health, resources, and serenity.</p>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 		<div class="box document">
@@ -51,7 +50,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>

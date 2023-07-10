@@ -6,18 +6,17 @@ header("Content-Type: text/html; charset=".$CHARSET);
 <html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?>vPlants - Biology of Fungi</title>
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
 	<meta name='keywords' content='' />
-	<script type="text/javascript">
-		<?php include_once($SERVER_ROOT . '/includes/googleanalytics.php'); ?>
-	</script>
+	<?php
+	include_once($SERVER_ROOT . '/includes/head.php');
+	include_once($SERVER_ROOT . '/includes/googleanalytics.php');
+	?>
 </head>
 <body>
 	<?php
 	$displayLeftMenu = true;
 	include($SERVER_ROOT . '/includes/header.php');
-	?> 
+	?>
         <!-- This is inner text! -->
         <div  id="innervplantstext">
             <h1>Fungus Biology</h1>
@@ -27,16 +26,16 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 				<p>
 				Fungi were once treated as plants but botanists and mycologists now consider them to make up a separate <a href="http://tolweb.org/tree?group=Fungi&amp;contgroup=Eukaryotes">Kingdom Fungi [external link]</a>.
-				This group with tremendous diversity outnumbers species of plants. 
+				This group with tremendous diversity outnumbers species of plants.
 				</p>
 
 
 
 				<h2>Fungi are consumers</h2>
 
-				<p>Like animals, and unlike plants, all fungi are 
+				<p>Like animals, and unlike plants, all fungi are
 				consumers that obtain food from other living or dead organisms.
-				Fungi and animals cannot produce their own food like plants. 
+				Fungi and animals cannot produce their own food like plants.
 				Consumers use the oxygen released by plants and algae to "burn" their food in a controlled manner, breaking it down to simpler molecules and releasing stored energy, which are then used to build up their own bodies.
 				</p>
 				<p>Fungi, though often
@@ -52,7 +51,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				</p>
             </div>
         </div>
-		
+
 		<div id="content2">
 
 			<img src="<?php echo $CLIENT_ROOT; ?>/images.vplants/feature/AMANRUBE.po.jpg" width="250" height="300" alt="photo of reddish brown mushrooms" title="Amanita rubescens" />
@@ -66,7 +65,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 
 	<?php
 	include($SERVER_ROOT . '/includes/footer.php');
-	?> 
+	?>
 
 </body>
 </html>
