@@ -35,17 +35,17 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
     protected $indentPad = '  ';
     protected $flags;
 
-    private $charset = '';
+    private $CHARSET = '';
 
     /**
      * @param callable|resource|string|null $output  A line dumper callable, an opened stream or an output path, defaults to static::$defaultOutput
-     * @param string|null                   $charset The default character encoding to use for non-UTF8 strings
+     * @param string|null                   $CHARSET The default character encoding to use for non-UTF8 strings
      * @param int                           $flags   A bit field of static::DUMP_* constants to fine tune dumps representation
      */
-    public function __construct($output = null, string $charset = null, int $flags = 0)
+    public function __construct($output = null, string $CHARSET = null, int $flags = 0)
     {
         $this->flags = $flags;
-        $this->setCharset($charset ?: \ini_get('php.output_encoding') ?: \ini_get('default_charset') ?: 'UTF-8');
+        $this->setCharset($CHARSET ?: \ini_get('php.output_encoding') ?: \ini_get('default_charset') ?: 'UTF-8');
         $this->decimalPoint = \PHP_VERSION_ID >= 80000 ? '.' : localeconv()['decimal_point'];
         $this->setOutput($output ?: static::$defaultOutput);
         if (!$output && \is_string(static::$defaultOutput)) {
@@ -83,14 +83,14 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
      *
      * @return string The previous charset
      */
-    public function setCharset(string $charset)
+    public function setCharset(string $CHARSET)
     {
         $prev = $this->charset;
 
-        $charset = strtoupper($charset);
-        $charset = null === $charset || 'UTF-8' === $charset || 'UTF8' === $charset ? 'CP1252' : $charset;
+        $CHARSET = strtoupper($CHARSET);
+        $CHARSET = null === $CHARSET || 'UTF-8' === $CHARSET || 'UTF8' === $CHARSET ? 'CP1252' : $CHARSET;
 
-        $this->charset = $charset;
+        $this->charset = $CHARSET;
 
         return $prev;
     }

@@ -20,7 +20,7 @@ class ImageLocalProcessor {
 	private $origPathFrag;
 	private $imgUrlBase;
 	private $symbiotaClassPath = null;
-	protected $serverRoot;
+	protected $SERVER_ROOT;
 
 	private $matchCatalogNumber = true;
 	private $matchOtherCatalogNumbers = false;

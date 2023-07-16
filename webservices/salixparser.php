@@ -20,12 +20,12 @@ $debug = 1;
 
 $ocrInput = $_REQUEST['ocrinput'];
 $returnFormat = array_key_exists('returnformat',$_REQUEST)?$_REQUEST['returnformat']:'';
-//$charset = array_key_exists('charset',$_REQUEST)?$_REQUEST['charset']:'';
+//$CHARSET = array_key_exists('charset',$_REQUEST)?$_REQUEST['charset']:'';
 
 $salixHandler = new SalixHandler();
 
 if($returnFormat) $salixHandler->setReturnFormat($returnFormat);
-//if($charset) $salixHandler->setCharset($charset);
+//if($CHARSET) $salixHandler->setCharset($CHARSET);
 if($debug) $salixHandler->setVerbose(1);
 
 $parseData = $salixHandler->parse($ocrInput);

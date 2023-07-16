@@ -27,16 +27,16 @@ abstract class AbstractHeader implements HeaderInterface
     private $name;
     private $lineLength = 76;
     private $lang;
-    private $charset = 'utf-8';
+    private $CHARSET = 'utf-8';
 
     public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    public function setCharset(string $charset)
+    public function setCharset(string $CHARSET)
     {
-        $this->charset = $charset;
+        $this->charset = $CHARSET;
     }
 
     public function getCharset(): ?string
@@ -85,7 +85,7 @@ abstract class AbstractHeader implements HeaderInterface
      * @param string $string  as displayed
      * @param bool   $shorten the first line to make remove for header name
      */
-    protected function createPhrase(HeaderInterface $header, string $string, string $charset, bool $shorten = false): string
+    protected function createPhrase(HeaderInterface $header, string $string, string $CHARSET, bool $shorten = false): string
     {
         // Treat token as exactly what was given
         $phraseStr = $string;
@@ -193,11 +193,11 @@ abstract class AbstractHeader implements HeaderInterface
         }
 
         // Adjust $firstLineOffset to account for space needed for syntax
-        $charsetDecl = $this->charset;
+        $CHARSETDecl = $this->charset;
         if (null !== $this->lang) {
-            $charsetDecl .= '*'.$this->lang;
+            $CHARSETDecl .= '*'.$this->lang;
         }
-        $encodingWrapperLength = \strlen('=?'.$charsetDecl.'?'.self::$encoder->getName().'??=');
+        $encodingWrapperLength = \strlen('=?'.$CHARSETDecl.'?'.self::$encoder->getName().'??=');
 
         if ($firstLineOffset >= 75) {
             // Does this logic need to be here?
@@ -211,7 +211,7 @@ abstract class AbstractHeader implements HeaderInterface
         if ('iso-2022-jp' !== strtolower($this->charset)) {
             // special encoding for iso-2022-jp using mb_encode_mimeheader
             foreach ($encodedTextLines as $lineNum => $line) {
-                $encodedTextLines[$lineNum] = '=?'.$charsetDecl.'?'.self::$encoder->getName().'?'.$line.'?=';
+                $encodedTextLines[$lineNum] = '=?'.$CHARSETDecl.'?'.self::$encoder->getName().'?'.$line.'?=';
             }
         }
 

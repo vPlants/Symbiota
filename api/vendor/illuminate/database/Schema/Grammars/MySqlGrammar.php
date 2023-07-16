@@ -138,8 +138,8 @@ class MySqlGrammar extends Grammar
         // table is being created on. We will add these to the create table query.
         if (isset($blueprint->charset)) {
             $sql .= ' default character set '.$blueprint->charset;
-        } elseif (! is_null($charset = $connection->getConfig('charset'))) {
-            $sql .= ' default character set '.$charset;
+        } elseif (! is_null($CHARSET = $connection->getConfig('charset'))) {
+            $sql .= ' default character set '.$CHARSET;
         }
 
         // Next we will add the collation to the create table statement if one has been

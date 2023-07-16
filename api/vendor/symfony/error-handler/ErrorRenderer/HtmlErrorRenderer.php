@@ -34,7 +34,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
     private const GHOST_PLUS = 'M111.36824226379395,8.969108581542969 L118.69175148010254,8.969108581542969 L118.69175148010254,1.6455793380737305 L126.20429420471191,1.6455793380737305 L126.20429420471191,8.969108581542969 L133.52781105041504,8.969108581542969 L133.52781105041504,16.481630325317383 L126.20429420471191,16.481630325317383 L126.20429420471191,23.805158615112305 L118.69175148010254,23.805158615112305 L118.69175148010254,16.481630325317383 L111.36824226379395,16.481630325317383 z';
 
     private $debug;
-    private $charset;
+    private $CHARSET;
     private $fileLinkFormat;
     private $projectDir;
     private $outputBuffer;
@@ -47,7 +47,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
      * @param string|FileLinkFormatter|null $fileLinkFormat
      * @param bool|callable                 $outputBuffer   The output buffer as a string or a callable that should return it
      */
-    public function __construct($debug = false, string $charset = null, $fileLinkFormat = null, string $projectDir = null, $outputBuffer = '', LoggerInterface $logger = null)
+    public function __construct($debug = false, string $CHARSET = null, $fileLinkFormat = null, string $projectDir = null, $outputBuffer = '', LoggerInterface $logger = null)
     {
         if (!\is_bool($debug) && !\is_callable($debug)) {
             throw new \TypeError(sprintf('Argument 1 passed to "%s()" must be a boolean or a callable, "%s" given.', __METHOD__, \gettype($debug)));
@@ -58,7 +58,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
         }
 
         $this->debug = $debug;
-        $this->charset = $charset ?: (\ini_get('default_charset') ?: 'UTF-8');
+        $this->charset = $CHARSET ?: (\ini_get('default_charset') ?: 'UTF-8');
         $this->fileLinkFormat = $fileLinkFormat ?: (\ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format'));
         $this->projectDir = $projectDir;
         $this->outputBuffer = $outputBuffer;

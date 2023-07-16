@@ -86,18 +86,18 @@ class WordCloud{
 		}
 		//echo $cloudStr.'<br/><br/>';
 		//$cloudHtml = $this->getCloudHtmlWrapper($cloudStr);
-		$serverRoot = $GLOBALS['SERVER_ROOT'];
-		if(substr($serverRoot,-1) != '/') $serverRoot .= '/';
+		$SERVER_ROOT = $GLOBALS['SERVER_ROOT'];
+		if(substr($SERVER_ROOT,-1) != '/') $SERVER_ROOT .= '/';
 		$wcPath = 'content/collections/wordclouds/ocrcloud_'.$collid.($csMode?'_cs':'').'.php';
-		if($wcFH = fopen($serverRoot.$wcPath, 'w')){
+		if($wcFH = fopen($SERVER_ROOT.$wcPath, 'w')){
 			if(fwrite($wcFH, $cloudStr) === FALSE) {
 				echo 'Cannot write to file ('.$wcPath.')';
 				exit;
 			}
 			fclose($wcFH);
-			$clientRoot = $GLOBALS['CLIENT_ROOT'];
-			if(substr($clientRoot,-1) != '/') $clientRoot .= '/';
-			$retPath = $clientRoot.$wcPath;
+			$CLIENT_ROOT = $GLOBALS['CLIENT_ROOT'];
+			if(substr($CLIENT_ROOT,-1) != '/') $CLIENT_ROOT .= '/';
+			$retPath = $CLIENT_ROOT.$wcPath;
 		}
 		else{
 			echo 'Cannot open file for writing ('.$wcPath.')';

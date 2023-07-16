@@ -29,7 +29,7 @@ class TextPart extends AbstractPart
     private static $encoders = [];
 
     private $body;
-    private $charset;
+    private $CHARSET;
     private $subtype;
     /**
      * @var ?string
@@ -42,7 +42,7 @@ class TextPart extends AbstractPart
     /**
      * @param resource|string $body
      */
-    public function __construct($body, ?string $charset = 'utf-8', string $subtype = 'plain', string $encoding = null)
+    public function __construct($body, ?string $CHARSET = 'utf-8', string $subtype = 'plain', string $encoding = null)
     {
         unset($this->_headers);
 
@@ -53,7 +53,7 @@ class TextPart extends AbstractPart
         }
 
         $this->body = $body;
-        $this->charset = $charset;
+        $this->charset = $CHARSET;
         $this->subtype = $subtype;
         $this->seekable = \is_resource($body) ? stream_get_meta_data($body)['seekable'] && 0 === fseek($body, 0, \SEEK_CUR) : null;
 

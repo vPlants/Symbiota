@@ -164,7 +164,7 @@ if($chars){
 </head>
 <body>
 <?php
-$displayLeftMenu = (isset($ident_keyMenu)?$ident_keyMenu:true);
+$displayLeftMenu = false;
 include($SERVER_ROOT.'/includes/header.php');
 echo '<div class="navpath">';
 echo '<a href="../index.php">'.$LANG['HOME'].'</a> &gt;&gt; ';

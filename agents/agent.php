@@ -123,27 +123,27 @@ if (!$done) {
  * Return the requested agent as RDF in a turtle serialization.
  */
 function deliverTurtle() {
-   global $agent, $agentview, $charset;
+   global $agent, $agentview, $CHARSET;
    Header("Content-Type: text/turtle; charset=".$CHARSET);
    echo $agentview->getAsTurtle();
 }
 
 function deliverRdfXml() {
-   global $agent, $agentview, $charset;
+   global $agent, $agentview, $CHARSET;
    Header("Content-Type: application/rdf+xml; charset=".$CHARSET);
    echo $agentview->getAsRdfXml();
 }
 
 function pageheader($agent) {
-   global $SERVER_ROOT, $DEFAULT_TITLE, $spDisplay, $CLIENT_ROOT, $agent_indexCrumbs, $charset;
+   global $SERVER_ROOT, $DEFAULT_TITLE, $spDisplay, $CLIENT_ROOT, $agent_indexCrumbs, $CHARSET;
 echo '<!DOCTYPE HTML>
 <html>
 <head>
 	<title>'.$DEFAULT_TITLE.' - '.$spDisplay. '</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $CHARSET; ?>"/>
 	<meta name="keywords" content='. $spDisplay .' />
-	<link href="../css/base.css" type="text/css" rel="stylesheet" />
-	<link href="../css/main.css" type="text/css" rel="stylesheet" />
+
+	<?php include_once($SERVER_ROOT . '/includes/head.php'); ?>
 	<link href="../css/jquery-ui_accordian.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/jquery-ui.js"></script>';

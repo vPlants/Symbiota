@@ -22,7 +22,7 @@ if (!function_exists('mb_decode_mimeheader')) {
     function mb_decode_mimeheader($string) { return p\Mbstring::mb_decode_mimeheader($string); }
 }
 if (!function_exists('mb_encode_mimeheader')) {
-    function mb_encode_mimeheader($string, $charset = null, $transfer_encoding = null, $newline = "\r\n", $indent = 0) { return p\Mbstring::mb_encode_mimeheader($string, $charset, $transfer_encoding, $newline, $indent); }
+    function mb_encode_mimeheader($string, $CHARSET = null, $transfer_encoding = null, $newline = "\r\n", $indent = 0) { return p\Mbstring::mb_encode_mimeheader($string, $CHARSET, $transfer_encoding, $newline, $indent); }
 }
 if (!function_exists('mb_decode_numericentity')) {
     function mb_decode_numericentity($string, $map, $encoding = null) { return p\Mbstring::mb_decode_numericentity($string, $map, $encoding); }

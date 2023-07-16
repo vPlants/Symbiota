@@ -55,7 +55,7 @@ class Blueprint
      *
      * @var string
      */
-    public $charset;
+    public $CHARSET;
 
     /**
      * The collation that should be used for the table.
