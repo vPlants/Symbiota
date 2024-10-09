@@ -1806,6 +1806,7 @@ class SpecUploadBase extends SpecUpload{
 	protected function loadRecord($recMap){
 		//Only import record if at least one of the minimal fields have data
 		$recMap = OccurrenceUtilities::occurrenceArrayCleaning($recMap);
+
 		//Prime the targetFieldArr
 		if(!$this->targetFieldArr) $this->targetFieldArr = $this->getOccurrenceFieldArr(array_keys($recMap));
 		$loadRecord = false;
