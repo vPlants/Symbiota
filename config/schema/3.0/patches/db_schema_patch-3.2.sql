@@ -1,5 +1,9 @@
 INSERT INTO `schemaversion` (versionnumber) values ("3.2");
 
+DROP TRIGGER specprocessorrawlabelsfulltext_insert
+DROP TRIGGER specprocessorrawlabelsfulltext_update
+DROP TRIGGER specprocessorrawlabelsfulltext_delete
+DROP TABLE specprocessorawlabelsfulltext;
 
 
 ALTER TABLE `kmcharacters` 
@@ -144,4 +148,5 @@ ALTER TABLE `kmdescr`
 ALTER TABLE `kmdescr` 
   ADD CONSTRAINT `FK_descr_cs`  FOREIGN KEY (`cid` , `cs`)  REFERENCES `kmcs` (`cid` , `cs`)  ON DELETE CASCADE  ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_descr_tid`  FOREIGN KEY (`tid`)  REFERENCES `taxa` (`TID`)  ON DELETE CASCADE  ON UPDATE CASCADE;
+
 
