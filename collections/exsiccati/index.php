@@ -854,4 +854,3 @@ if($ometid) unset($selectLookupArr[$ometid]);
 	include($SERVER_ROOT.'/includes/footer.php');
 	?>
 </body>
-</html>

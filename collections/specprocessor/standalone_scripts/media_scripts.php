@@ -9,6 +9,7 @@ ini_set('display_errors', '1');
 include_once('../../../config/symbini.php');
 include_once($SERVER_ROOT.'/classes/MediaResolutionTools.php');
 
+
 $collid = (array_key_exists('collid', $_POST)?$_POST['collid']:'');
 $imgIdStart = (array_key_exists('imgidstart', $_POST)?$_POST['imgidstart']:0);
 $limit = (array_key_exists('limit', $_POST)?$_POST['limit']:10000);
