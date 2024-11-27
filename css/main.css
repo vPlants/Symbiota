@@ -202,7 +202,8 @@ div.indexdescription p {
 /*Central div in the middle center table div */
 #innertext{
 	min-height:400px;
-	margin: 0px;
+	margin: 0 auto;
+	max-width:1024px;
 	padding-top: 10px;
 	padding-left: 15px;
 	padding-right: 15px;

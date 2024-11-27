@@ -19,9 +19,6 @@ header('Content-Type: text/html; charset=' . $CHARSET);
 	<!-- This is inner text! -->
 	<table style="border-spacing: 0px;">
 		<tr>
-			<td style="background: #360; vertical-align: top;">
-				<?php include($SERVER_ROOT . '/includes/leftmenu.php'); ?>
-			</td>
 			<td>
 				<div  id="innervplantstext">
 					<div id="bodywrap">
