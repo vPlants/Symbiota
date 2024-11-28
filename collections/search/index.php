@@ -11,6 +11,8 @@ if($LANG_TAG == 'en' || !file_exists($SERVER_ROOT . '/content/lang/collections/s
 else include_once($SERVER_ROOT . '/content/lang/collections/search/index.' . $LANG_TAG . '.php');
 header('Content-Type: text/html; charset=' . $CHARSET);
 
+$filename = file_exists($SERVER_ROOT . '/js/symb/'. $LANG_TAG . '.js') ? $CLIENT_ROOT . '/js/symb/'. $LANG_TAG . '.js' : $CLIENT_ROOT . '/js/symb/en.js';
+
 $dbsWithBracketsRemoved = array_key_exists("db",$_GET) ?  str_replace(array('[',']'), '', $_GET["db"]) : '';
 $explodable = $dbsWithBracketsRemoved;
 if(is_array($dbsWithBracketsRemoved)){
@@ -612,6 +614,7 @@ $relationshipTypes = $associationManager->getRelationshipTypes();
 	include($SERVER_ROOT . '/includes/footer.php');
 	?>
 </body>
+<script src="<?php echo $filename ?>" type="text/javascript"></script>
 <script src="js/searchform.js?ver=1" type="text/javascript"></script>
 <script src="<?php echo $CLIENT_ROOT . '/collections/search/js/alerts.js?v=202107'; ?>" type="text/javascript"></script>
 <script src="<?php echo $CLIENT_ROOT . '/js/symb/api.taxonomy.taxasuggest.js'; ?>" type="text/javascript"></script>
