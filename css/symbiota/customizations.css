@@ -152,19 +152,6 @@ td.middlecenter{
 	background: #ffb;
 }
 
-/*Left menu components*/
-div.menu {
-	background-color:	white;
-	margin:			15px;
-	border:   			1px solid #CCCCFF;
-	padding-bottom:   	25px;
-	overflow:   		hidden;
-	width:   			150px;
-	border-radius:		0.5em 0.5em 1.5em 0.5em;
-	-moz-border-radius:	0.5em 0.5em 1.5em 0.5em;
-	-khtml-border-radius: 0.5em 0.5em 1.5em 0.5em;
-}
-
 /*
 div.menuheader{
 	background-color:   #C0C0C0;
