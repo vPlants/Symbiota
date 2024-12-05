@@ -42,7 +42,8 @@ header('Content-Type: text/html; charset=' . $CHARSET);
 
 							<div id="floatimg"><img src="images/vplants/feature/home_170_250.jpg" width="170" height="250" alt="meadow of flowers along edge of lake." title="DeKalb County, west of Chicago."></div><p class="large">Currently the site contains data for more than 120,000 plant specimens records from more than 30 institutions. The core of these collections, ca, 80,000, come from three institution with particularly rich Chicago Region collections: the Field Museum of Natural History, The Morton Arboretum, and the Chicago Botanic Garden. These three institutions formed vPlants in 2001.</p>
 							<p>The original vPlants system was built to be a scalable herbarium data portal for the Chicago region. In 2015, the system was migrated to Symbiota, where data are now combined with data from herbaria spread across the U.S., many contributing specimens that increase our knowledge of the Chicagoland flora.</p>
-
+							<p>This site is brought to you in collaboration with the <a href="http://symbiota.org/seinet/" target="_blank">SEINet Portal Network</a>. When you search this portal, or any of the other SEINet portal partners, you are getting results from our one central database. The SEINet portal network contains 24 million records from over 450 collections.
+							
 							<div id="gomenu">Next &#187; <a href="chicago.php">Why the Chicago Region?</a></div>
 
 							</div><!-- end of #content1 -->
