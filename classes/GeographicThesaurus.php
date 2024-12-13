@@ -1,5 +1,7 @@
 <?php
 
+use function PHPUnit\Framework\isEmpty;
+
 include_once ($SERVER_ROOT . '/classes/Manager.php');
 include_once($SERVER_ROOT. '/utilities/SymbUtil.php');
 
@@ -777,6 +779,10 @@ class GeographicThesaurus extends Manager {
 	}
 
 	public function searchGeothesaurus(string $geoterm, int|null $geolevel = null, string|null $parent = null, bool $distict_geoterms = false): array {
+
+		if (!empty($parent))
+			$parent = $this->findAcceptedGeoTerm($parent);
+
 		$sql = <<<SQL
 		SELECT g.geoThesID, g.geoterm, g.geoLevel, g.parentID, g2.geoterm AS parentterm, g2.geoLevel AS parentlevel FROM geographicthesaurus g 
 		LEFT JOIN geographicthesaurus g2 ON g2.geoThesID = g.parentID
@@ -850,6 +856,26 @@ class GeographicThesaurus extends Manager {
 		}
 	}
 
+	public function findAcceptedGeoTerm($geoterm) {
+		$acceptedSql = <<<SQL
+		SELECT g2.geoterm
+		FROM geographicthesaurus g
+		LEFT JOIN geographicthesaurus g2 ON g.acceptedID = g2.geoThesID
+		WHERE g.geoterm = ?
+		LIMIT 1;
+		SQL;
+
+		$newGeoterm = "";
+
+		$stmt = $this->conn->prepare($acceptedSql);
+		$stmt->bind_param("s", $geoterm);
+		$stmt->execute();
+		$stmt->bind_result($newGeoterm);
+		$stmt->fetch();
+		$stmt->close();
+
+		return $newGeoterm ?: $geoterm;
+	}
 	public function findParentGeometry($lat, $long, $parentGeoLevel = 50, $potentialParents = []) {
 		$sql = <<<'SQL'
 		SELECT g.geoThesID from geographicthesaurus g
