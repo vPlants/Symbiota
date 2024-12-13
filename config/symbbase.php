@@ -2,14 +2,14 @@
 header('X-Frame-Options: DENY');
 header('Cache-control: private'); // IE 6 FIX
 date_default_timezone_set('America/Phoenix');
-$CODE_VERSION = '3.1';
+$CODE_VERSION = '3.1.5.1';
 
 set_include_path(get_include_path() . PATH_SEPARATOR . $SERVER_ROOT . PATH_SEPARATOR . $SERVER_ROOT.'/config/' . PATH_SEPARATOR . $SERVER_ROOT.'/classes/');
 
 session_start(array('gc_maxlifetime'=>3600,'cookie_path'=>$CLIENT_ROOT,'cookie_secure'=>(isset($COOKIE_SECURE)&&$COOKIE_SECURE?true:false),'cookie_httponly'=>true));
 
-include_once($SERVER_ROOT.'/classes/Encryption.php');
-include_once($SERVER_ROOT.'/classes/ProfileManager.php');
+include_once($SERVER_ROOT . '/classes/utilities/Encryption.php');
+include_once($SERVER_ROOT . '/classes/ProfileManager.php');
 
 $pHandler = new ProfileManager();
 //Check session data to see if signed in
@@ -74,6 +74,6 @@ if($LANG_TAG != 'en' && !in_array($LANG_TAG, $AVAILABLE_LANGS)) $LANG_TAG = 'en'
 //Sanitization
 const HTML_SPECIAL_CHARS_FLAGS = ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE;
 
-$CSS_VERSION = '15';
+$CSS_VERSION = '16';
 
 ?>

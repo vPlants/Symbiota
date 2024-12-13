@@ -34,6 +34,7 @@ class OccurrenceCollectionProfile extends OmCollections{
 		$rs = $this->conn->query($sql);
 		while($r = $rs->fetch_assoc()){
 			foreach($r as $k => $v){
+				if($v === null) $v = '';
 				if($k != 'dynamicProperties') $this->collMeta[$r['collid']][strtolower($k)] = $v;
 			}
 			if($r['dynamicProperties'] && strpos($r['dynamicProperties'],'matSample":{"status":1')){
@@ -92,9 +93,11 @@ class OccurrenceCollectionProfile extends OmCollections{
 		while($row = $rs->fetch_object()){
 			if($row->publishToGbif && $row->aggKeysStr){
 				$gbifKeyArr = json_decode($row->aggKeysStr,true);
-				$this->datasetKey = $gbifKeyArr['datasetKey'];
-				$this->organizationKey = $gbifKeyArr['organizationKey'];
-				if(isset($gbifKeyArr['datasetKey']) && $row->dwcaUrl) $this->triggerGBIFCrawl($row->dwcaUrl, $row->collid, $row->collectionname);
+				if(isset($gbifKeyArr['datasetKey']) && $row->dwcaUrl){
+					$this->datasetKey = $gbifKeyArr['datasetKey'];
+					$this->organizationKey = $gbifKeyArr['organizationKey'];
+					$this->triggerGBIFCrawl($row->dwcaUrl, $row->collid, $row->collectionname);
+				}
 			}
 		}
 		$rs->free();
