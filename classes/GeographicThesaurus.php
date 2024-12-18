@@ -951,5 +951,60 @@ class GeographicThesaurus extends Manager {
 		$rs->free();
 		return $bool;
 	}
+
+	public function geocode($lng, $lat) {
+		if(!$lng || !$lat) return [];
+
+		$result = SymbUtil::execute_query($this->conn ,"
+			SELECT g.geoThesID, g.geoterm, g.geoLevel, s.synonyms
+			FROM geographicthesaurus g 
+			JOIN geographicpolygon gp on gp.geoThesID = g.geoThesID 
+			LEFT JOIN (SELECT acceptedID, GROUP_CONCAT(geoterm) as `synonyms` FROM geographicthesaurus WHERE acceptedID IS NOT NULL GROUP BY acceptedID) s ON s.acceptedID = g.geoThesID where ST_Within(Point(?, ?), gp.footprintPolygon) ORDER BY geolevel
+			", [floatval($lng), floatval($lat)]);
+
+		$matches = [];
+		while($r = $result->fetch_assoc()) {
+			array_push($matches, $r);
+		}
+
+
+		return $matches;
+	}
+
+	function placeExists($geo_data = []) {
+
+		$form_conversion = [
+			'country' => 50,
+			'stateprovince' => 60,
+			'county' => 70,
+			'municipality' => 80,
+		];
+
+		$parameters = [];
+
+		$binds = [];
+		foreach ($form_conversion as $key => $geo_level) {
+			if(isset($geo_data[$key])) {
+				array_push($parameters, '(geoterm = ? and geolevel = ' . $geo_level . ')');
+				array_push($binds, $geo_data[$key]);
+			}
+		}
+
+		if(count($parameters) <= 0) {
+			return false;
+		}
+
+		$sql = "SELECT g.geoThesID FROM geographicthesaurus g 
+			JOIN geographicpolygon gp ON gp.geoThesID = g.geoThesID 
+			WHERE " . implode(" or ", $parameters );
+
+		$result = SymbUtil::execute_query(
+			$this->conn,
+			$sql, 
+			$binds
+		);
+
+		return $result->fetch_assoc() ? true: false;
+	}
 }
 ?>
