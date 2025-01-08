@@ -56,9 +56,12 @@ $relationshipTypes = $associationManager->getRelationshipTypes();
 		const clientRoot = '<?php echo $CLIENT_ROOT; ?>';
 		const handleAccordionExpand = () => {
 			const accordions = document.querySelectorAll('input[class="accordion-selector"]');
+			const accordionIds = [];
 			accordions.forEach(accordion => {
 				accordion.checked = true;
+				accordionIds.push(accordion.id);
 			});
+			localStorage.setItem("accordionIds", accordionIds);
 
 			const expandButton = document.getElementById("expand-all-button");
 			expandButton.setAttribute('style', 'display: none;');
@@ -70,8 +73,8 @@ $relationshipTypes = $associationManager->getRelationshipTypes();
 			const accordions = document.querySelectorAll('input[class="accordion-selector"]');
 			accordions.forEach(accordion => {
 				accordion.checked=false;
-			})
-
+			});
+			localStorage.setItem("accordionIds", []);
 			const collapseButton = document.getElementById("collapse-all-button");
 			collapseButton.setAttribute('style', 'display: none;');
 			const expandButton = document.getElementById("expand-all-button");
@@ -636,6 +639,7 @@ $relationshipTypes = $associationManager->getRelationshipTypes();
 		?>
 		setSearchForm(document.getElementById("params-form"));
 		toggleTheNonDefaultsClosed(<?php echo $DEFAULTCATID ?>);
+		toggleAccordionsFromSessionStorage(localStorage?.accordionIds?.split(",") || []);
 	});
 </script>
 <script>
