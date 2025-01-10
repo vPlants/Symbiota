@@ -238,7 +238,9 @@ $taxonName = ($tid?$taxaArr[$tid]:'');
 		<h1 class="page-heading"><?php echo (isset($LANG['SEARCH_GL'])?$LANG['SEARCH_GL']:'Search/Browse Glossary'); ?></h1>
 		<div style="float:left;">
 			<form id="searchform" name="searchform" action="index.php" method="post" onsubmit="return verifySearchForm(this);">
-
+				<div class="bottom-breathing-room-rel" style="float:left;">
+						<b><?= (isset($LANG['PLEASE'])?$LANG['PLEASE']:'Please') . ' ' . "<a href=" . $CLIENT_ROOT . "/includes/usagepolicy.php" . ">" . (isset($LANG['CITE_GLOSSARY'])?$LANG['CITE_GLOSSARY']:'cite this glossary') . "</a>"; ?></b>
+				</div>
 				<div style="clear:both;">
 					<b><?php echo (isset($LANG['SEARCH_TERM'])?$LANG['SEARCH_TERM']:'Search Term'); ?>:</b>
 					<input type="text" autocomplete="off" name="searchterm" size="25" value="<?php echo htmlspecialchars($searchTerm, ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE); ?>" />
@@ -248,9 +250,6 @@ $taxonName = ($tid?$taxaArr[$tid]:'');
 					<label for="deepsearch"> <?php echo (isset($LANG['SEARCH_DEF'])?$LANG['SEARCH_DEF']:'Search within definitions'); ?> </label>
 				</div>
 				<div style="height:25px;">
-					<div style="float:left;">
-						<b><?= (isset($LANG['PLEASE'])?$LANG['PLEASE']:'Please') . ' ' . "<a href=" . $CLIENT_ROOT . "/includes/usagepolicy.php" . ">" . (isset($LANG['CITE_GLOSSARY'])?$LANG['CITE_GLOSSARY']:'cite this glossary') . "</a>"; ?></b>
-					</div>
 					<?php
 					if($taxaArr){
 						?>
