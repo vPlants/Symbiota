@@ -223,9 +223,15 @@ ALTER TABLE omoccurpoints
 ALTER TABLE omoccurpoints ADD SPATIAL INDEX(lngLatPoint);
 
 
-DROP TRIGGER `omoccurrencesfulltext_insert`;
-DROP TRIGGER `omoccurrencesfulltextpoint_insert`;
-DROP TRIGGER `omoccurrences_insert`;
+DROP TABLE `omoccurrencesfulltext`;
+
+DROP TRIGGER IF EXISTS `omoccurrencesfulltext_insert`;
+DROP TRIGGER IF EXISTS `omoccurrencesfulltext_update`;
+DROP TRIGGER IF EXISTS `omoccurrencesfulltextpoint_update`;
+DROP TRIGGER IF EXISTS `omoccurrencesfulltextpoint_insert`;
+DROP TRIGGER IF EXISTS `omoccurrences_insert`;
+DROP TRIGGER IF EXISTS `omoccurrences_update`;
+DROP TRIGGER IF EXISTS `omoccurrences_delete`;
 
 DELIMITER //
 CREATE TRIGGER `omoccurrences_insert` AFTER INSERT ON `omoccurrences`
@@ -234,39 +240,8 @@ FOR EACH ROW BEGIN
     INSERT INTO omoccurpoints (`occid`,`point`, `lngLatPoint`) 
     VALUES (NEW.`occid`,Point(NEW.`decimalLatitude`, NEW.`decimalLongitude`), Point(NEW.`decimalLongitude`, NEW.`decimalLatitude`));
   END IF;
-  INSERT INTO omoccurrencesfulltext (`occid`,`recordedby`,`locality`) 
-  VALUES (NEW.`occid`,NEW.`recordedby`,NEW.`locality`);
 END
 //
-DELIMITER ;
-
-DROP TRIGGER `omoccurrencesfulltext_update`;
-DROP TRIGGER `omoccurrencesfulltextpoint_update`;
-DROP TRIGGER `omoccurrences_update`;
-
-ALTER TABLE `omoccurrences` 
-  ADD FULLTEXT INDEX `FT_omoccurrence_locality` (`locality`),
-  ADD FULLTEXT INDEX `FT_omoccurrence_recordedBy` (`recordedBy`),
-  DROP INDEX `Index_locality`;
-  
-DROP TABLE `omoccurrencesfulltext`;
-
-DROP TRIGGER `omoccurrences_insert`;
-
-DROP TRIGGER `omoccurrences_update`;
-
-DROP TRIGGER `omoccurrences_delete`;
-
-
-DELIMITER $$
-
-CREATE TRIGGER `omoccurrences_insert` AFTER INSERT ON `omoccurrences`
-FOR EACH ROW BEGIN
-  IF NEW.`decimalLatitude` IS NOT NULL AND NEW.`decimalLongitude` IS NOT NULL THEN
-    INSERT INTO omoccurpoints (`occid`,`point`) 
-    VALUES (NEW.`occid`,Point(NEW.`decimalLatitude`, NEW.`decimalLongitude`));
-  END IF;
-END$$
 
 CREATE TRIGGER `omoccurrences_update` AFTER UPDATE ON `omoccurrences`
 FOR EACH ROW BEGIN
@@ -281,34 +256,27 @@ FOR EACH ROW BEGIN
       VALUES (NEW.`occid`, Point(NEW.`decimalLatitude`, NEW.`decimalLongitude`), Point(NEW.`decimalLongitude`, NEW.`decimalLatitude`));
     END IF;
   END IF;
-  UPDATE omoccurrencesfulltext 
-  SET `recordedby` = NEW.`recordedby`,`locality` = NEW.`locality`
-  WHERE `occid` = NEW.`occid`;
-END $$
-
-ALTER TABLE omoccurpoints ENGINE InnoDB;
-      SET `point` = Point(NEW.`decimalLatitude`, NEW.`decimalLongitude`)
-      WHERE `occid` = NEW.`occid`;
-    ELSE 
-      INSERT INTO omoccurpoints (`occid`,`point`) 
-      VALUES (NEW.`occid`,Point(NEW.`decimalLatitude`, NEW.`decimalLongitude`));
-    END IF;
-  ELSE
-    DELETE FROM omoccurpoints WHERE `occid` = NEW.`occid`;
-  END IF;
-END$$
+END //
 
 CREATE TRIGGER `omoccurrences_delete` BEFORE DELETE ON `omoccurrences`
 FOR EACH ROW BEGIN
   DELETE FROM omoccurpoints WHERE `occid` = OLD.`occid`;
-END$$
+END//
 
 DELIMITER ;
+
 
 DROP TRIGGER specprocessorrawlabelsfulltext_insert;
 DROP TRIGGER specprocessorrawlabelsfulltext_update;
 DROP TRIGGER specprocessorrawlabelsfulltext_delete;
+
 DROP TABLE specprocessorawlabelsfulltext;
+
+
+ALTER TABLE `omoccurrences` 
+  ADD FULLTEXT INDEX `FT_omoccurrence_locality` (`locality`),
+  ADD FULLTEXT INDEX `FT_omoccurrence_recordedBy` (`recordedBy`),
+  DROP INDEX `IX_occurrences_locality`;
 
 ALTER TABLE `omoccuridentifiers`
   CHANGE COLUMN `identifiervalue` `identifierValue` VARCHAR(75) NOT NULL AFTER `occid`,
