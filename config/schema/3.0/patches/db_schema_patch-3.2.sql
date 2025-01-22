@@ -1,14 +1,5 @@
 INSERT INTO `schemaversion` (versionnumber) values ("3.2");
 
-#Add and update checklist footprints to be geoJson
-ALTER TABLE fmchecklists 
-  ADD COLUMN footprintGeoJson TEXT;
-
-UPDATE fmchecklists 
-  SET footprintGeoJson = ST_ASGEOJSON(ST_GEOMFROMTEXT(swap_wkt_coords(footprintWkt))) 
-  WHERE footprintGeoJson IS NULL;
-
-
 #Standardize indentification key tables
 ALTER TABLE `kmcharacters` 
   DROP FOREIGN KEY `FK_kmchar_glossary`;
@@ -29,8 +20,9 @@ ALTER TABLE `kmcharacters`
   DROP INDEX `Index_sort`;
 
 ALTER TABLE `kmcharacters` 
-  ADD INDEX `IX_charname` (`charName` ASC),
-  ADD INDEX `IX_sort` (`sortSequence` ASC),
+  ADD INDEX `IX_kmchar_charname` (`charName` ASC),
+  ADD INDEX `IX_kmchar_sort` (`sortSequence` ASC),
+  ADD INDEX `FK_kmchar_glossID_idx` (`glossID` ASC),
   ADD INDEX `FK_kmchar_enteredUid_idx` (`enteredUid` ASC);
 
 ALTER TABLE `kmcharacters` 
@@ -38,7 +30,8 @@ ALTER TABLE `kmcharacters`
   ADD CONSTRAINT `FK_kmchar_enteredUid`  FOREIGN KEY (`enteredUid`)  REFERENCES `users` (`uid`)  ON DELETE CASCADE  ON UPDATE CASCADE;
 
 ALTER TABLE `kmcharacterlang` 
-  DROP FOREIGN KEY `FK_charlang_lang`;
+  DROP FOREIGN KEY `FK_charlang_lang`,
+  DROP FOREIGN KEY `FK_characterlang_1`;
 
 ALTER TABLE `kmcharacterlang` 
   CHANGE COLUMN `charname` `charName` VARCHAR(150) NOT NULL ,
@@ -47,7 +40,12 @@ ALTER TABLE `kmcharacterlang`
   CHANGE COLUMN `InitialTimeStamp` `initialTimestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ;
 
 ALTER TABLE `kmcharacterlang` 
-  ADD CONSTRAINT `FK_charlang_lang`  FOREIGN KEY (`langID`)  REFERENCES `adminlanguages` (`langid`)  ON DELETE NO ACTION  ON UPDATE NO ACTION;
+  ADD INDEX `FK_kmcharlang_cid_idx` (`cid` ASC),
+  ADD INDEX `FK_kmcharlang_langID_idx` (`langID` ASC);
+  
+ALTER TABLE `kmcharacterlang` 
+  ADD CONSTRAINT `FK_charlang_cid`  FOREIGN KEY (`cid`)  REFERENCES `kmcharacters` (`cid`)  ON DELETE CASCADE  ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_charlang_lang`  FOREIGN KEY (`langID`)  REFERENCES `adminlanguages` (`langid`)  ON DELETE CASCADE  ON UPDATE CASCADE;
 
 ALTER TABLE `kmchardependance` 
   DROP FOREIGN KEY `FK_chardependance_cid`,
@@ -85,7 +83,6 @@ ALTER TABLE `kmcharheading`
   DROP INDEX `HeadingName`;
   
 ALTER TABLE `kmcharheading` 
-  ADD INDEX `FK_kmcharheading_lang_idx` (`langID` ASC),
   ADD INDEX `IX_kmcharheading_name` (`headingName` ASC);
     
 ALTER TABLE `kmcharheading` 
@@ -253,16 +250,24 @@ INSERT INTO media(mediaID, tid, occid, url, thumbnailUrl, archiveUrl, originalUr
   FROM images;
   
 #Drop and reset INDEX and FK names for imagetag table
-ALTER TABLE imagetag
-  DROP CONSTRAINT FK_imagetag_imgid,
-  DROP CONSTRAINT FK_imagetag_imgid_idx,
+ALTER TABLE `imagetag` 
+  DROP FOREIGN KEY `FK_imagetag_imgid`,
   DROP FOREIGN KEY `FK_imagetag_tagkey`;
+  
+ALTER TABLE `imagetag` 
+  DROP INDEX `imgid`,
+  DROP INDEX `keyvalue`,
+  DROP INDEX `FK_imagetag_imgid_idx`;
 
 ALTER TABLE `imagetag`
   CHANGE COLUMN `imagetagid` `imageTagID` BIGINT(20) NOT NULL AUTO_INCREMENT,
   CHANGE COLUMN `imgid` `mediaID` INT(10) UNSIGNED NOT NULL,
   CHANGE COLUMN `keyvalue` `keyValue` VARCHAR(30) NOT NULL,
   CHANGE COLUMN `initialtimestamp` `initialTimestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP();
+
+ALTER TABLE `imagetag` 
+  ADD INDEX `FK_imagetag_mediaID_idx` (`mediaID` ASC),
+  ADD INDEX `FK_imagetag_tagkey_idx` (`keyValue` ASC);
 
 ALTER TABLE `imagetag`
   ADD CONSTRAINT `FK_imagetag_tagkey` FOREIGN KEY (`keyValue`) REFERENCES `imagetagkey` (`tagkey`)  ON DELETE NO ACTION  ON UPDATE CASCADE,
@@ -272,8 +277,9 @@ ALTER TABLE `imagetag`
 ALTER TABLE `imagekeywords`
   DROP FOREIGN KEY `FK_imagekeywords_imgid`,
   DROP FOREIGN KEY `FK_imagekeyword_uid`,
-  DROP INDEX `FK_imagekeyword_uid_idx` ,
-  DROP INDEX `FK_imagekeywords_imgid_idx` ;
+  DROP INDEX `FK_imagekeyword_uid_idx`,
+  DROP INDEX `FK_imagekeywords_imgid_idx`,
+  DROP INDEX `INDEX_imagekeyword` ;
 
 ALTER TABLE `imagekeywords`
   CHANGE COLUMN `imgkeywordid` `imgKeywordID` INT(11) NOT NULL AUTO_INCREMENT,
@@ -282,10 +288,12 @@ ALTER TABLE `imagekeywords`
   CHANGE COLUMN `initialtimestamp` `initialTimestamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP();
 
 ALTER TABLE `imagekeywords`
+  ADD KEY `FK_imagekeyword_keyword` (`keyword`),
   ADD KEY `FK_imagekeywords_mediaID_idx` (`mediaID`),
   ADD KEY `FK_imagekeyword_uid_idx` (`uidAssignedBy`),
   ADD CONSTRAINT `FK_imagekeyword_uid` FOREIGN KEY (`uidAssignedBy`) REFERENCES `users` (`uid`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_imagekeywords_mediaID` FOREIGN KEY (`mediaID`) REFERENCES `media` (`mediaID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
 ALTER TABLE `specprocessorrawlabels`
   DROP FOREIGN KEY `FK_specproc_images`,
@@ -370,22 +378,32 @@ CREATE FUNCTION `swap_wkt_coords`(str TEXT) RETURNS text
 DELIMITER ;
 
 
+#Add and update checklist footprints to be geoJson
+ALTER TABLE `fmchecklists` 
+  ADD COLUMN footprintGeoJson text DEFAULT NULL;
+
+UPDATE fmchecklists 
+  SET footprintGeoJson = ST_ASGEOJSON(ST_GEOMFROMTEXT(swap_wkt_coords(footprintWkt))) 
+  WHERE footprintGeoJson IS NULL;
+
+
 #Removes All omoccurpoints that have null lat or lng values in omocurrences which is needed to recalculate all omoccurpoints into lnglat points
 DELETE p.* 
   FROM omoccurpoints p INNER JOIN omoccurrences o ON p.occid = o.occid 
   WHERE o.decimalLatitude IS NULL OR o.decimalLongitude IS NULL; 
 
 #Create and add lng lat points for occurrence data which is needed to do searching is spacial indexes that are lng lat
-ALTER TABLE omoccurpoints 
+ALTER TABLE `omoccurpoints` 
   ADD COLUMN lngLatPoint POINT;
 
 UPDATE omoccurpoints p INNER JOIN omoccurrences o ON o.occid = p.occid 
   SET lngLatPoint = ST_POINTFROMTEXT(CONCAT('POINT(',o.decimalLongitude, ' ', o.decimalLatitude, ')')); 
 
-ALTER TABLE omoccurpoints 
+ALTER TABLE `omoccurpoints` 
   MODIFY lngLatPoint POINT NOT NULL;
   
-ALTER TABLE omoccurpoints ADD SPATIAL INDEX(lngLatPoint);
+ALTER TABLE `omoccurpoints`
+  ADD SPATIAL INDEX(lngLatPoint);
 
 #Following statements pertain to fulltext indexing modifications
 DROP TABLE `omoccurrencesfulltext`;
@@ -440,7 +458,7 @@ DROP TRIGGER specprocessorrawlabelsfulltext_insert;
 DROP TRIGGER specprocessorrawlabelsfulltext_update;
 DROP TRIGGER specprocessorrawlabelsfulltext_delete;
 
-DROP TABLE specprocessorawlabelsfulltext;
+DROP TABLE `specprocessorrawlabelsfulltext`;
 
 ALTER TABLE `omoccurrences` 
   ADD FULLTEXT INDEX `FT_omoccurrence_locality` (`locality`),
@@ -500,14 +518,12 @@ CREATE TABLE `uploadkeyvaluetemp`(
   CONSTRAINT `FK_uploadKeyValue_uid` FOREIGN KEY (`uploadUid`) REFERENCES `users` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE);
 
 
-#Following statements are expected to fail for new 3.0 installs
-#Drop deprecated_media foreign keys to avoid conflicts. If table does not exist, ignore
+# Skip if 1.0 install: Table does not exist within db_schema-3.0, thus statement is expected to fail if this was not originally a 1.0 install
+# Drop deprecated_media foreign keys to avoid conflicts. If table does not exist, ignore
 ALTER TABLE `deprecated_media`
   DROP FOREIGN KEY `FK_media_uid`,
   DROP FOREIGN KEY `FK_media_taxa`,
-  DROP FOREIGN KEY `FK_media_occid`;
-
-ALTER TABLE `deprecated_media`
-  DROP INDEX `FK_media_uid_idx` ,
-  DROP INDEX `FK_media_occid_idx` ,
-  DROP INDEX `FK_media_taxa_idx` ;
+  DROP FOREIGN KEY `FK_media_occid`,
+  DROP INDEX `FK_media_uid_idx`,
+  DROP INDEX `FK_media_occid_idx`,
+  DROP INDEX `FK_media_taxa_idx`;
