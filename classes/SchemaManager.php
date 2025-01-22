@@ -197,8 +197,9 @@ class SchemaManager extends Manager{
 	}
 
 	private function setActiveTable($targetTable){
-		unset($this->activeTableArr);
+		
 		if($targetTable){
+			unset($this->activeTableArr);
 			$this->activeTableArr = array();
 			$sql = 'SHOW COLUMNS FROM ' . $targetTable;
 			try{
