@@ -196,6 +196,16 @@ ALTER TABLE `omoccuraccess` ENGINE=InnoDB;
 ALTER TABLE `omoccuraccesslink` ENGINE=InnoDB;
 
 
+# Skip if 1.0 install: Table does not exist within db_schema-3.0, thus statement is expected to fail if this was not originally a 1.0 install
+# Drop deprecated_media foreign keys to avoid conflicts. If table does not exist, ignore
+ALTER TABLE `deprecated_media`
+  DROP FOREIGN KEY `FK_media_uid`,
+  DROP FOREIGN KEY `FK_media_taxa`,
+  DROP FOREIGN KEY `FK_media_occid`,
+  DROP INDEX `FK_media_uid_idx`,
+  DROP INDEX `FK_media_occid_idx`,
+  DROP INDEX `FK_media_taxa_idx`;
+
 #Schema modifications due to deprecating image table in preference with media table
 DROP TABLE IF EXISTS `media`;
 CREATE TABLE `media` (
@@ -460,12 +470,6 @@ DROP TRIGGER specprocessorrawlabelsfulltext_delete;
 
 DROP TABLE `specprocessorrawlabelsfulltext`;
 
-ALTER TABLE `omoccurrences` 
-  ADD FULLTEXT INDEX `FT_omoccurrence_locality` (`locality`),
-  ADD FULLTEXT INDEX `FT_omoccurrence_recordedBy` (`recordedBy`),
-  DROP INDEX `IX_occurrences_locality`;
-
-
 #Standardize occurrence identifier table
 ALTER TABLE `omoccuridentifiers`
   CHANGE COLUMN `identifiervalue` `identifierValue` VARCHAR(75) NOT NULL AFTER `occid`,
@@ -478,6 +482,45 @@ ALTER TABLE `omoccuridentifiers`
   ADD UNIQUE INDEX `UQ_omoccuridentifiers` (`occid`, `identifierValue`, `identifierName`),
   DROP INDEX `IX_omoccuridentifiers_value`,
   ADD INDEX `IX_omoccuridentifiers_value` (`identifierValue`);
+
+# Occurrence table adjustments
+# Add fulltext indexes 
+ALTER TABLE `omoccurrences` 
+  ADD FULLTEXT INDEX `FT_omoccurrence_locality` (`locality`),
+  ADD FULLTEXT INDEX `FT_omoccurrence_recordedBy` (`recordedBy`),
+  DROP INDEX `IX_occurrences_locality`;
+
+# Add indexes for countryCode and continent
+ALTER TABLE `omoccurrences` 
+  ADD INDEX `IX_occurrences_countryCode` (`countryCode` ASC),
+  ADD INDEX `IX_occurrences_continent` (`continent` ASC);
+
+# Make sure synonym countries have the same countryCode as the accepted country 
+UPDATE geographicthesaurus g INNER JOIN geographicthesaurus a ON g.acceptedID = a.geoThesID 
+  SET g.iso2 = a.iso2
+  WHERE g.iso2 IS NULL AND a.iso2 IS NOT NULL;
+
+#Populate NULL country codes
+UPDATE omoccurrences o INNER JOIN geographicthesaurus g ON o.country = g.geoterm
+  SET o.countryCode = g.iso2
+  WHERE o.countryCode IS NULL AND g.geoLevel = 50 AND g.acceptedID IS NULL AND g.iso2 IS NOT NULL;
+
+#Fix bad country code (likely bad imported values)
+UPDATE omoccurrences o INNER JOIN geographicthesaurus g ON o.country = g.geoterm
+  SET o.countryCode = g.iso2
+  WHERE o.countryCode != g.iso2 AND g.geoLevel = 50 AND g.acceptedID IS NULL AND g.iso2 IS NOT NULL;
+
+#Populate NULL continent values
+UPDATE omoccurrences o INNER JOIN geographicThesaurus g ON o.countryCode = g.iso2 
+  INNER JOIN geographicThesaurus p ON g.parentID = p.geoThesID
+  SET o.continent = p.geoTerm
+  WHERE o.continent IS NULL AND g.geoLevel = 50 AND p.acceptedID IS NULL AND g.acceptedID IS NULL;
+
+#Fix bad continent values (likely bad improted values)
+UPDATE omoccurrences o INNER JOIN geographicThesaurus g ON o.countryCode = g.iso2
+  INNER JOIN geographicThesaurus p ON g.parentID = p.geoThesID
+  SET o.continent = p.geoTerm
+  WHERE o.continent != p.geoTerm AND g.geoLevel = 50 AND g.acceptedID IS NULL;
 
 
 # Add cultivar name and trade name columns to taxa table
@@ -517,13 +560,3 @@ CREATE TABLE `uploadkeyvaluetemp`(
   CONSTRAINT `FK_uploadKeyValue_collid` FOREIGN KEY (`collid`) REFERENCES `omcollections` (`collID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_uploadKeyValue_uid` FOREIGN KEY (`uploadUid`) REFERENCES `users` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE);
 
-
-# Skip if 1.0 install: Table does not exist within db_schema-3.0, thus statement is expected to fail if this was not originally a 1.0 install
-# Drop deprecated_media foreign keys to avoid conflicts. If table does not exist, ignore
-ALTER TABLE `deprecated_media`
-  DROP FOREIGN KEY `FK_media_uid`,
-  DROP FOREIGN KEY `FK_media_taxa`,
-  DROP FOREIGN KEY `FK_media_occid`,
-  DROP INDEX `FK_media_uid_idx`,
-  DROP INDEX `FK_media_occid_idx`,
-  DROP INDEX `FK_media_taxa_idx`;
