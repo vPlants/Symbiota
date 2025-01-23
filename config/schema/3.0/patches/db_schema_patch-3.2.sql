@@ -196,6 +196,16 @@ ALTER TABLE `omoccuraccess` ENGINE=InnoDB;
 ALTER TABLE `omoccuraccesslink` ENGINE=InnoDB;
 
 
+# Skip if 1.0 install: Table does not exist within db_schema-3.0, thus statement is expected to fail if this was not originally a 1.0 install
+# Drop deprecated_media foreign keys to avoid conflicts. If table does not exist, ignore
+ALTER TABLE `deprecated_media`
+  DROP FOREIGN KEY `FK_media_uid`,
+  DROP FOREIGN KEY `FK_media_taxa`,
+  DROP FOREIGN KEY `FK_media_occid`,
+  DROP INDEX `FK_media_uid_idx`,
+  DROP INDEX `FK_media_occid_idx`,
+  DROP INDEX `FK_media_taxa_idx`;
+
 #Schema modifications due to deprecating image table in preference with media table
 DROP TABLE IF EXISTS `media`;
 CREATE TABLE `media` (
@@ -550,13 +560,3 @@ CREATE TABLE `uploadkeyvaluetemp`(
   CONSTRAINT `FK_uploadKeyValue_collid` FOREIGN KEY (`collid`) REFERENCES `omcollections` (`collID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_uploadKeyValue_uid` FOREIGN KEY (`uploadUid`) REFERENCES `users` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE);
 
-
-# Skip if 1.0 install: Table does not exist within db_schema-3.0, thus statement is expected to fail if this was not originally a 1.0 install
-# Drop deprecated_media foreign keys to avoid conflicts. If table does not exist, ignore
-ALTER TABLE `deprecated_media`
-  DROP FOREIGN KEY `FK_media_uid`,
-  DROP FOREIGN KEY `FK_media_taxa`,
-  DROP FOREIGN KEY `FK_media_occid`,
-  DROP INDEX `FK_media_uid_idx`,
-  DROP INDEX `FK_media_occid_idx`,
-  DROP INDEX `FK_media_taxa_idx`;
