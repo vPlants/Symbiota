@@ -1,11 +1,12 @@
 function copyUrl(){
-	host = window.location.host;
+	host = window.location.protocol + '//' + window.location.host;
 	var $temp = $("<input>");
 	$("body").append($temp);
 	var activeLink = host + window.location.pathname;
-	if(sessionStorage.querystr){
+	if (sessionStorage.searchvar) 
+		activeLink = activeLink + "?" + encodedQueryStr(sessionStorage.searchvar);
+	else if (sessionStorage.querystr)
 		activeLink = activeLink + "?" + encodedQueryStr(sessionStorage.querystr);
-   }
 	$temp.val(activeLink).select();
 	document.execCommand("copy");
 	$temp.remove();
