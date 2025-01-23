@@ -1075,19 +1075,26 @@ class ProfileManager extends Manager{
 
 	private function getDynamicProperties($uid){
 		$returnVal = false;
-		$sql = 'SELECT dynamicProperties FROM users WHERE uid = ?';
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bind_param('i', $uid);
-		$stmt->execute();
-		$respns= $stmt->get_result();
-		if($fetchedObj = $respns->fetch_object()){
-			$dynPropStr = $fetchedObj->dynamicProperties;
-		}
-		$respns->free();
-		if(isset($dynPropStr)){
-			if($dynPropArr = json_decode($dynPropStr, true)){
-				$returnVal = $dynPropArr;
+		try{
+			$sql = 'SELECT dynamicProperties FROM users WHERE uid = ?';
+			if($stmt = $this->conn->prepare($sql)){
+				$stmt->bind_param('i', $uid);
+				$stmt->execute();
+				$respns= $stmt->get_result();
+				if($fetchedObj = $respns->fetch_object()){
+					if(!empty($fetchedObj->dynamicProperties)){
+						if($dynPropArr = json_decode($fetchedObj->dynamicProperties, true)){
+							$returnVal = $dynPropArr;
+						}
+					}
+				}
+				$respns->free();
+				$stmt->close();
 			}
+		}
+		catch(Exception $e){
+			//Probably a new installation and schema does not yet exists, thus just catch error and let schema manager handle the issue
+			//echo $e->getMessage();
 		}
 		return $returnVal;
 	}
