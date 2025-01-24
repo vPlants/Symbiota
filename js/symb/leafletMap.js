@@ -5,21 +5,51 @@ function getObservationSvg(opts = {color: "#7A8BE7", size: 24, className:""}) {
 
    return L.divIcon({
       html: `
-<svg
-width="${opts.size}"
-height="${opts.size}"
-viewBox="-10 -10 ${opts.size + 20} ${opts.size + 20}"
-version="1.1"
-preserveAspectRatio="none"
-xmlns="http://www.w3.org/2000/svg"
->
-<polygon class="${opts.className}" points="${half},0 0,${opts.size} ${opts.size},${opts.size}" style="fill:${opts.color};stroke:black;stroke-width:3" />
-</svg>`,
+		<svg
+		width="${opts.size}"
+		height="${opts.size}"
+		viewBox="-10 -10 ${opts.size + 20} ${opts.size + 20}"
+		version="1.1"
+		preserveAspectRatio="none"
+		xmlns="http://www.w3.org/2000/svg"
+		>
+			<polygon 
+				class="${opts.className}" 
+				points="${half},0 0,${opts.size} ${opts.size},${opts.size}" 
+				style="fill:${opts.color};stroke:black;stroke-width:3" 
+			/>
+		</svg>`,
       className: "",
       observation: true,
       iconSize: [opts.size, opts.size],
       iconAnchor: [half, half],
    });
+}
+
+function getSpecimenSvg(opts = {color: "#7A8BE7", size: 24, className:""}) {
+	const default_ops = {color: "#7A8BE7", size: 24};
+	opts = {...default_ops, ...opts};
+	const stroke_width = 2;
+	const size_with_stroke = stroke_width * 2 + opts.size;
+	return L.divIcon({
+		html: `
+			<svg 
+			height="${size_with_stroke * 2}"
+			width="${size_with_stroke * 2}"
+			version="1.1"
+			preserveAspectRatio="none"
+			xmlns="http://www.w3.org/2000/svg"
+			>
+				<circle 
+					r="${opts.size}" 
+					cx="${size_with_stroke}" cy="${size_with_stroke}" 
+					fill="${opts.color}" stroke="black" stroke-width="${stroke_width}"
+				/>
+			</svg>`,
+		className: "",
+		iconSize: [size_with_stroke, size_with_stroke],
+		iconAnchor: [size_with_stroke, size_with_stroke],
+	});
 }
 
 class LeafletMap {
@@ -100,6 +130,12 @@ class LeafletMap {
          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
       });
 
+      var macro_strat = L.tileLayer('https://macrostrat.org/api/v2/maps/burwell/emphasized/{z}/{x}/{y}/tile.png', {
+         displayRetina:true,
+		 opacity: .50,
+         attribution: 'Map data: &copy; <a href="https://macrostrat.org/#about">Macrostrat</a> (<a href="http://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>)',
+      });
+
       const openTopoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
          maxZoom: 17,
          displayRetina:true,
@@ -107,13 +143,16 @@ class LeafletMap {
       });
 
       if(map_options.layer_control !== false) {
-         L.control.layers({
-            "Terrain": terrainLayer,
-            "Basic": basicLayer,
-            "Topo": openTopoLayer,
-            "Satellite": Esri_WorldImagery,
-            //"Satellite": satelliteLayer,
-         }).addTo(this.mapLayer);
+			const layers = {
+				"Terrain": terrainLayer,
+				"Basic": basicLayer,
+				"Topo": openTopoLayer,
+				"Satellite": Esri_WorldImagery,
+			};
+			const overlays = {
+				"Macro Strat": L.layerGroup([macro_strat])
+			}
+         L.control.layers(layers, overlays).addTo(this.mapLayer);
       }
 
       if(map_options.scale !== false) {
@@ -263,7 +302,7 @@ class LeafletMap {
                         rectangle: 'Dibujar un rectángulo',
                         circle: 'Dibuja un circulo',
                         marker: 'Dibujar un marcador',
-                        circlemarker: 'Dibuja un marcador circular'
+                        circlemarker: 'Dibuja un marcadgeojsonor circular'
                      }
                   },
                   handlers: {
@@ -485,10 +524,12 @@ class LeafletMap {
          setDrawColor("rectangle");
          setDrawColor("circle");
       }
+
       if(drawOptions.map_mode_strict) {
          if(drawOptions.mode !== "polygon") drawOptions.polygon = false;
          if(drawOptions.mode !== "circle") drawOptions.circle = false;
-         if(drawOptions.mode !== "rectangle") drawOptions.rectangle= false;
+         if(drawOptions.mode !== "rectangle") drawOptions.rectangle = false;
+         if(drawOptions.mode !== "marker") drawOptions.marker = false;
          if(drawOptions.mode !== "polyline") drawOptions.polyline = false;
       }
 
@@ -565,6 +606,11 @@ class LeafletMap {
 
    drawShape(shape, fitbounds=true) {
       const id = this.shapes.length;
+
+      const fitShape = () => {
+         this.mapLayer.fitBounds(this.activeShape.layer.getBounds());
+      }
+
       switch(shape.type) {
          case "geoJSON":
             const geoJSON = L.geoJSON(shape.geoJSON);
@@ -581,6 +627,7 @@ class LeafletMap {
             const poly = L.polygon(shape.latlngs);
             this.activeShape = getShapeCoords(shape.type, poly);
             poly.addTo(this.drawLayer);
+            if(fitbounds) fitShape();
             break;
          case "rectangle":
             const rec = L.rectangle([
@@ -589,24 +636,23 @@ class LeafletMap {
             ]);
             this.activeShape = getShapeCoords(shape.type, rec);
             rec.addTo(this.drawLayer)
+            if(fitbounds) fitShape();
             break;
          case "circle":
             const circ = L.circle(shape.latlng, shape.radius);
             this.activeShape = getShapeCoords(shape.type, circ);
             circ.addTo(this.drawLayer);
+            if(fitbounds) fitShape();
             break;
          default:
             throw Error(`Can't draw ${shape.type}`)
       }
 
-      this.activeShape.id = id;
-      this.shapes.push(this.activeShape);
-
-      if(fitbounds) {
-         this.mapLayer.fitBounds(this.activeShape.layer.getBounds());
+      if(this.activeShape) {
+         this.activeShape.id = id;
+         this.shapes.push(this.activeShape);
       }
    }
-
 }
 
 function getShapeCoords(layerType, layer) {
@@ -649,7 +695,7 @@ function getShapeCoords(layerType, layer) {
          };
          break;
       default:
-         throw Error("Couldn't parse this shape type");
+         throw Error(`Couldn't parse "${layerType}" as a shape type`);
    }
 
    return shape;
