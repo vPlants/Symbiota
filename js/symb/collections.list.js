@@ -3,10 +3,9 @@ function copyUrl(){
 	var $temp = $("<input>");
 	$("body").append($temp);
 	var activeLink = host + window.location.pathname;
-	if (sessionStorage.searchvar) 
-		activeLink = activeLink + "?" + encodedQueryStr(sessionStorage.searchvar);
-	else if (sessionStorage.querystr)
+	if(sessionStorage.querystr){
 		activeLink = activeLink + "?" + encodedQueryStr(sessionStorage.querystr);
+   }
 	$temp.val(activeLink).select();
 	document.execCommand("copy");
 	$temp.remove();

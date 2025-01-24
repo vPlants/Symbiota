@@ -60,10 +60,8 @@ $_SESSION['citationvar'] = $searchVar;
 		var urlQueryStr = "<?php if($searchVar) echo $searchVar . '&page=' . $pageNumber; ?>";
 
 		$(document).ready(function() {
-			if(window.location.search){
-				sessionStorage.querystr = window.location.search.replace("?",'');
-				sessionStorage.searchvar = "<?php echo $searchVar; ?>";
-			}
+			if(window.location.search)
+				sessionStorage.querystr = <?php echo $searchVar; ?>;
 			else if(sessionStorage.querystr) {
 				window.location = "list.php?" + sessionStorage.querystr + "&tabindex=<?= $tabIndex ?>";
 			}
