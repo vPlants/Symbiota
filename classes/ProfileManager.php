@@ -28,6 +28,13 @@ class ProfileManager extends Manager{
 		$this->conn = MySQLiConnectionFactory::getCon('write');
 	}
 
+	public function closeConnection(){
+		if($this->conn !== null){
+			$this->conn->close();
+			$this->conn = null;
+		}
+	}
+
 	public function reset(){
 		$domainName = filter_var($_SERVER['SERVER_NAME'], FILTER_SANITIZE_URL);
 		if($domainName == 'localhost') $domainName = false;
