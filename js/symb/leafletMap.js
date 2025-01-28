@@ -107,6 +107,9 @@ class LeafletMap {
    /* Reference Leaflet Feature Group for all drawn items*/
    drawLayer;
 
+   /* Save Markerclusterer taxa clusters for later manipulation */
+   taxaClusters = [];
+
    constructor(map_id, map_options={}) {
 
 	  map_options = {
@@ -266,11 +269,11 @@ class LeafletMap {
 			const overlays = {
 				"Macrostrat": L.layerGroup([macro_strat])
 			}
-         L.control.layers(layers, overlays).addTo(this.mapLayer);
+      this.mapLayer.layerControl = L.control.layers(layers, overlays).addTo(this.mapLayer);
       }
 
       if(map_options.scale !== false) {
-         L.control.scale({maxWidth: 200}).addTo(this.mapLayer);
+         this.mapLayer.scaleControl = L.control.scale({maxWidth: 200}).addTo(this.mapLayer);
       }
 
       this.setLang(map_options.lang);
