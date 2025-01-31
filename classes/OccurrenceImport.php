@@ -102,7 +102,7 @@ class OccurrenceImport extends UtilitiesFileImport{
 				'copyright',
 				'accessrights',
 				'rights',
-				'sortoccurrence'
+				'sortOccurrence'
 			];
 
 			foreach($occidArr as $occid){

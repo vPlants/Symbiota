@@ -2390,10 +2390,10 @@ class OccurrenceEditorManager {
 	public function getImageMap($imgId = 0) {
 		$imageMap = array();
 		if ($this->occid) {
-			$sql = 'SELECT mediaID, url, thumbnailurl, originalurl, caption, creator, creatorUid, sourceurl, copyright, notes, occid, username, sortoccurrence, initialtimestamp FROM media ';
+			$sql = 'SELECT mediaID, url, thumbnailurl, originalurl, caption, creator, creatorUid, sourceurl, copyright, notes, occid, username, sortOccurrence, initialtimestamp FROM media ';
 			if ($imgId) $sql .= 'WHERE AND (mediaID = ' . $imgId . ') ';
 			else $sql .= 'WHERE mediaType = "image" AND (occid = ' . $this->occid . ') ';
-			$sql .= 'ORDER BY sortoccurrence';
+			$sql .= 'ORDER BY sortOccurrence';
 			//echo $sql;
 			$result = $this->conn->query($sql);
 			while ($row = $result->fetch_object()) {
@@ -2408,7 +2408,7 @@ class OccurrenceEditorManager {
 				$imageMap[$row->mediaID]['notes'] = $row->notes;
 				$imageMap[$row->mediaID]['occid'] = $row->occid;
 				$imageMap[$row->mediaID]['username'] = $row->username;
-				$imageMap[$row->mediaID]['sort'] = $row->sortoccurrence;
+				$imageMap[$row->mediaID]['sort'] = $row->sortOccurrence;
 			}
 			$result->free();
 		}
