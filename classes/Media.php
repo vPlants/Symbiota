@@ -757,7 +757,7 @@ class Media {
 			"username" => Sanitize::in($GLOBALS['USERNAME']),
 			"sortsequence" => array_key_exists('sortsequence', $clean_post_arr) && is_numeric($clean_post_arr['sortsequence']) ? $clean_post_arr['sortsequence'] : null,
 			// check if its is_numeric?
-			"sortOccurrence" => $clean_post_arr['sortoccurrence'] ?? null,
+			"sortOccurrence" => $clean_post_arr['sortOccurrence'] ?? null,
 			"sourceIdentifier" => $clean_post_arr['sourceIdentifier'] ?? ('filename: ' . $file['name']),
 			"rights" => $clean_post_arr['rights'] ?? null,
 			"accessrights" => $clean_post_arr['rights'] ?? null,
@@ -1318,7 +1318,7 @@ class Media {
 			array_push($parameters, $media_type);
 		}
 
-		$sql .= ' ORDER BY sortoccurrence ASC';
+		$sql .= ' ORDER BY sortOccurrence ASC';
 		$results = QueryUtil::executeQuery(Database::connect('readonly'), $sql, $parameters);
 		$media = self::get_media_items($results);
 		if(count($media) <= 0) {
@@ -1385,7 +1385,7 @@ class Media {
 			array_push($parameters, $media_type);
 		}
 
-		$sql .= ' ORDER BY sortoccurrence IS NULL ASC, sortoccurrence ASC';
+		$sql .= ' ORDER BY sortOccurrence IS NULL ASC, sortOccurrence ASC';
 
 		$results = QueryUtil::executeQuery(Database::connect('readonly'), $sql, $parameters);
 
