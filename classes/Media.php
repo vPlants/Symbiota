@@ -996,7 +996,6 @@ class Media {
 	 * @param mixed $media_arr
 	 */
 	public static function update($media_id, $media_arr, StorageStrategy $storage) {
-		$clean_arr = Sanitize::in($media_arr);
 
 		$meta_data = [
 			"tid",
@@ -1033,8 +1032,8 @@ class Media {
 
 		//Map keys to values
 		foreach ($meta_data as $key) {
-			if(array_key_exists($key, $clean_arr)) {
-				$data[$key] = $clean_arr[$key];
+			if(array_key_exists($key, $media_arr)) {
+				$data[$key] = $media_arr[$key];
 			}
 		}
 
@@ -1042,18 +1041,18 @@ class Media {
 		mysqli_begin_transaction($conn);
 		try {
 			self::update_metadata($data, $media_id, $conn);
-			self::update_tags($media_id, $clean_arr, $conn);
+			self::update_tags($media_id, $media_arr, $conn);
 
-			if(array_key_exists("renameweburl", $clean_arr)) {
-				$storage->rename($clean_arr['old_url'], $data['url']);
+			if(array_key_exists("renameweburl", $media_arr)) {
+				$storage->rename($media_arr['old_url'], $data['url']);
 			}
 
-			if(array_key_exists("renametnurl", $clean_arr)) {
-				$storage->rename($clean_arr['old_thumbnailUrl'], $data['thumbnailUrl']);
+			if(array_key_exists("renametnurl", $media_arr)) {
+				$storage->rename($media_arr['old_thumbnailUrl'], $data['thumbnailUrl']);
 			}
 
-			if(array_key_exists("renameorigurl", $clean_arr)) {
-				$storage->rename($clean_arr['old_originalUrl'], $data['originalUrl']);
+			if(array_key_exists("renameorigurl", $media_arr)) {
+				$storage->rename($media_arr['old_originalUrl'], $data['originalUrl']);
 			}
 
 			mysqli_commit($conn);
