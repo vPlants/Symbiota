@@ -442,6 +442,7 @@ button.inverse-color {
 
 .button-secondary {
   background-color: var(--bright-color);
+  color: var(--darkest-color);
 }
 
 .button-secondary > a {
@@ -449,7 +450,7 @@ button.inverse-color {
 }
 
 .button-tertiary {
-  background-color: none;
+  background-color: transparent;
   border: 1px solid var(--bright-color);
   padding: 0.5rem 0.9rem;
 }
