@@ -104,11 +104,17 @@ class SchemaManager extends Manager{
 								}
 							}
 							catch(Exception $e){
-								$sql = trim($sql,', ') . ';';
-								if(!$this->amendmentFH) $this->amendmentFH = fopen($this->amendmentPath, 'w');
-								fwrite($this->amendmentFH, '# ERROR: '.$this->conn->error."\n\n");
-								fwrite($this->amendmentFH, $sql . "\n\n");
-								$this->logOrEcho('ERROR: ' . $this->conn->error, 2);
+								$mysqlError = $this->conn->error;
+								if($mysqlError){
+									$sql = trim($sql,', ') . ';';
+									if(!$this->amendmentFH) $this->amendmentFH = fopen($this->amendmentPath, 'w');
+									fwrite($this->amendmentFH, '# Error: ' . $mysqlError . "\n\n");
+									fwrite($this->amendmentFH, $sql . "\n\n");
+									$this->logOrEcho('MySQL Error: ' . $mysqlError, 2);
+								}
+								if($e->getMessage() != $mysqlError){
+									$this->logOrEcho('General Error: ' . $e->getMessage(), 2);
+								}
 								//$this->logOrEcho('SQL: ' . $sql, 2);
 								//break;
 							}
@@ -131,8 +137,9 @@ class SchemaManager extends Manager{
 									if(!$this->amendmentFH) $this->amendmentFH = fopen($this->amendmentPath, 'w');
 									$this->logOrEcho('WARNING: ' . $message . ':', 2);
 									$failedSql = '';
-									foreach($this->warningArr[$type] as $frag){
-										$failedSql .= $frag;
+									foreach($this->warningArr[$type] as $fragStr){
+										$this->logOrEcho($fragStr, 3);
+										$failedSql .= $fragStr . ', ';
 									}
 									$failedSql = trim($failedSql, ', ') . ';';
 									fwrite($this->amendmentFH, '# ' . $targetTable . "\n");
@@ -302,7 +309,7 @@ class SchemaManager extends Manager{
 	private function validateAlterTableFragment($fragment){
 		if($this->activeTableArr){
 			if(strpos($fragment, 'ADD COLUMN') !== false){
-				if(preg_match('/^ADD COLUMN `([A-Za-z]+)`/', $fragment, $m)){
+				if(preg_match('/^ADD COLUMN `([A-Za-z0-9]+)`/', $fragment, $m)){
 					$colName = strtolower($m[1]);
 					if(array_key_exists($colName, $this->activeTableArr['columns'])){
 						$this->warningArr['columnExists'][$colName] = $fragment;
@@ -311,24 +318,26 @@ class SchemaManager extends Manager{
 				}
 			}
 			elseif(strpos($fragment, 'CHANGE COLUMN') !== false){
-				if(preg_match('/^CHANGE COLUMN `([A-Za-z]+)` .+ VARCHAR\((\d+)\)/', $fragment, $m)){
-					$colName = strtolower($m[1]);
+				if(preg_match('/^CHANGE COLUMN `([A-Za-z0-9]+)`/', $fragment, $matchArr)){
+					$colName = strtolower($matchArr[1]);
 					if(!array_key_exists($colName, $this->activeTableArr['columns'])){
 						$this->warningArr['columnMissing'][$colName] = $fragment;
 						return false;
 					}
-					$expectColumnLength = $m[2];
-					if(isset($this->activeTableArr['columns'][$colName]['length'])){
-						$trueColumnLength = $this->activeTableArr['columns'][$colName]['length'];
-						if($expectColumnLength < $trueColumnLength){
-							$this->warningArr['columnModified'][$colName] = 'Field length expanded from ' . $expectColumnLength . ' to ' . $trueColumnLength;
-							$fragment = str_replace('VARCHAR(' . $expectColumnLength . ')', 'VARCHAR(' . $trueColumnLength . ')', $fragment);
+					if(preg_match('/^CHANGE COLUMN `[A-Za-z0-9]+` .+ VARCHAR\((\d+)\)/', $fragment, $matchArr2)){
+						$expectColumnLength = $matchArr2[1];
+						if(isset($this->activeTableArr['columns'][$colName]['length'])){
+							$trueColumnLength = $this->activeTableArr['columns'][$colName]['length'];
+							if($expectColumnLength < $trueColumnLength){
+								$this->warningArr['columnModified'][$colName] = 'Field length expanded from ' . $expectColumnLength . ' to ' . $trueColumnLength;
+								$fragment = str_replace('VARCHAR(' . $expectColumnLength . ')', 'VARCHAR(' . $trueColumnLength . ')', $fragment);
+							}
 						}
 					}
 				}
 			}
 			elseif(strpos($fragment, 'DROP INDEX') !== false){
-				if(preg_match('/^DROP INDEX `([A-Za-z0-9_]+)`/', $fragment, $m)){
+				if(preg_match('/^DROP INDEX `([A-Za-z0-9_\-]+)`/', $fragment, $m)){
 					$indexName = strtolower($m[1]);
 					if(!isset($this->activeTableArr['indexes']) || !array_key_exists($indexName, $this->activeTableArr['indexes'])){
 						$this->warningArr['indexMissing'][$indexName] = $fragment;
@@ -337,7 +346,7 @@ class SchemaManager extends Manager{
 				}
 			}
 			elseif(strpos($fragment, 'ADD INDEX') !== false || strpos($fragment, 'ADD UNIQUE INDEX') !== false){
-				if(preg_match('/INDEX `([A-Za-z0-9_]+)`/', $fragment, $m)){
+				if(preg_match('/INDEX `([A-Za-z0-9_\-]+)`/', $fragment, $m)){
 					$indexName = strtolower($m[1]);
 					if(isset($this->activeTableArr['indexes']) && array_key_exists($indexName, $this->activeTableArr['indexes'])){
 						$this->warningArr['indexExists'][$indexName] = $fragment;
@@ -346,7 +355,7 @@ class SchemaManager extends Manager{
 				}
 			}
 			elseif(strpos($fragment, 'DROP FOREIGN KEY') !== false){
-				if(preg_match('/^DROP FOREIGN KEY `([A-Za-z0-9_]+)`/', $fragment, $m)){
+				if(preg_match('/^DROP FOREIGN KEY `([A-Za-z0-9_\-]+)`/', $fragment, $m)){
 					$keyName = strtolower($m[1]);
 					if(!isset($this->activeTableArr['FKs']) || !array_key_exists($keyName, $this->activeTableArr['FKs'])){
 						$this->warningArr['constraintMissing'][$keyName] = $fragment;
@@ -355,7 +364,7 @@ class SchemaManager extends Manager{
 				}
 			}
 			elseif(strpos($fragment, 'ADD CONSTRAINT') !== false){
-				if(preg_match('/ADD CONSTRAINT `([A-Za-z0-9_]+)`/', $fragment, $m)){
+				if(preg_match('/ADD CONSTRAINT `([A-Za-z0-9_\-]+)`/', $fragment, $m)){
 					$constraintName = strtolower($m[1]);
 					if(isset($this->activeTableArr['FKs']) && array_key_exists($constraintName, $this->activeTableArr['FKs'])){
 						$this->warningArr['constraintExists'][$constraintName] = $fragment;
