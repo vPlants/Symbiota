@@ -17,8 +17,10 @@ $curentVersion = $schemaManager->getCurrentVersion();
 $isNewInstall = false;
 if(!$curentVersion) $isNewInstall = true;
 elseif(isset($verHistory['3.0'])){
-	echo $verHistory['3.0'];
 	if(strpos($verHistory['3.0'], date('Y-m-d')) === 0) $isNewInstall = true;
+}
+elseif(isset($verHistory['1.0'])){
+	if(strpos($verHistory['1.0'], date('Y-m-d')) === 0) $isNewInstall = true;
 }
 
 if(!$IS_ADMIN && !$isNewInstall) header('Location: ../profile/index.php?refurl=../admin/schemamanager.php');

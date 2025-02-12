@@ -50,8 +50,8 @@ class SchemaManager extends Manager{
 						$this->logOrEcho('Statement #' . ($cnt) . ' - line '.$lineCnt.' (' . date('Y-m-d H:i:s') . ')');
 						$stmtType = '';
 						$targetTable = '';
-						$sql ='';
-						$sqlIsValid = false;
+						$sql = '';
+						$sqlIsValid = true;
 						foreach($stmtArr as $fragment){
 							if(substr($fragment, 0, 1) == '#'){
 								//line is comment
@@ -78,6 +78,7 @@ class SchemaManager extends Manager{
 								if(strpos($fragment, 'ALTER TABLE') === 0){
 									$stmtType = 'ALTER TABLE';
 									$this->setActiveTable($targetTable);
+									$sqlIsValid = false;
 								}
 								elseif(strpos($fragment, '/*!') === 0) $stmtType = 'Conditional statement';
 								elseif(preg_match('/^([A-Z0-9_=\s]+)/', $fragment, $m)){
@@ -95,7 +96,7 @@ class SchemaManager extends Manager{
 							}
 						}
 						$sql = trim($sql, ',');
-						if($sqlIsValid){
+						if($sql && $sqlIsValid){
 							//$this->logOrEcho('Statement: ' . $sql, 1);
 							try{
 								if($this->conn->query($sql)){
