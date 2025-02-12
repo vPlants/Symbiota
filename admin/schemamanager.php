@@ -1,7 +1,7 @@
 <?php
 include_once('../config/symbini.php');
 include_once($SERVER_ROOT.'/classes/SchemaManager.php');
-header("Content-Type: text/html; charset=".$CHARSET);
+header('Content-Type: text/html; charset=' . $CHARSET);
 
 $username = isset($_POST['username']) ? $_POST['username'] : '';
 $schemaCode = isset($_POST['schemaCode']) ? $_POST['schemaCode'] : '';
