@@ -513,6 +513,19 @@ DROP TRIGGER specprocessorrawlabelsfulltext_delete;
 
 DROP TABLE `specprocessorrawlabelsfulltext`;
 
+
+#Adjust FK to restrict deletion of record upon deletion of either internal occurrence or createdBy/modifiedBy users  
+ALTER TABLE `omoccurassociations`
+  DROP FOREIGN KEY `FK_occurassoc_occidassoc`,
+  DROP FOREIGN KEY `FK_occurassoc_uidcreated`,
+  DROP FOREIGN KEY `FK_occurassoc_uidmodified`;
+
+ALTER TABLE `omoccurassociations`
+  ADD CONSTRAINT `FK_occurassoc_occidassoc` FOREIGN KEY (`occidAssociate`) REFERENCES `omoccurrences` (`occid`) ON UPDATE CASCADE ON DELETE RESTRICT,
+  ADD CONSTRAINT `FK_occurassoc_uidcreated` FOREIGN KEY (`createdUid`) REFERENCES `users` (`uid`) ON UPDATE CASCADE ON DELETE RESTRICT,
+  ADD CONSTRAINT `FK_occurassoc_uidmodified` FOREIGN KEY (`modifiedUid`) REFERENCES `users` (`uid`) ON UPDATE CASCADE ON DELETE RESTRICT;
+  
+
 #Standardize occurrence identifier table
 ALTER TABLE `omoccuridentifiers`
   CHANGE COLUMN `identifiervalue` `identifierValue` VARCHAR(75) NOT NULL AFTER `occid`,
