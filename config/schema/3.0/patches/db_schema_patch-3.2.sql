@@ -432,7 +432,7 @@ DELIMITER ;
 
 #Add and update checklist footprints to be geoJson
 ALTER TABLE `fmchecklists` 
-  ADD COLUMN footprintGeoJson longtext DEFAULT NULL;
+  ADD COLUMN footprintGeoJson LONGTEXT DEFAULT NULL AFTER `footprintWkt`;
 
 UPDATE fmchecklists 
   SET footprintGeoJson = ST_ASGEOJSON(ST_GEOMFROMTEXT(swap_wkt_coords(footprintWkt))) 
@@ -627,4 +627,4 @@ CREATE TABLE `uploadkeyvaluetemp`(
 ) ENGINE=InnoDB;
 
 ALTER TABLE uploadimagetemp
-  ADD COLUMN mediaType varchar(45);
+  ADD COLUMN mediaType VARCHAR(45) NULL DEFAULT "image" AFTER `imageType`;
