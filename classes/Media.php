@@ -246,8 +246,14 @@ class MediaException extends Exception {
 	public const FileDoesNotExist = 'FILE_DOES_NOT_EXIST';
 	public const FileAlreadyExists = 'FILE_ALREADY_EXISTS';
 
-	function __construct(string $case){
-		parent::__construct($LANG[$case]);
+	function __construct(string $case, string $message = ''){
+		global $LANG;
+
+		if($message) {
+			parent::__construct($LANG[$case] . ': ' . $message);
+		} else {
+			parent::__construct($LANG[$case]);
+		}
 	}
 }
 
@@ -817,9 +823,12 @@ class Media {
 
 		//If no file is given and downloads from urls are enabled
 		if(!self::isValidFile($file)) {
+
 			if(!$should_upload_file) {
 				$file = self::parse_map_only_file($clean_post_arr);
-			} else if($isRemoteMedia) {
+			} 
+
+			if(!$file['type'] && $isRemoteMedia) {
 				$file = self::getRemoteFileInfo($clean_post_arr['originalUrl']);
 			}
 			
@@ -856,7 +865,7 @@ class Media {
 		$media_type_str = explode('/', $file['type'])[0];
 		$media_type = MediaType::tryFrom($media_type_str);
 
-		if(!$media_type) throw new MediaException(MediaException::InvalidMediaType);
+		if(!$media_type) throw new MediaException(MediaException::InvalidMediaType, ' ' . $media_type_str);
 
 		$keyValuePairs = [
 			"tid" => $clean_post_arr["tid"] ?? null,
