@@ -822,6 +822,7 @@ class Media {
 			} else if($isRemoteMedia) {
 				$file = self::getRemoteFileInfo($clean_post_arr['originalUrl']);
 			}
+			
 		}
 
 		//If that didn't popluate then return;
