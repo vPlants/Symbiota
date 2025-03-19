@@ -723,8 +723,13 @@ function simpleSearch() {
   errors = validateForm();
   let isValid = errors.length == 0;
   if (isValid) {
-    let searchUrl = getSearchUrl();
-    window.location = searchUrl;
+    const searchUrl = getSearchUrl();
+    sessionStorage.setItem('verbatimSearchUrl', searchUrl);
+    const shamForm = document.createElement('form');
+    shamForm.method = "POST"; // if GET is used instead, the URL is too short for complex polygon + many collections queries. Hence, the need for POST.
+    shamForm.action = searchUrl;
+    document.body.appendChild(shamForm);
+    shamForm.submit();
   } else {
     handleValErrors(errors);
   }
