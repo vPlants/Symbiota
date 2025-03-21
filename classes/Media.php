@@ -246,8 +246,14 @@ class MediaException extends Exception {
 	public const FileDoesNotExist = 'FILE_DOES_NOT_EXIST';
 	public const FileAlreadyExists = 'FILE_ALREADY_EXISTS';
 
-	function __construct(string $case){
-		parent::__construct($LANG[$case]);
+	function __construct(string $case, string $message = ''){
+		global $LANG;
+
+		if($message) {
+			parent::__construct($LANG[$case] . ': ' . $message);
+		} else {
+			parent::__construct($LANG[$case]);
+		}
 	}
 }
 
@@ -319,7 +325,7 @@ class Media {
 		return [
 			'name' => substr($file_name, $dir_path_pos, $file_type_pos - $dir_path_pos),
 			'tmp_name' => $filepath,
-			'extension' => substr($file_name, $file_type_pos + 1),
+			'extension' => strtolower(substr($file_name, $file_type_pos + 1)),
 		];
 	}
 	/**
@@ -328,7 +334,7 @@ class Media {
 	 * @param mixed $thumbnail
 	 */
 	public static function render_media_item(array $media_arr, $thumbnail=false) {
-		if($media_arr['mediaType'] !== 'image' && !$thumbnail) {
+		if($media_arr['mediaType'] == MediaType::Audio && !$thumbnail) {
 			$src = $media_arr['url'];
 			$format = $media_arr['format'];
 			$html = <<< HTML
@@ -339,7 +345,7 @@ class Media {
 			HTML;
 
 			return $html;
-		} else {
+		} else if($media_arr['mediaType'] == MediaType::Image || ($media_arr['tnurl']?? $media_arr['thumbnailUrl'])) {
 			$thumbnail = $media_arr['tnurl']?? $media_arr['thumbnailUrl'];
 			$url = $media_arr['url'];
 			$caption = $media_arr['caption'];
@@ -354,12 +360,15 @@ class Media {
 				border="1" 
 				src="$thumbnail" 
 				title="$caption" 
-				style="max-width:21.9rem;" 
 				alt="Thumbnail image of current specimen" 
 			/>
 			HTML;
 
 			return $html;
+		} else {
+			global $LANG;
+			return '<div style="width: 200px; height:242px; border: solid black 1px; display: flex; align-items: center; justify-content:center">' . $LANG['UNKNOWN_MEDIA_TYPE_MSG'] . '
+			</div>';
 		}
 	}
 	/**
@@ -817,11 +826,15 @@ class Media {
 
 		//If no file is given and downloads from urls are enabled
 		if(!self::isValidFile($file)) {
+
 			if(!$should_upload_file) {
 				$file = self::parse_map_only_file($clean_post_arr);
-			} else if($isRemoteMedia) {
+			} 
+
+			if(!$file['type'] && $isRemoteMedia) {
 				$file = self::getRemoteFileInfo($clean_post_arr['originalUrl']);
 			}
+			
 		}
 
 		//If that didn't popluate then return;
@@ -855,7 +868,7 @@ class Media {
 		$media_type_str = explode('/', $file['type'])[0];
 		$media_type = MediaType::tryFrom($media_type_str);
 
-		if(!$media_type) throw new MediaException(MediaException::InvalidMediaType);
+		if(!$media_type) throw new MediaException(MediaException::InvalidMediaType, ' ' . $media_type_str);
 
 		$keyValuePairs = [
 			"tid" => $clean_post_arr["tid"] ?? null,
