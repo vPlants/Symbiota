@@ -6,15 +6,15 @@ if(isset($SERVER_ROOT) && $SERVER_ROOT){
 	@include_once($SERVER_ROOT.'/classes/SpecProcessorGPI.php');
 	@include_once($SERVER_ROOT.'/classes/SpecProcessorNEVP.php');
 }
-elseif(isset($SERVER_ROOT) && $SERVER_ROOT){
-	if(file_exists($SERVER_ROOT.'/config/dbconnection.php')){ 
-		include_once($SERVER_ROOT.'/config/dbconnection.php');
+elseif(isset($serverRoot) && $serverRoot){
+	if(file_exists($serverRoot.'/config/dbconnection.php')){
+		include_once($serverRoot.'/config/dbconnection.php');
 	}
 	else{
 		include_once('ImageBatchConnectionFactory.php');
 	}
-	if (file_exists($SERVER_ROOT.'/classes/ImageLocalProcessor.php')) { 
-		@require_once($SERVER_ROOT.'/classes/ImageLocalProcessor.php');
+	if (file_exists($serverRoot.'/classes/ImageLocalProcessor.php')) {
+		@require_once($serverRoot.'/classes/ImageLocalProcessor.php');
 	}
 	// Check for the symbiota class files used herein for parsing
 	// batch files of xml formatted strucutured data.
@@ -30,13 +30,13 @@ elseif(isset($SERVER_ROOT) && $SERVER_ROOT){
 }
 else{
 	//Files reside in same folder and script is run from within the folder
-	if(file_exists('ImageLocalProcessor.php')) { 
+	if(file_exists('ImageLocalProcessor.php')) {
 		@require_once('ImageLocalProcessor.php');
 	}
-	if(file_exists('SpecProcessorGPI.php')) { 
+	if(file_exists('SpecProcessorGPI.php')) {
 		@require_once('SpecProcessorGPI.php');
 	}
-	if (file_exists('SpecProcessorNEVP.php')) {  
+	if (file_exists('SpecProcessorNEVP.php')) {
 		@require_once('SpecProcessorNEVP.php');
 	}
 }

@@ -1,6 +1,7 @@
 <?php
 include_once('../../config/symbini.php');
 include_once($SERVER_ROOT.'/classes/OccurrenceLabel.php');
+
 header("Content-Type: text/html; charset=".$CHARSET);
 
 $collid = $_POST["collid"];
@@ -20,11 +21,11 @@ if($SYMB_UID){
 	}
 }
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="<?php echo $LANG_TAG ?>">
 	<head>
 		<title><?php echo $DEFAULT_TITLE; ?> Default Annotations</title>
 		<style type="text/css">
-			body {font-family:arial,sans-serif;}
 			table.labels { page-break-before:auto; }
 			table.labels tr td { page-break-inside: avoid; white-space: nowrap; }
 			<?php
@@ -42,9 +43,14 @@ if($SYMB_UID){
 			.scientificnamediv {clear:both;font-size:10pt;}
 			.subfielddiv {font-size:8pt;margin-top:5px;clear:both;}
 			.lfooter {clear:both;width:100%;text-align:center;font:bold 9pt arial,sans-serif;margin-top:10px;}
+			.screen-reader-only {
+				position: absolute;
+				left: -10000px;
+			}
 		</style>
 	</head>
 	<body style="background-color:#ffffff;">
+		<h1 class="page-heading screen-reader-only">Default Annotations</h1>
 		<div>
 			<?php
 			if($isEditor){

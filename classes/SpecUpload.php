@@ -10,20 +10,20 @@ class SpecUpload{
 	protected $skipOccurFieldArr = array();
 
 	protected $title = '';
-	protected $platform;
-	protected $server;
-	protected $port;
-	protected $username;
-	protected $password;
-	protected $code;
-	protected $path;
-	protected $pKField;
-	protected $schemaName;
-	protected $queryStr;
-	protected $storedProcedure;
+	protected $platform = '';
+	protected $server = '';
+	protected $port = 0;
+	protected $username = '';
+	protected $password = '';
+	protected $code = '';
+	protected $path = '';
+	protected $pKField = '';
+	protected $schemaName = '';
+	protected $queryStr = '';
+	protected $storedProcedure = '';
 	protected $lastUploadDate;
-	protected $uploadType;
-	private $securityKey;
+	protected $uploadType = '';
+	private $securityKey = '';
 	protected $paleoSupport = false;
 	protected $materialSampleSupport = false;
 
@@ -237,13 +237,20 @@ class SpecUpload{
 		while($schemaRow = $schemaRS->fetch_object()){
 			$fieldName = strtolower($schemaRow->Field);
 			if(!in_array($fieldName,$this->skipOccurFieldArr)){
-				$occFieldArr[] = $fieldName;
+				if($fieldName === 'othercatalognumbers' && !$searchVariables) {
+					$occFieldArr[] = 'CASE WHEN u.otherCatalogNumbers IS NULL THEN i.identifiers WHEN i.identifiers IS NULL THEN u.otherCatalogNumbers ELSE CONCAT(u.otherCatalogNumbers, "; ", i.identifiers) END as otherCatalogNumbers';
+				} else {
+					$occFieldArr[] = $fieldName;
+				}
 			}
 		}
 		$schemaRS->free();
 
-		$sql = 'SELECT occid, dbpk, '.implode(',',$occFieldArr).' FROM uploadspectemp WHERE collid IN('.$this->collId.') ';
-		if($searchVariables){
+		$identifiers_subquery_join = ' LEFT JOIN (SELECT occid as id_occid, GROUP_CONCAT(CONCAT(identifiername,": " , identifiervalue) SEPARATOR ";") as identifiers from omoccuridentifiers as oi group by oi.occid) as i on i.id_occid = u.occid ';
+
+		$sql = 'SELECT occid, dbpk, '.implode(',',$occFieldArr).' FROM uploadspectemp u ' . $identifiers_subquery_join . ' WHERE collid IN('.$this->collId.') ';
+
+		if($searchVariables) {
 			if($searchVariables == 'matchappend'){
 				$sql = 'SELECT DISTINCT u.occid, u.dbpk, u.'.implode(',u.',$occFieldArr).' '.
 					'FROM uploadspectemp u INNER JOIN omoccurrences o ON u.collid = o.collid '.
@@ -284,10 +291,10 @@ class SpecUpload{
 						$vArr = explode(':',$varStr);
 						$sql .= 'AND '.$vArr[0];
 						switch($vArr[1]){
-							case 'ISNULL':
+							case 'IS_NULL':
 								$sql .= ' IS NULL ';
 								break;
-							case 'ISNOTNULL':
+							case 'NOT_NULL':
 								$sql .= ' IS NOT NULL ';
 								break;
 							default:
@@ -296,7 +303,7 @@ class SpecUpload{
 					}
 				}
 			}
-		}
+		} 
 		return $sql;
 	}
 
@@ -342,7 +349,7 @@ class SpecUpload{
 				$this->schemaName = $row->SchemaName;
 				$this->code = $row->code;
 				if(!$this->path) $this->path = $row->path;
-				$this->pKField = strtolower($row->pkfield);
+				$this->pKField = strtolower($row->pkfield ?? '');
 				$this->queryStr = $row->querystr;
 				$this->storedProcedure = $row->cleanupsp;
 				$this->lastUploadDate = $row->uploaddate;

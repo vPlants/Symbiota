@@ -54,7 +54,7 @@ class OccurrenceExsiccatae {
 			if($imagesOnly){
 				$sql .= 'FROM omexsiccatititles et INNER JOIN omexsiccatinumbers en ON et.ometid = en.ometid '.
 					'INNER JOIN omexsiccatiocclink ol ON en.omenid = ol.omenid '.
-					'INNER JOIN images i ON ol.occid = i.occid ';
+					'INNER JOIN media m ON ol.occid = m.occid ';
 			}
 			else{
 				//Display only exsiccati that have linked specimens
@@ -97,7 +97,7 @@ class OccurrenceExsiccatae {
 				'CONCAT(o.recordedby," (",IFNULL(o.recordnumber,"s.n."),") ",IFNULL(o.eventDate,"date unknown")) as collector '.
 				'FROM omexsiccatinumbers en '.($specimenOnly || $imagesOnly?'INNER':'LEFT').' JOIN omexsiccatiocclink ol ON en.omenid = ol.omenid '.
 				($specimenOnly || $imagesOnly?'INNER':'LEFT').' JOIN omoccurrences o ON ol.occid = o.occid ';
-			if($imagesOnly) $sql .= 'INNER JOIN images i ON o.occid = i.occid ';
+			if($imagesOnly) $sql .= 'INNER JOIN media m ON o.occid = m.occid ';
 			$sql .= 'WHERE en.ometid = '.$ometid.' ';
 			if($collid) $sql .= 'AND o.collid = '.$collid.' ';
 			$sql .= 'ORDER BY en.exsnumber+1,en.exsnumber,ol.ranking';
@@ -156,11 +156,11 @@ class OccurrenceExsiccatae {
 			'o.sciname, o.scientificnameauthorship, o.recordedby, o.recordnumber, DATE_FORMAT(o.eventdate,"%d %M %Y") AS eventdate, '.
 			'trim(o.country) AS country, trim(o.stateprovince) AS stateprovince, trim(o.county) AS county, '.
 			'trim(o.municipality) AS municipality, o.locality, o.decimallatitude, o.decimallongitude, '.
-			'i.imgid, i.thumbnailurl, i.url '.
+			'm.mediaID, m.thumbnailurl, m.url '.
 			'FROM omexsiccatiocclink ol INNER JOIN omoccurrences o ON ol.occid = o.occid '.
 			'INNER JOIN omcollections c ON o.collid = c.collid '.
 			'INNER JOIN omexsiccatinumbers en ON ol.omenid = en.omenid '.
-			'LEFT JOIN images i ON o.occid = i.occid ';
+			'LEFT JOIN media m ON o.occid = m.occid ';
 		if($target == 'omenid'){
 			$sql .= 'WHERE ol.omenid = '.$id;
 		}
@@ -193,8 +193,8 @@ class OccurrenceExsiccatae {
 					$retArr[$r->omenid][$r->occid]['lng'] = $r->decimallongitude;
 				}
 				if($r->url){
-					$retArr[$r->omenid][$r->occid]['img'][$r->imgid]['url'] = $r->url;
-					$retArr[$r->omenid][$r->occid]['img'][$r->imgid]['tnurl'] = ($r->thumbnailurl?$r->thumbnailurl:$r->url);
+					$retArr[$r->omenid][$r->occid]['img'][$r->mediaID]['url'] = $r->url;
+					$retArr[$r->omenid][$r->occid]['img'][$r->mediaID]['tnurl'] = ($r->thumbnailurl?$r->thumbnailurl:$r->url);
 				}
 			}
 			$rs->free();
@@ -216,7 +216,7 @@ class OccurrenceExsiccatae {
 			$fieldArr['exsiccatiNumber'] = 'en.exsnumber';
 			if($collId || $specimenOnly){
 				$sqlInsert .= 'INNER JOIN omexsiccatiocclink ol ON en.omenid = ol.omenid INNER JOIN omoccurrences o ON ol.occid = o.occid ';
-				if($imagesOnly) $sqlInsert .= 'INNER JOIN images i ON o.occid = i.occid ';
+				if($imagesOnly) $sqlInsert .= 'INNER JOIN media m ON o.occid = m.occid ';
 				if($collId) $sqlWhere .= 'AND o.collid = '.$collId.' ';
 				$fieldArr['occid'] = 'o.occid';
 				$fieldArr['catalogNumber'] = 'o.catalognumber';
@@ -246,7 +246,8 @@ class OccurrenceExsiccatae {
 			fputcsv($out, array_keys($fieldArr));
 			while($r = $rs->fetch_assoc()){
 				foreach($r as $k => $v){
-					$r[$k] = utf8_decode($v);
+					if($v) $v = mb_convert_encoding($v, 'ISO-8859-1', $GLOBALS['CHARSET']);
+					$r[$k] = $v;
 				}
 				fputcsv($out, $r);
 			}
@@ -431,20 +432,12 @@ class OccurrenceExsiccatae {
 			}
 			elseif($collId && is_numeric($collId) && ($identifier || ($pArr['recordedby'] && $pArr['recordnumber']))){
 				//Grab matching occid(s)
-				$sql1 = 'SELECT o.occid '.
-					'FROM omoccurrences o LEFT JOIN omoccurrencesfulltext f ON o.occid = f.occid '.
-					'WHERE o.collid = '.$collId.' ';
+				$sql1 = 'SELECT o.occid FROM omoccurrences o WHERE o.collid = '.$collId.' ';
 				if($identifier){
 					$sql1 .= 'AND (o.catalogNumber = '.(is_numeric($identifier)?$identifier:'"'.$identifier.'"').') ';
 				}
 				else{
-					if(strlen($pArr['recordedby']) < 4 || in_array(strtolower($pArr['recordedby']),array('best','little'))){
-						//Need to avoid FULLTEXT stopwords interfering with return
-						$sql1 .= 'AND (o.recordedby LIKE "%'.$pArr['recordedby'].'%")';
-					}
-					else{
-						$sql1 .= 'AND (MATCH(f.recordedby) AGAINST("'.$pArr['recordedby'].'")) ';
-					}
+					$sql1 .= 'AND (MATCH(o.recordedby) AGAINST("'.$pArr['recordedby'].'" IN BOOLEAN MODE)) ';
 					$sql1 .= 'AND (o.recordnumber = '.(is_numeric($pArr['recordnumber'])?$pArr['recordnumber']:'"'.$pArr['recordnumber'].'"').') ';
 				}
 				$sql1 .= 'LIMIT 5';
@@ -591,7 +584,7 @@ class OccurrenceExsiccatae {
 		}
 		if($transferCnt){
 			$statusStr = 'SUCCESS transferring '.$transferCnt.' records ';
-			//if($datasetId) $statusStr = '<br/>Records linked to dataset: <a href="">'.$datasetTitle.'</a>';
+			//if($datasetId) $statusStr = '<br/>Records linked to dataset: <a href="">' . htmlspecialchars($datasetTitle, ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE) . '</a>';
 		}
 		return $statusStr;
 	}
@@ -720,13 +713,14 @@ class OccurrenceExsiccatae {
 	}
 
 	public function getTargetCollArr(){
+		global $USER_RIGHTS;
 		$retArr = array();
 		$collArr = array();
-		if(isset($GLOBALS['CollAdmin'])){
-			$collArr = $GLOBALS['CollAdmin'];
+		if(isset($USER_RIGHTS['CollAdmin'])){
+			$collArr = $USER_RIGHTS['CollAdmin'];
 		}
-		if(isset($GLOBALS['CollEditor'])){
-			$collArr = array_merge($collArr,$GLOBALS['CollEditor']);
+		if(isset($USER_RIGHTS['CollEditor'])){
+			$collArr = array_merge($collArr, $USER_RIGHTS['CollEditor']);
 		}
 		if($collArr){
 			$sql ='SELECT DISTINCT c.collid, c.collectionname, c.institutioncode, c.collectioncode '.
@@ -761,7 +755,7 @@ class OccurrenceExsiccatae {
 		$retStr .= '<td align="center"><a href="#" onclick="openExsPU('.$omenid.')">#'.$oArr['exsnum'].'</a></td>';
 		$retStr .= '<td>';
 		$retStr .= '<span '.($isTarget?'style="color:red;"':'').' title="'.$oArr['collname'].'">'.$oArr['collcode'].'</span>, ';
-		$retStr .= '<a href="#" onclick="openIndPU('.$occid.')">'.$oArr['recby'].' '.($oArr['recnum']?$oArr['recnum']:'s.n.').'</a>';
+		$retStr .= '<a href="#" onclick="openIndPU(' . htmlspecialchars($occid, ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE) . ')">' . htmlspecialchars($oArr['recby'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE) . ' ' . htmlspecialchars(($oArr['recnum']?$oArr['recnum']:'s.n.'), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE) . '</a>';
 		$retStr .= ($oArr['eventdate']?', '.$oArr['eventdate']:'');
 		$retStr .= ', <i>'.$oArr['sciname'].'</i> '.$oArr['author'];
 		$retStr .= $oArr['country'].', '.$oArr['state'].', '.$oArr['county'].', '.(strlen($oArr['locality'])>75?substr($oArr['locality'],0,75).'...':$oArr['locality']);
@@ -773,6 +767,7 @@ class OccurrenceExsiccatae {
 	}
 
 	private function cleanOutStr($str){
+		if(!isset($str)) return null;
 		$newStr = str_replace('"',"&quot;",$str);
 		$newStr = str_replace("'","&apos;",$newStr);
 		//$newStr = $this->conn->real_escape_string($newStr);

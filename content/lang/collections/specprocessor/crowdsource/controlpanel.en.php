@@ -5,6 +5,7 @@ Language: English
 ------------------
 */
 
+$LANG['CROWDSOURCING_ADMIN'] = 'Crowdsourcing Administration';
 $LANG['CROWDSOURCE_EXPLAIN'] = 'This module can be used to submit and manage records for data entry by the
 							general public. For more information, see the 
 							<a href="https://biokic.github.io/symbiota-docs/coll_manager/crowdsource/edit/">
@@ -30,7 +31,7 @@ $LANG['VOLUNTEERS'] = 'Volunteers';
 $LANG['USER'] = 'User';
 $LANG['SCORE'] = 'Score';
 $LANG['PENDING_REVIEW'] = 'Pending Review';
-$LANG['APPROVED'] = 'Volunteers';
+$LANG['APPROVED'] = 'Approved';
 $LANG['REVIEW'] = 'Review';
 $LANG['NO_RECS_PROCESSED'] = 'No records processed';
 $LANG['APPROVED_EDITORS'] = 'Approved Editors';
