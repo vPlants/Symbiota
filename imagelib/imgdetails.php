@@ -31,7 +31,19 @@ if ($isEditor) {
 		header('Location: ../taxa/profile/tpeditor.php?tid=' . $_REQUEST['targettid'] . '&tabindex=1');
 	} elseif ($action == 'Delete Image') {
 		$remove_files = $_REQUEST['removeimg'] ?? false;
-		Media::delete(intval($mediaID), boolval($remove_files));
+		try {
+			Media::delete(intval($mediaID), boolval($remove_files));
+			if($errors = Media::getErrors()) {
+				$status = 'Errors:<br/>' . implode('<br/>', $errors);
+			} else if($_REQUEST['tid'] ?? false) {
+				header('Location: ../taxa/profile/tpeditor.php?tid=' . $_REQUEST['tid'] . '&tabindex=1');
+			} else {
+				header('Location: index.php');
+			}
+		} catch(Throwable $th) {
+			$status = "ERROR: " . $th->getMessage();
+		}
+
 	}
 	$imgArr = Media::getMedia($mediaID);
 }
@@ -53,6 +65,7 @@ if ($imgArr) {
 		$metaUrl = $serverPath . $metaUrl;
 	}
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $LANG_TAG ?>">
@@ -248,7 +261,7 @@ if ($imgArr) {
 							</div>
 							<div style="margin-top:2px;">
 								<b><?php echo $LANG['SORT_SEQUENCE'] ?>:</b>
-								<input name="sortsequence" type="text" value="<?php echo $imgArr["sortSequence"]; ?>" size="5" />
+								<input name="sortsequence" type="text" value="<?php echo $imgArr["sortSequence"] ?? ''; ?>" size="5" />
 							</div>
 							<div style="margin-top:2px;">
 								<b><?php echo $LANG['WEB_IMAGE'] ?>:</b><br />
@@ -323,6 +336,7 @@ if ($imgArr) {
 							<div style="margin-top:2px;">
 								<button class="button-danger" type="submit" name="submitaction" id="submit" value="Delete Image"><?php echo $LANG['DELETE_IMAGE'] ?></button>
 							</div>
+							<input type="hidden" name="tid" value="<?php echo $imgArr["tid"]; ?>" />
 							<input name="removeimg" type="checkbox" value="1" /> <?php echo $LANG['REMOVE_IMG_FROM_SERVER'] ?>
 							<div style="margin-left:20px;color:red;">
 								<?php echo $LANG['BOX_CHECKED_IMG_DELETED'] ?>
