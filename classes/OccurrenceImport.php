@@ -97,8 +97,8 @@ class OccurrenceImport extends UtilitiesFileImport {
 			}
 
 			$fields = [
-				//'tid',
-				'thumbnailurl',
+				 //'tid',
+				'thumbnailUrl',
 				'sourceurl',
 				'archiveurl',
 				'referenceurl',
@@ -125,9 +125,9 @@ class OccurrenceImport extends UtilitiesFileImport {
 					"originalUrl" => $recordArr[$this->fieldMap['originalurl']],
 					"mediaUploadType" => $postArr['mediaUploadType']
 				];
-				foreach ($fields as $key) {
-					$record_idx = $this->fieldMap[$key] ?? false;
-					if ($record_idx && $recordArr[$record_idx]) {
+				foreach($fields as $key) {
+					$record_idx = $this->fieldMap[$key] ?? $this->fieldMap[strtolower($key)] ?? false;
+					if($record_idx && $recordArr[$record_idx]) {
 						$data[$key] = $recordArr[$record_idx];
 					}
 				}
