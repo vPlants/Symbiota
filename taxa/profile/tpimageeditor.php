@@ -200,7 +200,7 @@ if($tid){
 							</div>
 							<div style='margin-top:2px;' title="<?php echo $LANG['URL_TO_SOURCE']; ?>">
 								<b><?php echo $LANG['SOURCE_URL']; ?>:</b>
-								<input name='sourceurl' type='text' value='' size='70' maxlength='250'>
+								<input name='sourceUrl' type='text' value='' size='70' maxlength='250'>
 							</div>
 							<div style='margin-top:2px;'>
 								<b><?php echo $LANG['COPYRIGHT']; ?>:</b>
