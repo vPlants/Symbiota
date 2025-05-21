@@ -838,7 +838,7 @@ class Media {
 			$file_type_mime = self::ext2Mime($parsed_file['extension'], $media_upload_type);
 
 			// If There is a bunch of potential mime types just assume the first one
-			// this is not perfect and could result weird errors for fringe types 
+			// this is not perfect and could result weird errors for fringe types
 			// but for current use case should be an issue. Types are order by most likely.
 			if(is_array($file_type_mime) && count($file_type_mime) > 0) {
 				$file_type_mime = $file_type_mime[0];
@@ -1199,7 +1199,7 @@ class Media {
 			"sortOccurrence",
 			"sourceIdentifier",
 			"rights",
-			"accessrights",
+			"accessRights",
 			"copyright",
 			"hashFunction",
 			"hashValue",
