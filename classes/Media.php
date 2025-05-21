@@ -875,7 +875,7 @@ class Media {
 				$file = self::parse_map_only_file($clean_post_arr);
 			}
 
-			if(!$file['type'] && $isRemoteMedia) {
+			if((!self::isValidFile($file) || !$file['type']) && $isRemoteMedia) {
 				$file = self::getRemoteFileInfo($clean_post_arr['originalUrl']);
 			}
 		}
@@ -920,7 +920,7 @@ class Media {
 			"thumbnailUrl" => $clean_post_arr["thumbnailUrl"] ?? null,
 			// Will get popluated below
 			"originalUrl" => null,
-			"archiveUrl" => $clean_post_arr["archiverurl"] ?? null,// Only Occurrence import
+			"archiveUrl" => $clean_post_arr["archiveUrl"] ?? null,// Only Occurrence import
 			// This is a very bad name that refers to source or downloaded url
 			"sourceUrl" => $clean_post_arr["sourceUrl"] ?? null,// TPImageEditorManager / Occurrence import
 			"referenceUrl" => $clean_post_arr["referenceUrl"] ?? null,// check keys again might not be one,
@@ -937,7 +937,7 @@ class Media {
 			"sortOccurrence" => $clean_post_arr['sortOccurrence'] ?? null,
 			"sourceIdentifier" => $clean_post_arr['sourceIdentifier'] ?? ('filename: ' . $file['name']),
 			"rights" => $clean_post_arr['rights'] ?? null,
-			"accessrights" => $clean_post_arr['rights'] ?? null,
+			"accessRights" => $clean_post_arr['accessRights'] ?? null,
 			"copyright" => $clean_post_arr['copyright'] ?? null,
 			"hashFunction" => $clean_post_arr['hashFunction'] ?? null,
 			"hashValue" => $clean_post_arr['hashValue'] ?? null,
@@ -1131,24 +1131,18 @@ class Media {
 	 * @param mixed $conn
 	 */
 	private static function update_tags($media_id, $tag_arr, $conn = null): void {
-		$tags =	[
-			"HasOrganism",
-			"HasLabel",
-			"HasIDLabel",
-			"TypedText",
-			"Handwriting",
-			"ShowsHabitat",
-			"HasProblem",
-			"Diagnostic",
-			"ImageOfAdult",
-			"ImageOfImmature",
-		];
+		if(!$conn) {
+			$conn = Database::connect('write');
+		}
+
+		$tags = QueryUtil::executeQuery($conn, 'SELECT tagkey FROM imagetagkey');
 
 		$remove_tags = [];
 		$add_tags = [];
-		foreach ($tags as $tag) {
-			$new_value = $tag_arr['ch_' . $tag] ?? false;
-			$old_value = $tag_arr['hidden_' . $tag] ?? false;
+		foreach ($tags as $tagRow) {
+			$tag = $tagRow['tagkey'];
+			$new_value = $tag_arr['ch_' . $tag] ?? $tag_arr['ch_' . strtolower($tag)] ?? false;
+			$old_value = $tag_arr['hidden_' . $tag] ?? $tag_arr['hidden_' . strtolower($tag)] ?? false;
 			if($new_value !== $old_value) {
 				if($new_value === '1') {
 					array_push($add_tags, $tag);
@@ -1156,10 +1150,6 @@ class Media {
 					array_push($remove_tags, $tag);
 				}
 			}
-		}
-
-		if(!$conn) {
-			$conn = Database::connect('write');
 		}
 
 		foreach($add_tags as $add) {

@@ -99,8 +99,8 @@ class OccurrenceImport extends UtilitiesFileImport {
 			$fields = [
 				 //'tid',
 				'thumbnailUrl',
-				'sourceurl',
-				'archiveurl',
+				'sourceUrl',
+				'archiveUrl',
 				'referenceUrl',
 				'creator',
 				'creatoruid',
@@ -114,7 +114,7 @@ class OccurrenceImport extends UtilitiesFileImport {
 				'hashValue',
 				'mediaMD5',
 				'copyright',
-				'accessrights',
+				'accessRights',
 				'rights',
 				'sortOccurrence'
 			];
