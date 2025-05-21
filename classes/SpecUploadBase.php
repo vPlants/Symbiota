@@ -409,7 +409,7 @@ class SpecUploadBase extends SpecUpload{
 		}
 		//Output table rows for source data
 		echo '<table class="styledtable" style="width:600px;font-size:12px;">';
-		echo '<tr><th>Source Field</th><th>Target Field</th></tr>'."\n";
+		echo '<tr><th>Source Field</th><th>Target Field ' . '<a href="https://biokic.github.io/symbiota-docs/coll_manager/upload/fields/" target="_blank"><img src="../../images/info.png" style="width:1.2em;" alt="More about Symbiota Data Fields" title="More about Symbiota Data Fields" aria-label="more info"/></a></th></tr>'."\n";
 		foreach($sourceArr as $fieldName){
 			if($fieldName == 'coreid') continue;
 			$diplayFieldName = $fieldName;
@@ -737,8 +737,8 @@ class SpecUploadBase extends SpecUpload{
 
 		//Lock security setting if set so that local system can't override
 		$sql = 'UPDATE uploadspectemp '.
-			'SET localitySecurityReason = "Locked: set via import file" '.
-			'WHERE localitySecurity > 0 AND localitySecurityReason IS NULL AND collid IN('.$this->collId.')';
+			'SET securityReason = "Locked: set via import file" '.
+			'WHERE recordSecurity > 0 AND securityReason IS NULL AND collid IN('.$this->collId.')';
 		$this->conn->query($sql);
 
 		if($this->sourceDatabaseType == 'specify'){
