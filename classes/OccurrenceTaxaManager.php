@@ -478,15 +478,16 @@ class OccurrenceTaxaManager {
 					}
 					else{
 						$term = $this->cleanInStr(trim($searchTaxon,'%'));
-						$term = preg_replace(array('/\s{1}x\s{1}/','/\s{1}X\s{1}/','/\s{1}\x{00D7}\s{1}/u'), ' _ ', $term);
+						//$term = preg_replace(array('/\s{1}x\s{1}/','/\s{1}X\s{1}/','/\s{1}\x{00D7}\s{1}/u'), ' _ ', $term);
 						if(array_key_exists('tid',$searchArr)){
+							//Term was located within the taxonomic thesaurus
 							$rankid = current($searchArr['tid']);
 							$tidArr = array_keys($searchArr['tid']);
 							$tidInArr = array_merge($tidInArr, $tidArr);
-							//Return matches that are not linked to thesaurus
 							if($rankid > 179){
-								if($this->exactMatchOnly) $sqlWhereTaxa .= 'OR (o.sciname = "' . $term . '") ';
-								else $sqlWhereTaxa .= 'OR (o.sciname LIKE "' . $term . '%") ';
+								//Return matches that are not linked to thesaurus
+								//if($this->exactMatchOnly) $sqlWhereTaxa .= 'OR (o.sciname = "' . $term . '") ';
+								//else $sqlWhereTaxa .= 'OR (o.sciname LIKE "' . $term . '%") ';
 							}
 						}
 						else{
@@ -506,11 +507,13 @@ class OccurrenceTaxaManager {
 							}
 							else{
 								$sqlWhereTaxa .= 'OR (o.sciname LIKE "' . $term . '%") ';
+								/*
 								if(!strpos($term,' _ ')){
 									//Accommodate for formats of hybrid designations within input and target data (e.g. x, multiplication sign, etc)
-									$term2 = preg_replace('/^([^\s]+\s{1})/', '$1 _ ', $term);
-									$sqlWhereTaxa .= 'OR (o.sciname LIKE "' . $term2 . '%") ';
+									//$term2 = preg_replace('/^([^\s]+\s{1})/', '$1 _ ', $term);
+									//$sqlWhereTaxa .= 'OR (o.sciname LIKE "' . $term2 . '%") ';
 								}
+								*/
 							}
 						}
 					}
@@ -631,9 +634,11 @@ class OccurrenceTaxaManager {
 	protected function cleanInputStr($str){
 		if(!is_string($str) && !is_numeric($str) && !is_bool($str)) return '';
 		if(preg_match('/^\d+\'+$/', $str)) return 0;	//SQL Injection attempt, thus set to return nothing rather than a query that puts a load on the db server
+		$str = str_replace('_', ' ',$str);
 		$str = preg_replace('/%%+/', '%',$str);
 		$str = preg_replace('/^[\s%]+/', '',$str);
 		$str = trim($str,' ,;');
+		$str = preg_replace('/\s\s+/', ' ',$str);
 		if($str == '%') $str = '';
 		$str = strip_tags($str);
 		//$str = htmlspecialchars($str, ENT_NOQUOTES | ENT_SUBSTITUTE | ENT_HTML401);
