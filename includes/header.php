@@ -24,6 +24,7 @@ $collectionSearchPage = $SHOULD_USE_HARVESTPARAMS ? '/collections/index.php' : '
 					</span>
 					<?php
 				} else {
+					/*
 					?>
 					<span id="login">
 						<form name="loginForm" method="post" action="<?= $CLIENT_ROOT . "/profile/index.php" ?>">
@@ -32,6 +33,7 @@ $collectionSearchPage = $SHOULD_USE_HARVESTPARAMS ? '/collections/index.php' : '
 						</form>
 					</span>
 					<?php
+					*/
 				}
 				?>
 			</nav>
