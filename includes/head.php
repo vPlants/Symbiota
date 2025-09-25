@@ -6,6 +6,7 @@
 ** To customize the styles, add your own CSS files to the
 ** css folder and include them here.
 */
+$CSS_VERSION = '1';
 ?>
 <!-- Responsive viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
