@@ -144,7 +144,7 @@ class Request
     /**
      * @var array
      */
-    protected $charsets;
+    protected $CHARSETs;
 
     /**
      * @var array

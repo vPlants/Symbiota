@@ -65,14 +65,14 @@ final class CharacterStream
     /**
      * @param resource|string $input
      */
-    public function __construct($input, ?string $charset = 'utf-8')
+    public function __construct($input, ?string $CHARSET = 'utf-8')
     {
-        $charset = strtolower(trim($charset)) ?: 'utf-8';
-        if ('utf-8' === $charset || 'utf8' === $charset) {
+        $CHARSET = strtolower(trim($CHARSET)) ?: 'utf-8';
+        if ('utf-8' === $CHARSET || 'utf8' === $CHARSET) {
             $this->fixedWidth = 0;
             $this->map = ['p' => [], 'i' => []];
         } else {
-            switch ($charset) {
+            switch ($CHARSET) {
                 // 16 bits
                 case 'ucs2':
                 case 'ucs-2':

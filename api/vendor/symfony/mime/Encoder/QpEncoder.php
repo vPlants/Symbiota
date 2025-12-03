@@ -114,7 +114,7 @@ class QpEncoder implements EncoderInterface
      * If the first line needs to be shorter, indicate the difference with
      * $firstLineOffset.
      */
-    public function encodeString(string $string, ?string $charset = 'utf-8', int $firstLineOffset = 0, int $maxLineLength = 0): string
+    public function encodeString(string $string, ?string $CHARSET = 'utf-8', int $firstLineOffset = 0, int $maxLineLength = 0): string
     {
         if ($maxLineLength > 76 || $maxLineLength <= 0) {
             $maxLineLength = 76;
@@ -127,7 +127,7 @@ class QpEncoder implements EncoderInterface
         $lines[$lNo] = '';
         $currentLine = &$lines[$lNo++];
         $size = $lineLen = 0;
-        $charStream = new CharacterStream($string, $charset);
+        $charStream = new CharacterStream($string, $CHARSET);
 
         // Fetching more than 4 chars at one is slower, as is fetching fewer bytes
         // Conveniently 4 chars is the UTF-8 safe number since UTF-8 has up to 6

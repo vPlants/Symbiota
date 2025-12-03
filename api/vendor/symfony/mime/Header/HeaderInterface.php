@@ -36,7 +36,7 @@ interface HeaderInterface
      */
     public function getBody();
 
-    public function setCharset(string $charset);
+    public function setCharset(string $CHARSET);
 
     public function getCharset(): ?string;
 

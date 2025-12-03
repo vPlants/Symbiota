@@ -24,12 +24,12 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 class ResponseListener implements EventSubscriberInterface
 {
-    private $charset;
+    private $CHARSET;
     private $addContentLanguageHeader;
 
-    public function __construct(string $charset, bool $addContentLanguageHeader = false)
+    public function __construct(string $CHARSET, bool $addContentLanguageHeader = false)
     {
-        $this->charset = $charset;
+        $this->charset = $CHARSET;
         $this->addContentLanguageHeader = $addContentLanguageHeader;
     }
 

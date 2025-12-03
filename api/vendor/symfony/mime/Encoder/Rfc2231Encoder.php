@@ -21,7 +21,7 @@ final class Rfc2231Encoder implements EncoderInterface
     /**
      * Takes an unencoded string and produces a string encoded according to RFC 2231 from it.
      */
-    public function encodeString(string $string, ?string $charset = 'utf-8', int $firstLineOffset = 0, int $maxLineLength = 0): string
+    public function encodeString(string $string, ?string $CHARSET = 'utf-8', int $firstLineOffset = 0, int $maxLineLength = 0): string
     {
         $lines = [];
         $lineCount = 0;
@@ -32,7 +32,7 @@ final class Rfc2231Encoder implements EncoderInterface
             $maxLineLength = 75;
         }
 
-        $charStream = new CharacterStream($string, $charset);
+        $charStream = new CharacterStream($string, $CHARSET);
         $thisLineLength = $maxLineLength - $firstLineOffset;
 
         while (null !== $char = $charStream->read(4)) {
