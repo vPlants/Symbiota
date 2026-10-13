@@ -856,17 +856,23 @@ class OccurrenceManager extends OccurrenceTaxaManager {
 		$this->searchTermArr[$this->cleanInputStr($termKey)] = $this->cleanInputStr($termValue);
 	}
 
-	public function getSearchTerm($k, $currentPage = null){
-		if($k && isset($this->searchTermArr[$k])){
-			if(is_array($this->searchTermArr[$k])) {
-				return $this->cleanOutArray($this->searchTermArr[$k]);
-			} else {
-				return $this->cleanOutStr(trim($this->searchTermArr[$k],' ;'));
+	public function getSearchTerm($k){
+		if($k){
+			if(isset($this->searchTermArr[$k])){
+				if(is_array($this->searchTermArr[$k])) {
+					return $this->cleanOutArray($this->searchTermArr[$k]);
+				} else {
+					return $this->cleanOutStr(trim($this->searchTermArr[$k],' ;'));
+				}
 			}
-		}
-		if($k === 'db'){
-			$sessionKey = 'query' . $currentPage . '/db';
-			return $_SESSION[$sessionKey] ?? 'all';
+			else{
+				if($k === 'db'){
+					$queryTerm = 'all';
+					$sessionKey = 'query' . $_SERVER['REQUEST_URI'] . '/db';
+					if(!empty($_SESSION[$sessionKey])) $queryTerm = $_SESSION[$sessionKey];
+					return $this->cleanOutStr($queryTerm);
+				}
+			}
 		}
 		return '';
 	}
