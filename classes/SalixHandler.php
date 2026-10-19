@@ -4,7 +4,7 @@ include_once($SERVER_ROOT.'/classes/SpecProcNlpSalix.php');
 class SalixHandler{
 
 	private $returnFormat = 'json';
-	private $charset = 'utf-8';
+	private $CHARSET = 'utf-8';
 
 	private $instanceTS;
 	private $timeout = 30;

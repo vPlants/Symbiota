@@ -93,14 +93,14 @@ class SymfonyMailerHandler extends MailHandler
         }
 
         if ($this->isHtmlBody($content)) {
-            if (null !== ($charset = $message->getHtmlCharset())) {
-                $message->html($content, $charset);
+            if (null !== ($CHARSET = $message->getHtmlCharset())) {
+                $message->html($content, $CHARSET);
             } else {
                 $message->html($content);
             }
         } else {
-            if (null !== ($charset = $message->getTextCharset())) {
-                $message->text($content, $charset);
+            if (null !== ($CHARSET = $message->getTextCharset())) {
+                $message->text($content, $CHARSET);
             } else {
                 $message->text($content);
             }
